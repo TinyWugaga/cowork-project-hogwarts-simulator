@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0
+      }
+
+      body {
+        font-family: 'EB Garamond', serif;
+        color: var(--color-text-primary, #e8e0d0);
+        background: transparent;
+        padding: 1.5rem 1rem;
+        max-width: 700px;
+        margin: 0 auto
+      }
+
+      .cinzel {
+        font-family: 'Cinzel', serif
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 2rem
+      }
+
+      .header h1 {
+        font-family: 'Cinzel', serif;
+        font-size: 22px;
+        font-weight: 500;
+        letter-spacing: .1em;
+        margin-bottom: 4px;
+        color: var(--color-text-primary, #e8e0d0)
+      }
+
+      .header p {
+        font-size: 14px;
+        color: var(--color-text-secondary, #9a8e7e);
+        font-style: italic
+      }
+
+      .progress {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        margin-bottom: 2rem
+      }
+
+      .prog-step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px
+      }
+
+      .prog-dot {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 0.5px solid #555;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Cinzel', serif;
+        font-size: 10px;
+        color: #888;
+        transition: .2s
+      }
+
+      .prog-dot.active {
+        border-color: #e8e0d0;
+        color: #e8e0d0;
+        background: rgba(255, 255, 255, .05)
+      }
+
+      .prog-dot.done {
+        border-color: #7a9a6a;
+        color: #7a9a6a;
+        background: rgba(122, 154, 106, .1)
+      }
+
+      .prog-label {
+        font-size: 10px;
+        font-family: 'Cinzel', serif;
+        letter-spacing: .08em;
+        color: #666
+      }
+
+      .prog-label.active {
+        color: #e8e0d0
+      }
+
+      .prog-line {
+        width: 36px;
+        height: 0.5px;
+        background: #333;
+        margin-bottom: 18px
+      }
+
+      .section {
+        margin-bottom: 1.75rem
+      }
+
+      .section-title {
+        font-family: 'Cinzel', serif;
+        font-size: 11px;
+        letter-spacing: .15em;
+        color: #9a8e7e;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        padding-bottom: 6px;
+        border-bottom: 0.5px solid #333
+      }
+
+      .field {
+        margin-bottom: 1.25rem
+      }
+
+      .field-label {
+        font-size: 13px;
+        color: #e8e0d0;
+        margin-bottom: 5px;
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
+        flex-wrap: wrap;
+        line-height: 1.5
+      }
+
+      .field-hint {
+        font-size: 11px;
+        color: #666;
+        font-style: italic
+      }
+
+      .field-opt {
+        font-size: 10px;
+        font-family: 'Cinzel', serif;
+        letter-spacing: .05em;
+        color: #666
+      }
+
+      .hw-input {
+        width: 100%;
+        font-family: 'EB Garamond', serif;
+        font-size: 14px;
+        padding: 7px 12px;
+        border: 0.5px solid #444;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, .04);
+        color: #e8e0d0;
+        outline: none;
+        transition: border-color .15s
+      }
+
+      .hw-input:focus {
+        border-color: #9a8e7e
+      }
+
+      .hw-input::placeholder {
+        color: #555;
+        font-style: italic
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 4px
+      }
+
+      .tag {
+        font-family: 'EB Garamond', serif;
+        font-size: 13px;
+        padding: 4px 12px;
+        border: 0.5px solid #444;
+        border-radius: 99px;
+        cursor: pointer;
+        color: #9a8e7e;
+        transition: .15s;
+        user-select: none;
+        white-space: nowrap
+      }
+
+      .tag:hover {
+        border-color: #9a8e7e;
+        color: #e8e0d0
+      }
+
+      .tag.sel {
+        border-color: #6a8fb0;
+        background: rgba(106, 143, 176, .15);
+        color: #a8c4dc
+      }
+
+      .tag.rnd {
+        border-style: dashed
+      }
+
+      .tag.rnd.sel {
+        border-color: #b09a4a;
+        background: rgba(176, 154, 74, .12);
+        color: #d4be7a
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 6px
+      }
+
+      .chip {
+        font-size: 12px;
+        padding: 3px 10px;
+        border: 0.5px solid #444;
+        border-radius: 99px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: #9a8e7e
+      }
+
+      .chip-x {
+        cursor: pointer;
+        color: #555;
+        font-size: 11px
+      }
+
+      .chip-x:hover {
+        color: #c07070
+      }
+
+      .cexp {
+        margin-top: 8px;
+        display: none
+      }
+
+      .cexp.open {
+        display: block
+      }
+
+      .crow {
+        display: flex;
+        gap: 6px
+      }
+
+      .crow .hw-input {
+        flex: 1
+      }
+
+      .btn-sm {
+        font-family: 'EB Garamond', serif;
+        font-size: 13px;
+        padding: 5px 14px;
+        border: 0.5px solid #444;
+        border-radius: 8px;
+        background: transparent;
+        color: #e8e0d0;
+        cursor: pointer;
+        white-space: nowrap
+      }
+
+      .btn-sm:hover {
+        background: rgba(255, 255, 255, .05)
+      }
+
+      .btn-row {
+        display: flex;
+        gap: 8px;
+        justify-content: flex-end;
+        margin-top: 2rem;
+        flex-wrap: wrap
+      }
+
+      .btn {
+        font-family: 'EB Garamond', serif;
+        font-size: 14px;
+        padding: 8px 20px;
+        border: 0.5px solid #444;
+        border-radius: 8px;
+        background: transparent;
+        color: #e8e0d0;
+        cursor: pointer;
+        transition: .12s
+      }
+
+      .btn:hover {
+        background: rgba(255, 255, 255, .05)
+      }
+
+      .btn.pri {
+        border-color: #9a8e7e
+      }
+
+      .btn:active {
+        transform: scale(.98)
+      }
+
+      .conf-grid {
+        display: grid;
+        gap: 8px
+      }
+
+      .conf-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 10px 14px;
+        border: 0.5px solid #333;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, .02)
+      }
+
+      .conf-key {
+        font-family: 'Cinzel', serif;
+        font-size: 11px;
+        letter-spacing: .06em;
+        color: #666;
+        min-width: 80px;
+        padding-top: 2px;
+        flex-shrink: 0
+      }
+
+      .conf-val {
+        flex: 1;
+        font-size: 14px;
+        color: #e8e0d0;
+        line-height: 1.5;
+        word-break: break-word
+      }
+
+      .conf-act {
+        margin-left: auto;
+        flex-shrink: 0;
+        display: flex;
+        gap: 5px
+      }
+
+      .ed-btn {
+        font-family: 'Cinzel', serif;
+        font-size: 10px;
+        letter-spacing: .04em;
+        padding: 3px 10px;
+        border: 0.5px solid #444;
+        border-radius: 99px;
+        cursor: pointer;
+        background: none;
+        color: #666;
+        white-space: nowrap
+      }
+
+      .ed-btn:hover {
+        border-color: #9a8e7e;
+        color: #e8e0d0
+      }
+
+      .form-content-box {
+        margin-top: 1rem;
+        padding: 12px 14px;
+        background: rgba(255, 255, 255, .03);
+        border: 0.5px solid #333;
+        border-radius: 10px
+      }
+
+      .form-content-box pre {
+        font-family: monospace;
+        font-size: 12px;
+        color: #9a8e7e;
+        white-space: pre-wrap;
+        line-height: 1.6;
+        margin-bottom: 10px
+      }
+
+      .toast {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        background: #1a1a1a;
+        border: 0.5px solid #555;
+        border-radius: 8px;
+        padding: 8px 18px;
+        font-size: 13px;
+        font-style: italic;
+        color: #9a8e7e;
+        opacity: 0;
+        transition: .2s;
+        pointer-events: none;
+        z-index: 100;
+        white-space: nowrap
+      }
+
+      .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0)
+      }
+
+      .dialog-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, .6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 200;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .18s
+      }
+
+      .dialog-overlay.open {
+        opacity: 1;
+        pointer-events: auto
+      }
+
+      .dialog-box {
+        background: #111;
+        border: 0.5px solid #555;
+        border-radius: 12px;
+        padding: 24px 28px;
+        max-width: 320px;
+        width: 90%;
+        transform: translateY(8px);
+        transition: transform .18s
+      }
+
+      .dialog-overlay.open .dialog-box {
+        transform: translateY(0)
+      }
+
+      .dialog-msg {
+        font-size: 14px;
+        color: #e8e0d0;
+        line-height: 1.6;
+        margin-bottom: 20px
+      }
+
+      .dialog-btns {
+        display: flex;
+        gap: 8px;
+        justify-content: flex-end
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="header">
+      <h1>入學申請</h1>
+      <p>Hogwarts Enrolment Form</p>
+    </div>
+    <div class="progress">
+      <div class="prog-step">
+        <div class="prog-dot active cinzel" id="d0">I</div>
+        <div class="prog-label active" id="l0">個人</div>
+      </div>
+      <div class="prog-line"></div>
+      <div class="prog-step">
+        <div class="prog-dot cinzel" id="d1">II</div>
+        <div class="prog-label" id="l1">家庭</div>
+      </div>
+      <div class="prog-line"></div>
+      <div class="prog-step">
+        <div class="prog-dot cinzel" id="d2">III</div>
+        <div class="prog-label" id="l2">入學</div>
+      </div>
+      <div class="prog-line"></div>
+      <div class="prog-step">
+        <div class="prog-dot cinzel" id="d3">IV</div>
+        <div class="prog-label" id="l3">劇情</div>
+      </div>
+      <div class="prog-line"></div>
+      <div class="prog-step">
+        <div class="prog-dot cinzel" id="d4">V</div>
+        <div class="prog-label" id="l4">確認</div>
+      </div>
+      <div class="prog-line"></div>
+      <div class="prog-step">
+        <div class="prog-dot cinzel" id="d5">VI</div>
+        <div class="prog-label" id="l5">提交</div>
+      </div>
+    </div>
+
+    <!-- PAGE 0 -->
+    <div id="p0">
+      <div class="section">
+        <div class="section-title">個人資訊</div>
+        <div class="field">
+          <div class="field-label">姓名 <span class="field-hint">使用語言會影響遊戲過程中，其餘角色名稱的顯示方式</span></div>
+          <input class="hw-input" id="f-name" placeholder="請輸入姓名⋯">
+        </div>
+        <div class="field">
+          <div class="field-label">暱稱 <span class="field-opt">可選</span> <span class="field-hint">當 NPC
+              關係進展到一定程度時，有機會會更改稱呼</span></div>
+          <input class="hw-input" id="f-nick" placeholder="可留空⋯">
+        </div>
+        <div class="field">
+          <div class="field-label">性別</div>
+          <div class="tags" id="tg-gender"></div>
+        </div>
+        <div class="field">
+          <div class="field-label">生日 <span class="field-opt">可選</span> <span class="field-hint">星座會影響隨機生成玩家性格</span>
+          </div>
+          <input class="hw-input" id="f-bd" placeholder="例：9月19日⋯">
+        </div>
+        <div class="field">
+          <div class="field-label">MBTI <span class="field-opt">可選</span> <span class="field-hint">MBTI
+              會影響隨機生成玩家性格</span></div>
+          <div class="tags" id="tg-mbti"></div>
+        </div>
+        <div class="field">
+          <div class="field-label">性格傾向 <span class="field-hint">可複選，建議 2–4 個</span></div>
+          <div class="tags" id="tg-pers"></div>
+          <div class="cexp" id="ce-pers">
+            <div class="crow" style="margin-top:6px">
+              <textarea class="hw-input" id="ci-pers" placeholder="輸入自訂性格⋯"
+                        style="min-height:64px;resize:vertical"></textarea>
+              <button class="btn-sm" onclick="addChip('pers')">加入</button>
+            </div>
+          </div>
+          <div class="chips" id="ch-pers"></div>
+        </div>
+        <div class="field">
+          <div class="field-label">長相敘述 <span class="field-opt">可選</span> <span
+                  class="field-hint">若無則隨機生成，包含身高、髮色、眼睛顏色、體型等</span></div>
+          <textarea class="hw-input" id="f-look" placeholder="可自由描述，或留空由命運決定⋯"
+                    style="min-height:80px;resize:vertical"></textarea>
+        </div>
+      </div>
+      <div class="btn-row"><button class="btn pri" onclick="go(1)">下一頁：家庭資訊 →</button></div>
+    </div>
+
+    <!-- PAGE 1 -->
+    <div id="p1" style="display:none">
+      <div class="section">
+        <div class="section-title">家庭資訊</div>
+        <div class="field">
+          <div class="field-label">家族血統</div>
+          <div class="tags" id="tg-origin"></div>
+        </div>
+        <div class="field">
+          <div class="field-label">家庭氛圍</div>
+          <div class="tags" id="tg-fam"></div>
+          <div class="cexp" id="ce-fam">
+            <textarea class="hw-input" id="ci-fam" placeholder="描述家庭氛圍⋯"
+                      style="min-height:64px;resize:vertical;margin-top:6px"></textarea>
+          </div>
+        </div>
+        <div class="field">
+          <div class="field-label">其他家庭成員</div>
+          <div class="tags" id="tg-mem"></div>
+          <div class="cexp" id="ce-mem">
+            <textarea class="hw-input" id="ci-mem" placeholder="描述家庭成員組成⋯，如有兄弟姐妹、寵物等"
+                      style="min-height:64px;resize:vertical;margin-top:6px"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn" onclick="go(0)">← 返回</button>
+        <button class="btn pri" onclick="go(2)">下一頁：入學資訊 →</button>
+      </div>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div id="p2" style="display:none">
+      <div class="section">
+        <div class="section-title">入學資訊</div>
+        <div class="field">
+          <div class="field-label">學院</div>
+          <div class="tags" id="tg-house"></div>
+        </div>
+        <div class="field">
+          <div class="field-label">魔杖</div>
+          <div class="tags" id="tg-wand"></div>
+          <div class="cexp" id="ce-wand">
+            <div class="crow" style="margin-top:6px">
+              <input class="hw-input" id="ci-wand" placeholder="描述你的魔杖（木材、芯、長度等）⋯">
+              <button class="btn-sm" onclick="addChip('wand')">確認</button>
+            </div>
+          </div>
+          <div class="chips" id="ch-wand"></div>
+        </div>
+        <div class="field">
+          <div class="field-label">入學後天賦及興趣 <span class="field-hint">可複選</span></div>
+          <div class="tags" id="tg-tal"></div>
+          <div class="cexp" id="ce-tal">
+            <div class="crow" style="margin-top:6px">
+              <input class="hw-input" id="ci-tal" placeholder="輸入自訂天賦⋯">
+              <button class="btn-sm" onclick="addChip('tal')">加入</button>
+            </div>
+          </div>
+          <div class="chips" id="ch-tal"></div>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn" onclick="go(1)">← 返回</button>
+        <button class="btn pri" onclick="go(3)">下一頁：劇情偏好 →</button>
+      </div>
+    </div>
+
+    <!-- PAGE 3 -->
+    <div id="p3" style="display:none">
+      <div class="section">
+        <div class="section-title">遊戲劇情偏好</div>
+        <div class="field">
+          <div class="field-label">隱藏支線</div>
+          <div class="tags" id="tg-sub"></div>
+        </div>
+        <div class="field">
+          <div class="field-label">與原著 NPC 之關係 <span class="field-hint">可複選</span></div>
+          <div class="tags" id="tg-npc"></div>
+          <div class="cexp" id="ce-npc">
+            <div class="crow" style="margin-top:6px">
+              <textarea class="hw-input" id="ci-npc" placeholder="描述與 NPC 的關係⋯，如：朋友、敵人，入學後相識等"
+                        style="min-height:64px;resize:vertical"></textarea>
+              <button class="btn-sm" onclick="addChip('npc')">加入</button>
+            </div>
+          </div>
+          <div class="chips" id="ch-npc"></div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="section-title">其他補充設定</div>
+        <div class="field">
+          <textarea class="hw-input" id="f-extra" placeholder="任何其他你想告訴主持人的設定⋯"
+                    style="min-height:100px;resize:vertical"></textarea>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn" onclick="go(2)">← 返回</button>
+        <button class="btn pri" onclick="buildConfirm()">填寫完畢</button>
+      </div>
+    </div>
+
+    <!-- PAGE 4 -->
+    <div id="p4" style="display:none">
+      <div class="section">
+        <div class="section-title">入學資料確認</div>
+        <div class="conf-grid" id="cgrid"></div>
+      </div>
+      <div class="btn-row">
+        <button class="btn" onclick="clearAll()">清除重填</button>
+        <button class="btn pri" onclick="goToSubmit()">確認申請資料 →</button>
+      </div>
+    </div>
+
+    <!-- PAGE 5 -->
+    <div id="p5" style="display:none">
+      <div class="section">
+        <div class="section-title">申請資料預覽</div>
+        <div class="form-content-box" id="cbox">
+          <pre id="ctxt"></pre><button class="btn" onclick="doCopy()">📜 複製設定文字</button>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn" onclick="go(4)">← 返回</button>
+        <button class="btn pri" onclick="outputConfig()">✦ 提交入學申請</button>
+      </div>
+    </div>
+
+    <div class="dialog-overlay" id="dialog-overlay">
+      <div class="dialog-box">
+        <div class="dialog-msg" id="dialog-msg"></div>
+        <div class="dialog-btns">
+          <button class="btn" id="dialog-cancel">取消</button>
+          <button class="btn pri" id="dialog-confirm">確認</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+      // ── Tag definitions ──
+      const TDEFS = {
+        gender: { multi: false, opts: ['女', '男'] },
+        mbti: { multi: false, opts: ['INTJ', 'INTP', 'ENTJ', 'ENTP', 'INFJ', 'INFP', 'ENFJ', 'ENFP', 'ISTJ', 'ISFJ', 'ESTJ', 'ESFJ', 'ISTP', 'ISFP', 'ESTP', 'ESFP'] },
+        origin: { multi: false, opts: ['純血（家長皆是巫師）', '混血（一方巫師一方麻瓜）', '麻瓜（家長皆是麻瓜）'] },
+        fam: { multi: false, opts: ['熱鬧', '冷淡', '開放', '家教嚴格', '緊密', '其他', '隨機'], custom: '其他' },
+        mem: { multi: false, opts: ['自訂', '隨機'], custom: '自訂' },
+        house: { multi: false, opts: ['葛來分多', '史萊哲林', '赫夫帕夫', '雷文克勞', '於分類帽儀式決定'] },
+        wand: { multi: false, opts: ['指定', '隨機'], custom: '指定' },
+        tal: { multi: true, opts: ['黑魔法防禦術', '變形學', '魔藥學', '魔法史', '天文學', '符咒學', '藥草學', '飛行學', '魁地奇', '奇獸飼育學', '麻瓜研究', '算命學', '占卜學', '古代神秘文字研究', '隨機'] },
+        sub: { multi: false, opts: ['直接開啟', '逐步開啟', '隨機'] },
+        npc: { multi: false, opts: ['自訂', '隨機'], custom: '自訂' },
+        pers: { multi: true, opts: ['勇敢', '聰明', '善良', '仗義', '敏銳', '野心勃勃', '神秘', '溫柔', '細心', '沉默', '活潑', '高傲', '熱心', '謹慎', '其他', '隨機'], custom: '其他' },
+      };
+
+      const SEL = {}; // key -> val or []
+      Object.keys(TDEFS).forEach(k => { SEL[k] = TDEFS[k].multi ? [] : ''; });
+
+      const CONFIRMED = {};
+
+      // ── Render tags ──
+      function renderAll() {
+        Object.keys(TDEFS).forEach(k => {
+          const el = document.getElementById('tg-' + k);
+          if (!el) return;
+          el.innerHTML = '';
+          TDEFS[k].opts.forEach(opt => {
+            const t = document.createElement('div');
+            t.className = 'tag' + (opt === '隨機' ? ' rnd' : '');
+            t.textContent = opt;
+            t.dataset.v = opt;
+            t.onclick = () => toggleTag(k, opt);
+            el.appendChild(t);
+          });
+          refreshTags(k);
+        });
+      }
+
+      function refreshTags(k) {
+        const el = document.getElementById('tg-' + k);
+        if (!el) return;
+        const def = TDEFS[k];
+        el.querySelectorAll('.tag').forEach(t => {
+          const v = t.dataset.v;
+          const on = def.multi ? SEL[k].includes(v) : SEL[k] === v;
+          t.classList.toggle('sel', on);
+          if (v === '隨機') t.classList.toggle('rnd', true);
+        });
+        if (def.custom) {
+          const ce = document.getElementById('ce-' + k);
+          if (ce) {
+            const active = def.multi ? SEL[k].includes(def.custom) : SEL[k] === def.custom;
+            ce.classList.toggle('open', active);
+          }
+        }
+        const ch = document.getElementById('ch-' + k);
+        if (ch) {
+          const isRandom = def.multi ? SEL[k].includes('隨機') : SEL[k] === '隨機';
+          ch.style.display = isRandom ? 'none' : '';
+        }
+      }
+
+      function toggleTag(k, val) {
+        const def = TDEFS[k];
+        if (def.multi) {
+          if (val === '隨機') { SEL[k] = SEL[k].includes('隨機') ? [] : ['隨機']; }
+          else {
+            let a = SEL[k].filter(v => v !== '隨機');
+            const i = a.indexOf(val);
+            if (i >= 0) a.splice(i, 1); else a.push(val);
+            SEL[k] = a;
+          }
+        } else {
+          SEL[k] = SEL[k] === val ? '' : val;
+        }
+        refreshTags(k);
+      }
+
+      function addChip(k) {
+        const inp = document.getElementById('ci-' + k);
+        const v = inp.value.trim();
+        if (!v) return;
+        const ch = document.getElementById('ch-' + k);
+        const c = document.createElement('div');
+        c.className = 'chip';
+        c.dataset.v = v;
+        c.innerHTML = `<span>${v}</span><span class="chip-x" onclick="this.parentElement.remove()">✕</span>`;
+        ch.appendChild(c);
+        inp.value = '';
+      }
+
+      function getChips(k) {
+        const ch = document.getElementById('ch-' + k);
+        if (!ch) return [];
+        return Array.from(ch.querySelectorAll('.chip')).map(c => c.dataset.v);
+      }
+
+      // ── Page nav ──
+      function go(n) {
+        for (let i = 0; i < 6; i++) {
+          const p = document.getElementById('p' + i);
+          if (p) p.style.display = i === n ? '' : 'none';
+        }
+        for (let i = 0; i < 6; i++) {
+          const d = document.getElementById('d' + i), l = document.getElementById('l' + i);
+          d.classList.remove('active', 'done'); l.classList.remove('active');
+          if (i < n) d.classList.add('done');
+          else if (i === n) { d.classList.add('active'); l.classList.add('active'); }
+        }
+        window.scrollTo(0, 0);
+      }
+
+      function resolveField(field) {
+        switch (field) {
+          case 'gender': return SEL.gender;
+          case 'house': return SEL.house;
+          case 'pers': {
+            if (SEL.pers.includes('隨機')) return '隨機';
+            const p = SEL.pers.filter(v => v !== '其他');
+            const custom = getChips('pers');
+            return [...p, ...custom].join('、');
+          }
+          case 'look': return document.getElementById('f-look').value.trim();
+          case 'origin': return SEL.origin ? SEL.origin.split('（')[0] : '';
+          case 'fam': {
+            if (!SEL.fam) return '';
+            if (SEL.fam === '隨機') return '隨機';
+            if (SEL.fam === '其他') return document.getElementById('ci-fam').value.trim();
+            return SEL.fam;
+          }
+          case 'mem': {
+            if (!SEL.mem) return '';
+            if (SEL.mem === '隨機') return '隨機';
+            if (SEL.mem === '自訂') return document.getElementById('ci-mem').value.trim();
+            return SEL.mem;
+          }
+          case 'wand': {
+            if (!SEL.wand) return '';
+            if (SEL.wand === '隨機') return '隨機';
+            const c = getChips('wand');
+            return c[0] || '';
+          }
+          case 'tal': {
+            if (SEL.tal.includes('隨機')) return '隨機';
+            const t = SEL.tal;
+            const custom = getChips('tal');
+            return [...t, ...custom].join('、');
+          }
+          case 'sub': return SEL.sub;
+          case 'npc': {
+            if (!SEL.npc) return '';
+            if (SEL.npc === '隨機') return '隨機';
+            return getChips('npc').join('、');
+          }
+          default: return '';
+        }
+      }
+
+      function buildConfirm() {
+        go(4);
+        const rows = [
+          { key: '姓名', id: 'name', val: () => document.getElementById('f-name').value.trim(), pg: 0 },
+          { key: '暱稱', id: 'nick', val: () => document.getElementById('f-nick').value.trim(), pg: 0 },
+          { key: '性別', id: 'gender', val: () => resolveField('gender'), pg: 0 },
+          { key: '生日', id: 'bd', val: () => document.getElementById('f-bd').value.trim(), pg: 0 },
+          { key: 'MBTI', id: 'mbti', val: () => SEL.mbti, pg: 0 },
+          { key: '性格傾向', id: 'pers', val: () => resolveField('pers'), pg: 0 },
+          { key: '長相', id: 'look', val: () => resolveField('look'), pg: 0 },
+          { key: '家族血統', id: 'origin', val: () => resolveField('origin'), pg: 1 },
+          { key: '家庭氛圍', id: 'fam', val: () => resolveField('fam'), pg: 1 },
+          { key: '家庭成員', id: 'mem', val: () => resolveField('mem'), pg: 1 },
+          { key: '學院', id: 'house', val: () => resolveField('house'), pg: 2 },
+          { key: '魔杖', id: 'wand', val: () => resolveField('wand'), pg: 2 },
+          { key: '天賦興趣', id: 'tal', val: () => resolveField('tal'), pg: 2 },
+          { key: '隱藏支線', id: 'sub', val: () => resolveField('sub'), pg: 3 },
+          { key: 'NPC關係', id: 'npc', val: () => resolveField('npc'), pg: 3 },
+        ];
+
+        rows.forEach(r => { CONFIRMED[r.id] = r.val(); });
+
+        const extra = document.getElementById('f-extra').value.trim();
+        const grid = document.getElementById('cgrid');
+        grid.innerHTML = '';
+
+        rows.forEach(r => {
+          const v = CONFIRMED[r.id] || '無';
+          const row = document.createElement('div');
+          row.className = 'conf-row';
+          row.innerHTML = `
+      <div class="conf-key">${r.key}</div>
+      <div class="conf-val" id="cv-${r.id}">${v}</div>
+      <div class="conf-act"><button class="ed-btn" onclick="go(${r.pg})">編輯</button></div>`;
+          grid.appendChild(row);
+        });
+
+        const row = document.createElement('div');
+        row.className = 'conf-row';
+        row.innerHTML = `<div class="conf-key">補充設定</div><div class="conf-val">${extra || '無'}</div><div class="conf-act"><button class="ed-btn" onclick="go(3)">編輯</button></div>`;
+        grid.appendChild(row);
+      }
+
+      function buildText() {
+        const n = document.getElementById('f-name').value.trim();
+        const nick = document.getElementById('f-nick').value.trim();
+        const bd = document.getElementById('f-bd').value.trim();
+        const mbti = CONFIRMED.mbti;
+        const extra = document.getElementById('f-extra').value.trim();
+        const lines = [
+          '【霍格華茲模擬器：角色設定】', '',
+          '▌個人資訊',
+          `姓名：${CONFIRMED.name || n}`,
+        ];
+        if (nick) lines.push(`暱稱：${nick}`);
+        lines.push(`性別：${CONFIRMED.gender}`);
+        if (bd) lines.push(`生日：${bd}`);
+        if (mbti) lines.push(`MBTI：${mbti}`);
+        lines.push(`性格傾向：${CONFIRMED.pers}`, `長相：${CONFIRMED.look}`, '',
+          '▌家庭資訊',
+          `家族血統：${CONFIRMED.origin}`, `家庭氛圍：${CONFIRMED.fam}`, `家庭成員：${CONFIRMED.mem}`, '',
+          '▌入學資訊',
+          `學院：${CONFIRMED.house}`, `魔杖：${CONFIRMED.wand}`, `天賦興趣：${CONFIRMED.tal}`, '',
+          '▌劇情偏好',
+          `隱藏支線：${CONFIRMED.sub}`, `與原著NPC關係：${CONFIRMED.npc}`
+        );
+        if (extra) lines.push('', '▌補充設定', extra);
+        return lines.join('\n');
+      }
+
+      function goToSubmit() {
+        document.getElementById('ctxt').textContent = buildText();
+        go(5);
+      }
+
+      function doCopy() {
+        navigator.clipboard.writeText(buildText()).then(() => toast('設定文字已複製至剪貼簿。'));
+      }
+
+      async function outputConfig() {
+        const now = new Date();
+        const form_id = now.getFullYear().toString()
+          + String(now.getMonth() + 1).padStart(2, '0')
+          + String(now.getDate()).padStart(2, '0')
+          + '_'
+          + String(now.getHours()).padStart(2, '0')
+          + String(now.getMinutes()).padStart(2, '0')
+          + String(now.getSeconds()).padStart(2, '0');
+        const data = {
+          createdAt: now.toISOString(),
+          name: CONFIRMED.name || document.getElementById('f-name').value.trim() || '未命名角色',
+          nick: document.getElementById('f-nick').value.trim(),
+          gender: CONFIRMED.gender,
+          birthday: document.getElementById('f-bd').value.trim(),
+          mbti: CONFIRMED.mbti,
+          personality: CONFIRMED.pers,
+          appearance: CONFIRMED.look,
+          bloodStatus: CONFIRMED.origin,
+          familyAtmosphere: CONFIRMED.fam,
+          familyMembers: CONFIRMED.mem,
+          house: CONFIRMED.house,
+          wand: CONFIRMED.wand,
+          talents: CONFIRMED.tal,
+          hiddenQuest: CONFIRMED.sub,
+          npcRelations: CONFIRMED.npc,
+          extra: document.getElementById('f-extra').value.trim(),
+          rawText: buildText()
+        };
+        try {
+          const targetDirHandle = await window.showDirectoryPicker({
+            mode: 'readwrite'
+          });
+          const handle = await window.showSaveFilePicker({
+            startIn: '../data',
+            suggestedName: `hw_game_config_${form_id}.json`,
+            types: [{ description: 'JSON 檔案', accept: { 'application/json': ['.json'] } }],
+          });
+          const writable = await handle.createWritable();
+          await writable.write(JSON.stringify(data, null, 2));
+          await writable.close();
+          showAlert(`已提交您的入學申請，這是您的入學編號：${form_id}，請到報到處確認您的申請結果。`);
+        } catch (e) {
+          if (e.name !== 'AbortError') showAlert(`您的入學申請提交失敗，請確認錯誤訊息並再次提交申請。
+          錯誤訊息：${e.message}`);
+          return;
+        }
+      }
+
+      function showAlert(msg) {
+        const cancelBtn = document.getElementById('dialog-cancel');
+        cancelBtn.style.display = 'none';
+        showDialog(msg, () => { cancelBtn.style.display = ''; });
+      }
+
+      function showDialog(msg, onConfirm) {
+        const overlay = document.getElementById('dialog-overlay');
+        document.getElementById('dialog-msg').textContent = msg;
+        overlay.classList.add('open');
+        const close = () => overlay.classList.remove('open');
+        const confirmBtn = document.getElementById('dialog-confirm');
+        const cancelBtn = document.getElementById('dialog-cancel');
+        const onOk = () => { close(); confirmBtn.removeEventListener('click', onOk); cancelBtn.removeEventListener('click', onCancel); onConfirm(); };
+        const onCancel = () => { close(); confirmBtn.removeEventListener('click', onOk); cancelBtn.removeEventListener('click', onCancel); };
+        confirmBtn.addEventListener('click', onOk);
+        cancelBtn.addEventListener('click', onCancel);
+      }
+
+      function clearAll() {
+        showDialog('確定要清除所有已填資料並重新填寫嗎？', () => {
+          document.getElementById('f-name').value = '';
+          document.getElementById('f-nick').value = '';
+          document.getElementById('f-bd').value = '';
+          document.getElementById('f-look').value = '';
+          document.getElementById('f-extra').value = '';
+          Object.keys(TDEFS).forEach(k => { SEL[k] = TDEFS[k].multi ? [] : ''; });
+          ['pers', 'wand', 'tal', 'npc'].forEach(k => {
+            const ch = document.getElementById('ch-' + k);
+            if (ch) ch.innerHTML = '';
+            const ci = document.getElementById('ci-' + k);
+            if (ci) ci.value = '';
+          });
+          ['fam', 'mem'].forEach(k => {
+            const ci = document.getElementById('ci-' + k);
+            if (ci) ci.value = '';
+          });
+          renderAll();
+          go(0);
+        });
+      }
+
+      function toast(msg) {
+        const t = document.getElementById('toast');
+        t.textContent = msg; t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 2200);
+      }
+
+      renderAll();
+    </script>
+  </body>
+
+</html>

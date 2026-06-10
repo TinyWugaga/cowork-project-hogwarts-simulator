@@ -1,0 +1,627 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+  .hw-root {
+    font-family: 'EB Garamond', serif;
+    color: var(--color-text-primary);
+    padding: 1.5rem 0;
+    max-width: 680px;
+  }
+
+  .hw-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .hw-title {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--color-text-primary);
+    margin: 0 0 4px;
+  }
+
+  .hw-subtitle {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    font-style: italic;
+  }
+
+  .hw-slots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hw-slot {
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 12px 14px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .hw-slot:hover {
+    border-color: var(--color-border-secondary);
+    background: var(--color-background-secondary);
+  }
+
+  .hw-slot.empty {
+    border-style: dashed;
+    cursor: default;
+    opacity: 0.6;
+  }
+
+  .hw-slot.selected {
+    border: 1.5px solid var(--color-border-info);
+    background: var(--color-background-info);
+  }
+
+  .hw-slot-num {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--color-text-tertiary);
+    margin-bottom: 4px;
+  }
+
+  .hw-slot-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin: 0 0 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .hw-slot-meta {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    font-style: italic;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .hw-slot-summary {
+    font-size: 11px;
+    color: var(--color-text-tertiary);
+    margin-top: 6px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .hw-slot-time {
+    font-size: 10px;
+    color: var(--color-text-tertiary);
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  .hw-slot-badge {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 99px;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.05em;
+  }
+
+  .badge-quick {
+    background: var(--color-background-warning);
+    color: var(--color-text-warning);
+  }
+
+  .badge-full {
+    background: var(--color-background-success);
+    color: var(--color-text-success);
+  }
+
+  .hw-slot-empty-label {
+    font-size: 13px;
+    color: var(--color-text-tertiary);
+    font-style: italic;
+    text-align: center;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hw-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+
+  .hw-btn {
+    font-family: 'EB Garamond', serif;
+    font-size: 14px;
+    padding: 7px 16px;
+    border-radius: var(--border-radius-md);
+    border: 0.5px solid var(--color-border-secondary);
+    background: transparent;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.12s;
+  }
+
+  .hw-btn:hover { background: var(--color-background-secondary); }
+  .hw-btn:active { transform: scale(0.98); }
+  .hw-btn.primary { background: var(--color-background-primary); border-color: var(--color-border-primary); }
+  .hw-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .hw-section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+
+  .hw-textarea {
+    width: 100%;
+    min-height: 120px;
+    font-family: 'EB Garamond', serif;
+    font-size: 13px;
+    padding: 10px 12px;
+    border: 0.5px solid var(--color-border-secondary);
+    border-radius: var(--border-radius-md);
+    background: var(--color-background-primary);
+    color: var(--color-text-primary);
+    resize: vertical;
+    box-sizing: border-box;
+    line-height: 1.5;
+  }
+
+  .hw-input {
+    width: 100%;
+    font-family: 'EB Garamond', serif;
+    font-size: 14px;
+    padding: 7px 12px;
+    border: 0.5px solid var(--color-border-secondary);
+    border-radius: var(--border-radius-md);
+    background: var(--color-background-primary);
+    color: var(--color-text-primary);
+    box-sizing: border-box;
+    margin-bottom: 8px;
+  }
+
+  .hw-panel {
+    background: var(--color-background-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .hw-row { display: flex; gap: 8px; align-items: flex-start; flex-wrap: wrap; }
+  .hw-row-label { font-size: 13px; color: var(--color-text-secondary); min-width: 60px; padding-top: 8px; font-style: italic; }
+  .hw-row-val { flex: 1; font-size: 13px; color: var(--color-text-primary); padding-top: 8px; min-width: 0; }
+
+  .hw-toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-primary);
+    border-radius: var(--border-radius-md);
+    padding: 8px 18px;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--color-text-secondary);
+    opacity: 0;
+    transition: opacity 0.2s, transform 0.2s;
+    pointer-events: none;
+    z-index: 100;
+    white-space: nowrap;
+  }
+  .hw-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  .hw-tabs {
+    display: flex;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+    margin-bottom: 1.25rem;
+  }
+
+  .hw-tab {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    padding: 8px 16px;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+    border-bottom: 1.5px solid transparent;
+    background: none;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    transition: color 0.15s;
+  }
+  .hw-tab.active { color: var(--color-text-primary); border-bottom-color: var(--color-text-primary); }
+
+  .hw-scroll-list { max-height: 320px; overflow-y: auto; }
+
+  .hw-delete-btn {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-tertiary);
+    font-size: 13px;
+    padding: 2px 4px;
+    border-radius: var(--border-radius-md);
+    opacity: 0;
+    transition: opacity 0.15s, color 0.15s;
+  }
+  .hw-slot:hover .hw-delete-btn { opacity: 1; }
+  .hw-delete-btn:hover { color: var(--color-text-danger); }
+
+  .hw-counter { font-size: 12px; color: var(--color-text-tertiary); font-style: italic; text-align: right; margin-bottom: 10px; }
+
+  .hw-instructions { font-size: 13px; line-height: 1.8; color: var(--color-text-secondary); }
+  .hw-instructions ol { padding-left: 1.2rem; margin: 8px 0; }
+  .hw-instructions li { margin-bottom: 6px; }
+  .hw-instructions code { font-family: var(--font-mono); font-size: 12px; background: var(--color-background-secondary); padding: 1px 5px; border-radius: 4px; color: var(--color-text-primary); }
+
+  .hw-step-num { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.1em; color: var(--color-text-tertiary); display: block; margin-bottom: 4px; }
+</style>
+
+<div class="hw-root" id="root">
+  <h2 class="sr-only">霍格華茲儲思盆存檔管理介面</h2>
+
+  <div class="hw-header">
+    <div class="hw-title">儲思盆</div>
+    <div class="hw-subtitle">Pensieve Memory Vault</div>
+  </div>
+
+  <div class="hw-tabs">
+    <button class="hw-tab active" onclick="switchTab('vault')">記憶庫</button>
+    <button class="hw-tab" onclick="switchTab('seal')">注入記憶</button>
+    <button class="hw-tab" onclick="switchTab('awaken')">潛入回憶</button>
+    <button class="hw-tab" onclick="switchTab('scroll')">使用說明</button>
+  </div>
+
+  <div id="tab-vault">
+    <div class="hw-counter" id="slot-counter">0 / 12 個記憶碎片</div>
+    <div class="hw-slots-grid" id="slots-grid"></div>
+    <div id="selected-detail"></div>
+  </div>
+
+  <div id="tab-seal" style="display:none">
+    <div class="hw-panel">
+      <p class="hw-section-title">封存類型</p>
+      <div style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap">
+        <button class="hw-btn primary" id="type-quick" onclick="selectType('quick')">⚡ 輕靈記憶</button>
+        <button class="hw-btn" id="type-full" onclick="selectType('full')">✦ 完整記憶</button>
+      </div>
+      <p style="font-size:12px; color:var(--color-text-tertiary); font-style:italic; margin:0" id="type-desc">輕靈記憶：記錄當前狀態，輕巧迅速，適合頻繁封存。</p>
+    </div>
+
+    <div style="margin-bottom:10px">
+      <label class="hw-section-title" for="save-name">為此記憶命名</label>
+      <input class="hw-input" id="save-name" placeholder="例：告白前夕、第一年聖誕節⋯" maxlength="30">
+    </div>
+
+    <div style="margin-bottom:10px">
+      <label class="hw-section-title" for="save-meta">學年、學院與當前地點</label>
+      <input class="hw-input" id="save-meta" placeholder="例：第二年，葛來分多，天文台">
+    </div>
+
+    <div style="margin-bottom:12px">
+      <label class="hw-section-title" for="save-json">JSON 結構資料</label>
+      <textarea class="hw-textarea" id="save-json" placeholder='{"character":{"name":"","house":""},"npcs":{},"flags":{}}'></textarea>
+    </div>
+
+    <div style="margin-bottom:16px">
+      <label class="hw-section-title" for="save-summary">記憶摘要（自然語言）</label>
+      <textarea class="hw-textarea" id="save-summary" placeholder="簡述目前發生的重要事件、情感狀態⋯"></textarea>
+    </div>
+
+    <div class="hw-actions">
+      <button class="hw-btn primary" onclick="sealMemory()"><i class="ti ti-feather" aria-hidden="true"></i> 注入儲思盆</button>
+    </div>
+  </div>
+
+  <div id="tab-awaken" style="display:none">
+    <div class="hw-panel" style="margin-bottom:1rem">
+      <p class="hw-section-title">從記憶庫選取</p>
+      <div id="awaken-list" class="hw-scroll-list"></div>
+    </div>
+
+    <div style="margin-bottom:12px">
+      <p class="hw-section-title">或貼入銀色記憶絲線</p>
+      <textarea class="hw-textarea" id="paste-input" placeholder="將複製的記憶絲線貼於此處⋯"></textarea>
+    </div>
+
+    <div class="hw-actions">
+      <button class="hw-btn primary" onclick="awakenFromPaste()"><i class="ti ti-wand" aria-hidden="true"></i> 從絲線潛入回憶 ↗</button>
+      <button class="hw-btn" onclick="exportSelected()"><i class="ti ti-copy" aria-hidden="true"></i> 抽取選取的記憶絲線</button>
+    </div>
+
+    <div id="awaken-preview" style="display:none; margin-top:1rem"></div>
+  </div>
+
+  <div id="tab-scroll" style="display:none">
+    <div class="hw-panel">
+      <p class="hw-section-title">如何將記憶注入儲思盆</p>
+      <div class="hw-instructions">
+        <ol>
+          <li>在遊戲對話中輸入 <code>/save</code>，或等待主持人主動提醒，AI 將生成結構化存檔資料。</li>
+          <li>切換至「注入記憶」頁，填入 AI 提供的 JSON 資料與記憶摘要，選擇封存類型後點擊「注入儲思盆」。</li>
+          <li>記憶將儲存至本裝置的記憶庫，最多可保存 12 個記憶碎片。</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="hw-panel">
+      <p class="hw-section-title">如何在新對話中潛入回憶</p>
+      <div class="hw-instructions">
+        <ol>
+          <li>
+            <span class="hw-step-num">第一步：備妥模擬器咒文</span>
+            在新對話的開頭，貼上原始的「霍格華茲模擬器」完整 prompt。
+          </li>
+          <li>
+            <span class="hw-step-num">第二步：潛入回憶</span>
+            前往「潛入回憶」頁，選取目標記憶，點擊「抽取選取的記憶絲線」，將內容貼至新對話，並附上以下指令：<br>
+            <code>請依據以下存檔資料，從記憶中斷處繼續霍格華茲模擬器。</code>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="hw-panel">
+      <p class="hw-section-title">輕靈記憶與完整記憶的差異</p>
+      <div class="hw-instructions" style="font-size:13px; line-height:1.8">
+        <b style="font-weight:500">⚡ 輕靈記憶</b> 適合在劇情推進中頻繁封存，只記錄角色設定、重要旗標與簡短摘要，消耗最少的魔法能量。<br><br>
+        <b style="font-weight:500">✦ 完整記憶</b> 包含完整的 NPC 關係狀態、所有支線進度旗標與詳細記憶摘要，適合在重要節點或長時間離開前使用。
+      </div>
+    </div>
+
+    <div class="hw-panel">
+      <p class="hw-section-title">使用更高級的魔法羊皮紙</p>
+      <div class="hw-instructions" style="font-size:13px; line-height:1.8">
+        當主持人提示「✦ 建議使用更高級的魔法羊皮紙」時，代表即將進入劇情密度較高的關鍵節點（支線核心、感情線轉折、高風險冒險等）。可在對話右上角切換至 Claude Opus，以獲得更豐富細膩的敘事體驗。
+      </div>
+    </div>
+  </div>
+
+  <div class="hw-toast" id="toast"></div>
+</div>
+
+<script>
+let saves = [];
+let selectedIdx = -1;
+let selectedType = 'quick';
+let awakenSelectedIdx = -1;
+
+const HISTORY_DIR = 'history';
+
+function generateFilename() {
+  const now = new Date();
+  const pad = n => String(n).padStart(2, '0');
+  return `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}_${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}.json`;
+}
+
+async function loadSaves() {
+  try {
+    const files = await window.fs.readdir(HISTORY_DIR);
+    const jsonFiles = files.filter(f => f.endsWith('.json')).sort();
+    const loaded = [];
+    for (const file of jsonFiles) {
+      try {
+        const content = await window.fs.readFile(`${HISTORY_DIR}/${file}`, { encoding: 'utf8' });
+        const save = JSON.parse(content);
+        save._filename = file;
+        loaded.push(save);
+      } catch(e) {}
+    }
+    saves = loaded;
+  } catch(e) { saves = []; }
+  renderVault();
+  renderAwakenList();
+}
+
+async function writeSaveFile(save) {
+  const { _filename, ...data } = save;
+  await window.fs.writeFile(`${HISTORY_DIR}/${save._filename}`, JSON.stringify(data, null, 2));
+}
+
+async function deleteSaveFile(filename) {
+  await window.fs.unlink(`${HISTORY_DIR}/${filename}`);
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+function switchTab(name) {
+  ['vault','seal','awaken','scroll'].forEach(n => {
+    document.getElementById('tab-'+n).style.display = n === name ? '' : 'none';
+  });
+  document.querySelectorAll('.hw-tab').forEach((btn, i) => {
+    btn.classList.toggle('active', ['vault','seal','awaken','scroll'][i] === name);
+  });
+  if (name === 'awaken') renderAwakenList();
+}
+
+function selectType(t) {
+  selectedType = t;
+  document.getElementById('type-quick').className = 'hw-btn' + (t==='quick' ? ' primary' : '');
+  document.getElementById('type-full').className = 'hw-btn' + (t==='full' ? ' primary' : '');
+  document.getElementById('type-desc').textContent = t === 'quick'
+    ? '輕靈記憶：記錄當前狀態，輕巧迅速，適合頻繁封存。'
+    : '完整記憶：包含完整 NPC 關係、支線旗標與詳細摘要，適合重要節點。';
+}
+
+function renderVault() {
+  const grid = document.getElementById('slots-grid');
+  const counter = document.getElementById('slot-counter');
+  counter.textContent = saves.length + ' / 12 個記憶碎片';
+  grid.innerHTML = '';
+  saves.forEach((s, i) => {
+    const div = document.createElement('div');
+    div.className = 'hw-slot' + (selectedIdx === i ? ' selected' : '');
+    div.onclick = () => selectSlot(i);
+    div.innerHTML = `
+      <div>
+        <div class="hw-slot-num">記憶 ${String(i+1).padStart(2,'0')}</div>
+        <div class="hw-slot-name">${s.name || '未命名記憶'}</div>
+        <div class="hw-slot-meta">${s.meta || ''}</div>
+        <div class="hw-slot-summary">${s.summary || ''}</div>
+      </div>
+      <div class="hw-slot-time">${s.time || ''}</div>
+      <span class="hw-slot-badge ${s.type === 'quick' ? 'badge-quick' : 'badge-full'}">${s.type === 'quick' ? '⚡ 輕靈' : '✦ 完整'}</span>
+      <button class="hw-delete-btn" onclick="deleteSlot(event,${i})" aria-label="消散此記憶"><i class="ti ti-x" aria-hidden="true"></i></button>
+    `;
+    grid.appendChild(div);
+  });
+  if (saves.length < 12) {
+    const emp = document.createElement('div');
+    emp.className = 'hw-slot empty';
+    emp.innerHTML = '<div class="hw-slot-empty-label">空白記憶槽</div>';
+    grid.appendChild(emp);
+  }
+}
+
+function selectSlot(i) {
+  selectedIdx = i;
+  renderVault();
+  const s = saves[i];
+  const detail = document.getElementById('selected-detail');
+  detail.innerHTML = `
+    <div class="hw-panel">
+      <p class="hw-section-title">${s.name || '未命名記憶'} 的詳情</p>
+      <div class="hw-row"><span class="hw-row-label">地點</span><span class="hw-row-val">${s.meta || '未記錄'}</span></div>
+      <div class="hw-row"><span class="hw-row-label">摘要</span><span class="hw-row-val" style="white-space:pre-wrap">${s.summary || '無'}</span></div>
+      <div class="hw-row"><span class="hw-row-label">封存於</span><span class="hw-row-val">${s.time || '未知'}</span></div>
+      <div class="hw-actions" style="margin-top:10px; margin-bottom:0">
+        <button class="hw-btn primary" onclick="copyScroll(${i})"><i class="ti ti-copy" aria-hidden="true"></i> 抽取記憶絲線</button>
+        <button class="hw-btn" onclick="awakenDirect(${i})"><i class="ti ti-wand" aria-hidden="true"></i> 潛入此回憶 ↗</button>
+      </div>
+    </div>
+  `;
+}
+
+async function deleteSlot(e, i) {
+  e.stopPropagation();
+  const filename = saves[i]._filename;
+  try { await deleteSaveFile(filename); } catch(e) {}
+  saves.splice(i, 1);
+  if (selectedIdx >= saves.length) selectedIdx = -1;
+  renderVault();
+  document.getElementById('selected-detail').innerHTML = '';
+  showToast('記憶已消散於銀霧之中。');
+}
+
+async function sealMemory() {
+  if (saves.length >= 12) { showToast('儲思盆已滿，請先消散舊有記憶。'); return; }
+  const name = document.getElementById('save-name').value.trim() || '未命名記憶';
+  const meta = document.getElementById('save-meta').value.trim();
+  const json = document.getElementById('save-json').value.trim();
+  const summary = document.getElementById('save-summary').value.trim();
+  const now = new Date().toLocaleString('zh-TW', {year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
+  const save = { name, meta, json, summary, type: selectedType, time: now, _filename: generateFilename() };
+  try {
+    await writeSaveFile(save);
+    saves.push(save);
+    renderVault();
+    showToast('記憶已注入儲思盆，銀霧輕輕旋繞。');
+    document.getElementById('save-name').value = '';
+    document.getElementById('save-meta').value = '';
+    document.getElementById('save-json').value = '';
+    document.getElementById('save-summary').value = '';
+    switchTab('vault');
+  } catch(e) {
+    showToast('記憶注入失敗，請確認儲思盆連線。');
+  }
+}
+
+function renderAwakenList() {
+  const list = document.getElementById('awaken-list');
+  if (!list) return;
+  if (saves.length === 0) {
+    list.innerHTML = '<p style="font-size:13px;color:var(--color-text-tertiary);font-style:italic;padding:8px 0">儲思盆中尚無記憶。</p>';
+    return;
+  }
+  list.innerHTML = saves.map((s,i) => `
+    <div class="hw-slot" style="margin-bottom:8px; ${awakenSelectedIdx===i ? 'border:1.5px solid var(--color-border-info);background:var(--color-background-info)' : ''}" onclick="selectAwaken(${i})">
+      <div class="hw-slot-num">記憶 ${String(i+1).padStart(2,'0')}</div>
+      <div class="hw-slot-name">${s.name}</div>
+      <div class="hw-slot-meta">${s.meta || ''}</div>
+      <span class="hw-slot-badge ${s.type==='quick'?'badge-quick':'badge-full'}">${s.type==='quick'?'⚡ 輕靈':'✦ 完整'}</span>
+    </div>
+  `).join('');
+}
+
+function selectAwaken(i) {
+  awakenSelectedIdx = i;
+  renderAwakenList();
+}
+
+function buildScrollText(s) {
+  return `【霍格華茲模擬器存檔】
+記憶名稱：${s.name}
+封存時間：${s.time}
+地點資訊：${s.meta}
+封存類型：${s.type === 'quick' ? '輕靈記憶' : '完整記憶'}
+
+--- JSON 結構資料 ---
+${s.json || '{}'}
+
+--- 記憶摘要 ---
+${s.summary || '（無）'}`;
+}
+
+function copyScroll(i) {
+  const s = saves[i];
+  navigator.clipboard.writeText(buildScrollText(s)).then(() => showToast('記憶絲線已抽取至剪貼簿。'));
+}
+
+function exportSelected() {
+  if (awakenSelectedIdx < 0 || !saves[awakenSelectedIdx]) { showToast('請先選取一個記憶碎片。'); return; }
+  copyScroll(awakenSelectedIdx);
+}
+
+function awakenDirect(i) {
+  const s = saves[i];
+  const prompt = `請依據以下存檔資料，從記憶中斷處繼續霍格華茲模擬器。\n\n${buildScrollText(s)}`;
+  sendPrompt(prompt);
+}
+
+function awakenFromPaste() {
+  const text = document.getElementById('paste-input').value.trim();
+  if (!text) { showToast('請先貼入記憶絲線。'); return; }
+  const prompt = `請依據以下存檔資料，從記憶中斷處繼續霍格華茲模擬器。\n\n${text}`;
+  sendPrompt(prompt);
+}
+
+loadSaves();
+</script>
