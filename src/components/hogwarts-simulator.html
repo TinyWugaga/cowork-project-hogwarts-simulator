@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>霍格華茲模擬器</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0
+      }
+
+      :root {
+        --bg: #0d0d0d;
+        --bg2: #111;
+        --bg3: #1a1a1a;
+        --border: #2a2a2a;
+        --border2: #333;
+        --text: #e8e0d0;
+        --text2: #9a8e7e;
+        --text3: #666;
+        --gold: #b09a4a;
+        --gold2: #d4be7a;
+        --blue: #6a8fb0;
+        --blue2: #a8c4dc;
+        --green: #7a9a6a;
+        --red: #c07070;
+      }
+
+      html,
+      body {
+        height: 100%;
+        background: var(--bg);
+        color: var(--text);
+        font-family: 'EB Garamond', serif;
+        font-size: 15px
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden
+      }
+
+      .hdr {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 16px;
+        border-bottom: 0.5px solid var(--border2);
+        background: var(--bg2);
+        flex-shrink: 0
+      }
+
+      .hdr-title {
+        font-family: 'Cinzel', serif;
+        font-size: 13px;
+        letter-spacing: .14em;
+        color: var(--gold)
+      }
+
+      .hdr-right {
+        display: flex;
+        align-items: center;
+        gap: 8px
+      }
+
+      .token-badge {
+        font-size: 11px;
+        color: var(--text3);
+        font-style: italic;
+        padding: 2px 8px;
+        border: 0.5px solid var(--border);
+        border-radius: 99px
+      }
+
+      .hdr-cmds {
+        display: flex;
+        gap: 6px
+      }
+
+      .cmd-btn {
+        font-family: 'EB Garamond', serif;
+        font-size: 12px;
+        padding: 3px 10px;
+        border: 0.5px solid var(--border2);
+        border-radius: 99px;
+        background: none;
+        color: var(--text2);
+        cursor: pointer;
+        transition: .15s
+      }
+
+      .cmd-btn:hover {
+        border-color: var(--text2);
+        color: var(--text)
+      }
+
+      .layout {
+        display: flex;
+        flex: 1;
+        overflow: hidden
+      }
+
+      .story-panel {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border-right: 0.5px solid var(--border)
+      }
+
+      .story-scroll {
+        flex: 1;
+        overflow-y: auto;
+        padding: 20px 24px;
+        scroll-behavior: smooth
+      }
+
+      .story-scroll::-webkit-scrollbar {
+        width: 4px
+      }
+
+      .story-scroll::-webkit-scrollbar-thumb {
+        background: var(--border2);
+        border-radius: 2px
+      }
+
+      .msg {
+        margin-bottom: 20px;
+        animation: fadein .4s ease
+      }
+
+      @keyframes fadein {
+        from {
+          opacity: 0;
+          transform: translateY(6px)
+        }
+
+        to {
+          opacity: 1;
+          transform: none
+        }
+      }
+
+      .msg-narrate {
+        line-height: 1.9;
+        color: var(--text);
+        white-space: pre-wrap
+      }
+
+      .msg-system {
+        font-style: italic;
+        color: var(--text2);
+        font-size: 13px;
+        padding: 8px 12px;
+        border-left: 2px solid var(--border2);
+        margin: 4px 0
+      }
+
+      .msg-player {
+        color: var(--blue2);
+        font-style: italic;
+        padding: 4px 0
+      }
+
+      .msg-player::before {
+        content: '▸ ';
+        color: var(--blue)
+      }
+
+      .thinking {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text3);
+        font-style: italic;
+        font-size: 13px;
+        padding: 8px 0
+      }
+
+      .dots span {
+        display: inline-block;
+        animation: dot 1.2s infinite
+      }
+
+      .dots span:nth-child(2) {
+        animation-delay: .2s
+      }
+
+      .dots span:nth-child(3) {
+        animation-delay: .4s
+      }
+
+      @keyframes dot {
+
+        0%,
+        80%,
+        100% {
+          opacity: .2
+        }
+
+        40% {
+          opacity: 1
+        }
+      }
+
+      .action-bar {
+        flex-shrink: 0;
+        border-top: 0.5px solid var(--border);
+        padding: 12px 16px;
+        background: var(--bg2)
+      }
+
+      .actions-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 10px
+      }
+
+      .action-btn {
+        font-family: 'EB Garamond', serif;
+        font-size: 14px;
+        padding: 7px 14px;
+        border: 0.5px solid var(--border2);
+        border-radius: 8px;
+        background: none;
+        color: var(--text2);
+        cursor: pointer;
+        text-align: left;
+        transition: .15s;
+        line-height: 1.4
+      }
+
+      .action-btn:hover {
+        border-color: var(--text2);
+        color: var(--text);
+        background: rgba(255, 255, 255, .03)
+      }
+
+      .free-row {
+        display: flex;
+        gap: 8px
+      }
+
+      .free-input {
+        flex: 1;
+        font-family: 'EB Garamond', serif;
+        font-size: 14px;
+        padding: 7px 12px;
+        border: 0.5px solid var(--border2);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, .03);
+        color: var(--text);
+        outline: none;
+        transition: .15s
+      }
+
+      .free-input:focus {
+        border-color: var(--text2)
+      }
+
+      .free-input::placeholder {
+        color: var(--text3);
+        font-style: italic
+      }
+
+      .send-btn {
+        font-family: 'EB Garamond', serif;
+        font-size: 13px;
+        padding: 7px 16px;
+        border: 0.5px solid var(--border2);
+        border-radius: 8px;
+        background: none;
+        color: var(--text2);
+        cursor: pointer;
+        white-space: nowrap;
+        transition: .15s
+      }
+
+      .send-btn:hover {
+        border-color: var(--text);
+        color: var(--text)
+      }
+
+      .send-btn:disabled {
+        opacity: .3;
+        cursor: not-allowed
+      }
+
+      .side-panel {
+        width: 220px;
+        flex-shrink: 0;
+        overflow-y: auto;
+        padding: 14px 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        background: var(--bg2)
+      }
+
+      .side-panel::-webkit-scrollbar {
+        width: 3px
+      }
+
+      .side-panel::-webkit-scrollbar-thumb {
+        background: var(--border2)
+      }
+
+      .side-section {
+        border: 0.5px solid var(--border);
+        border-radius: 8px;
+        overflow: hidden
+      }
+
+      .side-title {
+        font-family: 'Cinzel', serif;
+        font-size: 9px;
+        letter-spacing: .14em;
+        color: var(--text3);
+        padding: 6px 10px;
+        border-bottom: 0.5px solid var(--border);
+        background: var(--bg3);
+        text-transform: uppercase
+      }
+
+      .side-body {
+        padding: 8px 10px;
+        font-size: 13px;
+        line-height: 1.7;
+        color: var(--text2)
+      }
+
+      .side-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 4px
+      }
+
+      .side-key {
+        color: var(--text3);
+        font-size: 12px;
+        flex-shrink: 0
+      }
+
+      .side-val {
+        color: var(--text);
+        font-size: 13px;
+        text-align: right
+      }
+
+      .npc-item {
+        padding: 6px 0;
+        border-bottom: 0.5px solid var(--border);
+        font-size: 13px
+      }
+
+      .npc-item:last-child {
+        border-bottom: none
+      }
+
+      .npc-name {
+        color: var(--text);
+        margin-bottom: 2px
+      }
+
+      .npc-label {
+        font-size: 11px;
+        color: var(--text3);
+        font-style: italic
+      }
+
+      .npc-bar {
+        height: 3px;
+        background: var(--border2);
+        border-radius: 2px;
+        margin-top: 4px;
+        overflow: hidden
+      }
+
+      .npc-fill {
+        height: 100%;
+        border-radius: 2px;
+        background: var(--gold);
+        transition: width .4s
+      }
+
+      .house-pts {
+        font-family: 'Cinzel', serif;
+        font-size: 18px;
+        color: var(--gold2);
+        text-align: center;
+        padding: 8px 0
+      }
+
+      .house-name {
+        font-size: 11px;
+        color: var(--text3);
+        text-align: center;
+        letter-spacing: .08em
+      }
+
+      .overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, .75);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+        transition: .2s
+      }
+
+      .overlay.hidden {
+        opacity: 0;
+        pointer-events: none
+      }
+
+      .welcome-box {
+        background: var(--bg2);
+        border: 0.5px solid var(--border2);
+        border-radius: 14px;
+        padding: 32px 36px;
+        max-width: 440px;
+        width: 92%;
+        text-align: center
+      }
+
+      .welcome-title {
+        font-family: 'Cinzel', serif;
+        font-size: 15px;
+        letter-spacing: .16em;
+        color: var(--gold2);
+        margin-bottom: 8px
+      }
+
+      .welcome-sub {
+        color: var(--text3);
+        font-style: italic;
+        font-size: 13px;
+        margin-bottom: 24px
+      }
+
+      .welcome-desc {
+        color: var(--text2);
+        font-size: 14px;
+        line-height: 1.8;
+        margin-bottom: 28px;
+        text-align: left
+      }
+
+      .welcome-desc em {
+        color: var(--text);
+        font-style: normal
+      }
+
+      .w-btns {
+        display: flex;
+        flex-direction: column;
+        gap: 10px
+      }
+
+      .w-btn {
+        font-family: 'EB Garamond', serif;
+        font-size: 14px;
+        padding: 9px 20px;
+        border: 0.5px solid var(--border2);
+        border-radius: 8px;
+        background: none;
+        color: var(--text2);
+        cursor: pointer;
+        transition: .15s
+      }
+
+      .w-btn:hover {
+        border-color: var(--text2);
+        color: var(--text)
+      }
+
+      .w-btn.pri {
+        border-color: var(--gold);
+        color: var(--gold2)
+      }
+
+      .w-btn.pri:hover {
+        background: rgba(176, 154, 74, .1)
+      }
+
+      .save-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, .7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 200;
+        transition: .2s
+      }
+
+      .save-overlay.hidden {
+        opacity: 0;
+        pointer-events: none
+      }
+
+      .save-box {
+        background: var(--bg2);
+        border: 0.5px solid var(--border2);
+        border-radius: 12px;
+        padding: 24px 28px;
+        max-width: 500px;
+        width: 92%;
+        max-height: 80vh;
+        overflow-y: auto
+      }
+
+      .save-title {
+        font-family: 'Cinzel', serif;
+        font-size: 12px;
+        letter-spacing: .12em;
+        color: var(--gold);
+        margin-bottom: 14px
+      }
+
+      .save-json {
+        font-family: monospace;
+        font-size: 11px;
+        color: var(--text2);
+        background: var(--bg3);
+        border: 0.5px solid var(--border);
+        border-radius: 6px;
+        padding: 12px;
+        white-space: pre-wrap;
+        word-break: break-all;
+        line-height: 1.6;
+        max-height: 300px;
+        overflow-y: auto;
+        margin-bottom: 14px
+      }
+
+      .save-btns {
+        display: flex;
+        gap: 8px;
+        justify-content: flex-end
+      }
+
+      .s-btn {
+        font-family: 'EB Garamond', serif;
+        font-size: 13px;
+        padding: 6px 16px;
+        border: 0.5px solid var(--border2);
+        border-radius: 8px;
+        background: none;
+        color: var(--text2);
+        cursor: pointer;
+        transition: .15s
+      }
+
+      .s-btn:hover {
+        border-color: var(--text2);
+        color: var(--text)
+      }
+
+      .s-btn.copy {
+        border-color: var(--gold);
+        color: var(--gold2)
+      }
+
+      .toast {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%) translateY(10px);
+        background: var(--bg2);
+        border: 0.5px solid var(--border2);
+        border-radius: 8px;
+        padding: 7px 18px;
+        font-size: 13px;
+        font-style: italic;
+        color: var(--text2);
+        opacity: 0;
+        transition: .2s;
+        pointer-events: none;
+        z-index: 300;
+        white-space: nowrap
+      }
+
+      .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0)
+      }
+
+      .loading .action-btn,
+      .loading .send-btn,
+      .loading .free-input {
+        pointer-events: none;
+        opacity: .5
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- Welcome Overlay -->
+    <div class="overlay" id="welcome">
+      <div class="welcome-box">
+        <div class="welcome-title">✦ 霍格華茲入學資料審核規章 ✦</div>
+        <div class="welcome-sub">Hogwarts School of Witchcraft and Wizardry Admission Guidelines</div>
+        <div class="welcome-desc">
+          歡迎，新生巫師。在踏入這扇魔法之門之前，請先備妥你的
+          <em>入學申請表</em>，將其內容貼入遊戲開始後的對話框，或直接輸入
+          <em>「開啟偉大的巫師之旅」</em> 讓魔法墨水為你隨機生成新生身份。<br><br>
+          你的記憶將由魔法羽毛筆自動記錄，隨時可輸入 <em>「記錄魔法日誌」</em> 記錄記憶。
+        </div>
+        <div class="w-btns">
+          <button class="w-btn pri" onclick="startGame()">✦ 進入魔法世界</button>
+          <button class="w-btn" onclick="loadGame()">📜 讀取日誌記錄</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Save Overlay -->
+    <div class="save-overlay hidden" id="saveOverlay">
+      <div class="save-box">
+        <div class="save-title">📜 記錄日誌</div>
+        <div class="save-json" id="saveJson"></div>
+        <div class="save-btns">
+          <button class="s-btn copy" onclick="copySave()">複製記憶殘片</button>
+          <button class="s-btn" onclick="closeSave()">關閉</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <div class="hdr">
+      <div class="hdr-title">✦ 霍格華茲模擬器</div>
+      <div class="hdr-right">
+        <div class="token-badge" id="tokenBadge" style="display:none">魔法消耗：<span id="tokenCount">0</span></div>
+        <div class="hdr-cmds">
+          <button class="cmd-btn" onclick="sendCmd('/status')">📋 狀態</button>
+          <button class="cmd-btn" onclick="sendCmd('/npcs')">👥 人際</button>
+          <button class="cmd-btn" onclick="sendCmd('/save')">📜 存檔</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="layout">
+      <div class="story-panel">
+        <div class="story-scroll" id="storyScroll">
+          <div class="msg">
+            <div class="msg-system">✦ 魔法羽毛筆已備妥，靜候你的故事開始。</div>
+          </div>
+        </div>
+        <div class="action-bar" id="actionBar">
+          <div class="actions-grid" id="actionsGrid"></div>
+          <div class="free-row">
+            <input class="free-input" id="freeInput" placeholder="自由輸入行動，或貼上入學申請表內容⋯" />
+            <button class="send-btn" id="sendBtn" onclick="sendFree()">送出</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="side-panel" id="sidePanel">
+        <div class="side-section" id="charSection" style="display:none">
+          <div class="side-title">角色</div>
+          <div class="side-body" id="charBody"></div>
+        </div>
+        <div class="side-section" id="houseSection" style="display:none">
+          <div class="side-title">學院積分</div>
+          <div class="side-body">
+            <div class="house-pts" id="housePts">—</div>
+            <div class="house-name" id="houseName"></div>
+          </div>
+        </div>
+        <div class="side-section" id="npcSection" style="display:none">
+          <div class="side-title">人際關係</div>
+          <div class="side-body" id="npcBody"></div>
+        </div>
+        <div class="side-section">
+          <div class="side-title">指令</div>
+          <div class="side-body" style="font-size:12px;color:var(--text3);line-height:2">
+            /start — 新生入學<br>
+            /save — 記錄日誌<br>
+            /load — 讀取日誌記錄<br>
+            /status — 角色狀態<br>
+            /npcs — 人際一覽
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+      // ── Constants ──
+      const MAX_HISTORY = 8;       // 保留最近幾輪對話
+      const SUMMARY_EVERY = 10;    // 每幾輪觸發一次歷史壓縮
+      const MAX_TOKENS_NORMAL = 650;
+      const MAX_TOKENS_KEY = 1000; // 重要節點
+
+      // ── State ──
+      const S = {
+        history: [],       // 滾動窗口，最多 MAX_HISTORY 輪
+        summary: '',       // 壓縮後的歷史摘要
+        char: {},
+        npcs: {},
+        flags: {},
+        housePoints: 0,
+        year: 1,
+        location: '',
+        turnCount: 0,
+        totalTokens: 0,
+        isKeyScene: false, // 是否為重要場景（影響 max_tokens）
+      };
+
+      // ── System Prompt（精簡版，核心規則） ──
+      const SYSTEM = `霍格華茲沉浸式文字RPG主持人。以「你」稱呼玩家。
+
+【輸出】嚴格輸出 JSON，不含任何其他文字：
+{"narration":"劇情（\\n換行）","actions":["簡短行動x4"],"system_note":"可選系統提示","state_update":{"location":"","year":0,"housePoints":0,"char":{},"npcs":{"名":{"affinity":數字增減,"label":"","note":""}},"flags":{}}}
+
+【敘事】哈利波特皇冠版風格。長短句錯落。情緒透過行為呈現。
+禁：破折號、「這種/某種/那種/若有所思」、中國用語、相鄰重複字詞、一次洩露所有秘密。
+actions 每條 6-10 字即可。
+
+【設定】
+- NPC 依原著：Harry葛來分多、Hermione麻瓜、Ron五哥一妹、Draco史萊哲林。
+- 好感度初始20-30，依行為自然變化。等級：0-19陌生|20-39認識|40-59熟識|60-79朋友|80-94親密|95+心動。
+- 學院依性格判定，分類帽儀式決定。
+- 高風險行動前（禁林、決鬥、重大對抗）在 system_note 以魔法語氣提示存檔，並自動描述為「儲思盆自動記憶」。
+- 重要劇情節點（支線正式開啟、感情線關鍵轉折）在 system_note 建議玩家存檔。
+- 其他日常情境不主動提醒存檔。
+
+【指令】
+/start：引導填表或隨機生成。/save：輸出記憶JSON。/status：輸出當前狀態。/npcs：輸出NPC清單。/load [JSON]：讀取記憶重建世界。`;
+
+      // ── 動態 context 注入（狀態外掛，不佔 history） ──
+      function buildStateContext() {
+        const parts = [];
+        if (S.summary) parts.push(`【歷史摘要】${S.summary}`);
+        if (S.char.name) {
+          const c = S.char;
+          parts.push(`【角色】${c.name}${c.gender ? '/' + c.gender : ''}，${S.year}年級，${c.house || '學院待定'}，${c.origin || ''}，魔杖：${c.wand || '未知'}，性格：${c.personality || '未定'}，MBTI：${c.mbti || '未知'}`);
+        }
+        if (S.location) parts.push(`【位置】${S.location}`);
+        if (S.housePoints) parts.push(`【學院積分】${S.char.house || ''}：${S.housePoints}分`);
+        const npcKeys = Object.keys(S.npcs);
+        if (npcKeys.length) {
+          const npcStr = npcKeys.map(n => `${n}(${S.npcs[n].affinity}/${S.npcs[n].label})`).join('、');
+          parts.push(`【NPC好感】${npcStr}`);
+        }
+        const flagKeys = Object.keys(S.flags).filter(k => S.flags[k]);
+        if (flagKeys.length) parts.push(`【旗標】${flagKeys.join('、')}`);
+        return parts.join('\n');
+      }
+
+      // ── 歷史壓縮（每 SUMMARY_EVERY 輪） ──
+      async function compressHistory() {
+        if (S.history.length < 6) return;
+        const toCompress = S.history.slice(0, -4); // 保留最新 4 輪
+        const keep = S.history.slice(-4);
+        const prompt = `以下是霍格華茲文字遊戲的對話歷史，請用不超過200字的繁體中文摘要，涵蓋重要事件、關係變化與當前懸念，不需說明格式，直接輸出摘要文字：\n${toCompress.map(m => m.role + ':' + m.content).join('\n')}`;
+        try {
+          const res = await fetch('https://api.anthropic.com/v1/messages', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              model: 'claude-sonnet-4-6',
+              max_tokens: 300,
+              messages: [{ role: 'user', content: prompt }]
+            })
+          });
+          const data = await res.json();
+          const newSummary = data.content?.find(b => b.type === 'text')?.text || '';
+          S.summary = S.summary ? S.summary + '\n' + newSummary : newSummary;
+          S.history = keep;
+          S.totalTokens += (data.usage?.input_tokens || 0) + (data.usage?.output_tokens || 0);
+        } catch { /* 壓縮失敗靜默處理，保留原始歷史 */ }
+      }
+
+      // ── API Call ──
+      async function callClaude(userMsg, isCmd = false) {
+        // 歷史壓縮
+        if (S.turnCount > 0 && S.turnCount % SUMMARY_EVERY === 0) {
+          await compressHistory();
+        }
+
+        // 裁切歷史窗口
+        if (S.history.length > MAX_HISTORY * 2) {
+          S.history = S.history.slice(-MAX_HISTORY * 2);
+        }
+
+        // 組合 messages：狀態 context + 歷史 + 當前輸入
+        const stateCtx = buildStateContext();
+        const messages = [];
+        if (stateCtx) messages.push({ role: 'user', content: stateCtx });
+        if (stateCtx) messages.push({ role: 'assistant', content: '已掌握當前狀態，繼續敘事。' });
+        messages.push(...S.history);
+        messages.push({ role: 'user', content: userMsg });
+
+        const maxTok = S.isKeyScene ? MAX_TOKENS_KEY : MAX_TOKENS_NORMAL;
+        setLoading(true);
+
+        try {
+          const res = await fetch('https://api.anthropic.com/v1/messages', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ model: 'claude-sonnet-4-6', max_tokens: maxTok, system: SYSTEM, messages })
+          });
+          const data = await res.json();
+          const raw = data.content?.find(b => b.type === 'text')?.text || '';
+
+          // token 計數
+          S.totalTokens += (data.usage?.input_tokens || 0) + (data.usage?.output_tokens || 0);
+          updateTokenBadge();
+
+          // 加入滾動歷史（只存 user/assistant 對）
+          S.history.push({ role: 'user', content: userMsg });
+          S.history.push({ role: 'assistant', content: raw });
+
+          let parsed;
+          try {
+            const clean = raw.replace(/^```json\s*/, '').replace(/```\s*$/, '').trim();
+            parsed = JSON.parse(clean);
+          } catch { parsed = { narration: raw, actions: [] }; }
+
+          processResponse(parsed);
+          S.turnCount++;
+        } catch (e) {
+          appendMsg('魔法水晶球出了點狀況，無法接收訊息。請稍後再試。', 'system');
+        } finally {
+          setLoading(false);
+        }
+      }
+
+      function processResponse(p) {
+        if (p.narration) appendMsg(p.narration, 'narrate');
+        if (p.system_note) {
+          appendMsg(p.system_note, 'system');
+          // 偵測重要節點
+          S.isKeyScene = /禁林|決鬥|對抗|支線開啟|感情線|關鍵轉折/.test(p.system_note);
+        } else {
+          S.isKeyScene = false;
+        }
+
+        if (p.state_update) {
+          const u = p.state_update;
+          if (u.location) S.location = u.location;
+          if (u.year) S.year = u.year;
+          if (typeof u.housePoints === 'number') S.housePoints += u.housePoints;
+          if (u.char) Object.assign(S.char, u.char);
+          if (u.npcs) {
+            Object.entries(u.npcs).forEach(([n, v]) => {
+              if (!S.npcs[n]) S.npcs[n] = { affinity: 25, label: '認識', note: '' };
+              if (typeof v.affinity === 'number') S.npcs[n].affinity = Math.max(0, Math.min(100, S.npcs[n].affinity + v.affinity));
+              if (v.label) S.npcs[n].label = v.label;
+              if (v.note) S.npcs[n].note = v.note;
+            });
+          }
+          if (u.flags) Object.assign(S.flags, u.flags);
+        }
+
+        // /save 指令：顯示存檔 overlay
+        if (p.save_data) showSaveOverlay(p.save_data);
+
+        renderActions(p.actions || []);
+        updateSide();
+        scrollBottom();
+      }
+
+      // ── DOM ──
+      function appendMsg(txt, type) {
+        const scroll = document.getElementById('storyScroll');
+        const div = document.createElement('div');
+        div.className = 'msg';
+        const inner = document.createElement('div');
+        inner.className = type === 'narrate' ? 'msg-narrate' : type === 'player' ? 'msg-player' : 'msg-system';
+        inner.textContent = txt;
+        div.appendChild(inner);
+        scroll.appendChild(div);
+      }
+
+      function showThinking() {
+        const scroll = document.getElementById('storyScroll');
+        const div = document.createElement('div');
+        div.className = 'msg thinking'; div.id = 'thinkEl';
+        div.innerHTML = `<span style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:.1em;color:var(--text3)">魔法羽毛筆正在書寫</span><span class="dots"><span>．</span><span>．</span><span>．</span></span>`;
+        scroll.appendChild(div); scrollBottom();
+      }
+      function hideThinking() { const e = document.getElementById('thinkEl'); if (e) e.remove(); }
+
+      function setLoading(on) {
+        const bar = document.getElementById('actionBar');
+        on ? (bar.classList.add('loading'), showThinking()) : (bar.classList.remove('loading'), hideThinking());
+        document.getElementById('sendBtn').disabled = on;
+      }
+
+      function renderActions(acts) {
+        const grid = document.getElementById('actionsGrid');
+        grid.innerHTML = '';
+        acts.forEach((a, i) => {
+          const btn = document.createElement('button');
+          btn.className = 'action-btn';
+          btn.textContent = `${i + 1}. ${a}`;
+          btn.onclick = () => { appendMsg(a, 'player'); callClaude(a); };
+          grid.appendChild(btn);
+        });
+      }
+
+      function scrollBottom() { const s = document.getElementById('storyScroll'); setTimeout(() => s.scrollTop = s.scrollHeight, 50); }
+
+      function updateTokenBadge() {
+        const badge = document.getElementById('tokenBadge');
+        badge.style.display = '';
+        document.getElementById('tokenCount').textContent = S.totalTokens.toLocaleString();
+      }
+
+      function updateSide() {
+        if (S.char.name || S.char.house) {
+          document.getElementById('charSection').style.display = '';
+          const rows = [['姓名', S.char.name || '—'], ['性別', S.char.gender || '—'], ['學年', S.year ? `${S.year}年級` : '—'], ['學院', S.char.house || '—'], ['血統', S.char.origin || '—']];
+          document.getElementById('charBody').innerHTML = rows.map(([k, v]) => `<div class="side-row"><span class="side-key">${k}</span><span class="side-val">${v}</span></div>`).join('');
+        }
+        if (S.char.house) {
+          document.getElementById('houseSection').style.display = '';
+          document.getElementById('housePts').textContent = S.housePoints;
+          document.getElementById('houseName').textContent = S.char.house;
+        }
+        const npcKeys = Object.keys(S.npcs);
+        if (npcKeys.length) {
+          document.getElementById('npcSection').style.display = '';
+          document.getElementById('npcBody').innerHTML = npcKeys.map(n => {
+            const npc = S.npcs[n];
+            return `<div class="npc-item"><div class="npc-name">${n}</div><div class="npc-label">${npc.label || '認識'}${npc.note ? ' · ' + npc.note : ''}</div><div class="npc-bar"><div class="npc-fill" style="width:${npc.affinity}%"></div></div></div>`;
+          }).join('');
+        }
+      }
+
+      // ── Input ──
+      function sendFree() {
+        const inp = document.getElementById('freeInput');
+        const v = inp.value.trim(); if (!v) return;
+        inp.value = '';
+        if (v.startsWith('/')) { sendCmd(v); return; }
+        appendMsg(v, 'player');
+        callClaude(v);
+      }
+
+      function sendCmd(cmd) {
+        appendMsg(cmd, 'player');
+        if (cmd === '/save') {
+          callClaude('/save 生成快速記錄JSON，narration以魔法語氣確認記錄成功，system_note輸出存檔JSON供玩家複製。');
+          return;
+        }
+        callClaude(cmd);
+      }
+
+      document.getElementById('freeInput').addEventListener('keydown', e => {
+        if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendFree(); }
+      });
+
+      // ── Save Overlay ──
+      function showSaveOverlay(data) {
+        document.getElementById('saveJson').textContent = typeof data === 'string' ? data : JSON.stringify(data, null, 2);
+        document.getElementById('saveOverlay').classList.remove('hidden');
+      }
+      function closeSave() { document.getElementById('saveOverlay').classList.add('hidden'); }
+      function copySave() {
+        navigator.clipboard.writeText(document.getElementById('saveJson').textContent).then(() => toast('存檔已複製至剪貼簿。'));
+      }
+
+      // ── Welcome ──
+      function startGame() {
+        document.getElementById('welcome').classList.add('hidden');
+        appendMsg('/start', 'player');
+        callClaude('/start 引導玩家開始：可貼入學申請表、逐項輸入資料，或說「隨機生成」。');
+      }
+      function loadGame() {
+        document.getElementById('welcome').classList.add('hidden');
+        document.getElementById('freeInput').placeholder = '請貼上記憶殘片後送出⋯';
+        document.getElementById('freeInput').focus();
+        appendMsg('請將記憶殘片貼入下方輸入框，送出即可讀取記憶。', 'system');
+      }
+
+      function toast(msg) {
+        const t = document.getElementById('toast');
+        t.textContent = msg; t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 2200);
+      }
+    </script>
+  </body>
+
+</html>

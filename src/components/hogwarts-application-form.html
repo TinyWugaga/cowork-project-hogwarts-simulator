@@ -15,10 +15,14 @@
       body {
         font-family: 'EB Garamond', serif;
         color: var(--color-text-primary, #e8e0d0);
-        background: transparent;
+        background: #1e1e1e;
         padding: 1.5rem 1rem;
         max-width: 700px;
         margin: 0 auto
+      }
+
+      .hidden {
+        display: none;
       }
 
       .cinzel {
@@ -124,7 +128,7 @@
       }
 
       .field-label {
-        font-size: 13px;
+        font-size: 14px;
         color: #e8e0d0;
         margin-bottom: 5px;
         display: flex;
@@ -135,16 +139,9 @@
       }
 
       .field-hint {
-        font-size: 11px;
+        font-size: 12px;
         color: #666;
         font-style: italic
-      }
-
-      .field-opt {
-        font-size: 10px;
-        font-family: 'Cinzel', serif;
-        letter-spacing: .05em;
-        color: #666
       }
 
       .hw-input {
@@ -178,7 +175,7 @@
 
       .tag {
         font-family: 'EB Garamond', serif;
-        font-size: 13px;
+        font-size: 14px;
         padding: 4px 12px;
         border: 0.5px solid #444;
         border-radius: 99px;
@@ -293,7 +290,7 @@
       }
 
       .btn:hover {
-        background: rgba(255, 255, 255, .05)
+        background: rgba(0, 0, 0, .02)
       }
 
       .btn.pri {
@@ -302,6 +299,12 @@
 
       .btn:active {
         transform: scale(.98)
+      }
+
+      .btn:disabled {
+        opacity: .35;
+        cursor: not-allowed;
+        pointer-events: none
       }
 
       .conf-grid {
@@ -334,7 +337,8 @@
         font-size: 14px;
         color: #e8e0d0;
         line-height: 1.5;
-        word-break: break-word
+        word-break: break-word;
+        white-space: pre-line;
       }
 
       .conf-act {
@@ -448,6 +452,151 @@
         gap: 8px;
         justify-content: flex-end
       }
+
+      /* ── LoadFormData dialog ── */
+      #load-form-data-overlay .dialog-box {
+        max-width: 480px
+      }
+
+      #load-form-data-title {
+        font-size: 15px;
+        color: #e8e0d0;
+        font-weight: 600;
+        margin-bottom: 10px
+      }
+
+      #load-form-data-hint {
+        font-size: 12px;
+        color: #a09080;
+        margin-bottom: 12px;
+        line-height: 1.5
+      }
+
+      #load-form-data-textarea {
+        width: 100%;
+        min-height: 160px;
+        background: #1a1a1a;
+        border: 1px solid #444;
+        border-radius: 8px;
+        color: #d8d0c0;
+        font-size: 12px;
+        font-family: monospace;
+        padding: 10px 12px;
+        box-sizing: border-box;
+        resize: vertical;
+        margin-bottom: 14px;
+        outline: none;
+        transition: border-color .15s
+      }
+
+      #load-form-data-textarea:focus {
+        border-color: #8a7a5a
+      }
+
+      #load-form-data-error {
+        font-size: 12px;
+        color: #e07070;
+        margin-bottom: 10px;
+        min-height: 16px
+      }
+
+      /* ── Welcome dialog ── */
+      .parchment {
+        background-color: #E7DFC6;
+        background-image:
+          url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://w3.org id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.12'/%3E%3C/svg%3E"),
+          radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.25) 0%, rgba(120, 105, 80, 0.1) 100%);
+        background-blend-mode: multiply, normal;
+        border-radius: 120px 4px 100px 5px / 5px 110px 4px 125px;
+        box-shadow:
+          inset 0 0 15px rgba(115, 95, 70, 0.15),
+          0 1px 3px rgba(0, 0, 0, 0.2),
+          0 15px 35px rgba(90, 80, 70, 0.25);
+      }
+
+      .parchment::after {
+        content: "";
+        position: absolute;
+        top: 18px;
+        left: 18px;
+        right: 18px;
+        bottom: 18px;
+        border: 1px solid #7d6b58;
+        opacity: 0.65;
+        border-radius: 5px 120px 6px 110px / 110px 6px 125px 5px;
+        pointer-events: none;
+        box-shadow: 1px 1px 0px rgba(255, 255, 255, 0.6);
+      }
+
+      #welcome-overlay {
+        z-index: 300
+      }
+
+      .welcome-box {
+        border: 0.5px solid #6a5a3a;
+        border-radius: 12px;
+        padding: 28px 30px;
+        max-width: 420px;
+        width: 92%;
+        transform: translateY(8px);
+        transition: transform .18s
+      }
+
+      .dialog-overlay.open .welcome-box {
+        transform: translateY(0)
+      }
+
+      .welcome-title {
+        font-family: 'Cinzel', serif;
+        font-size: 13px;
+        font-weight: bold;
+        letter-spacing: .14em;
+        color: #716751;
+        text-align: center;
+        padding-top: 12px;
+        margin-bottom: 24px
+      }
+
+      .welcome-rules {
+        font-size: 13.5px;
+        color: #888277;
+        text-align: center;
+        font-style: italic;
+        line-height: 1.3;
+        margin-bottom: 22px;
+        white-space: pre-line
+      }
+
+      .welcome-rules em {
+        font-size: 13px;
+        color: #9a8e7e;
+        font-style: normal;
+        line-height: 1.6;
+      }
+
+      .welcome-btns {
+        display: flex;
+        flex-direction: column;
+        gap: 10px
+      }
+
+      .welcome-btns .btn {
+        font-size: 13.5px;
+        color: #8d806e;
+        width: 100%;
+        text-align: center;
+      }
+
+      .welcome-btns .btn:hover {
+        color: #4C3F18;
+      }
+
+      .btn-hint {
+        color: #555;
+        font-style: italic;
+        text-align: center;
+        margin-top: 5px
+      }
     </style>
   </head>
 
@@ -490,78 +639,11 @@
 
     <!-- PAGE 0 -->
     <div id="p0">
-      <div class="section">
-        <div class="section-title">個人資訊</div>
-        <div class="field">
-          <div class="field-label">姓名 <span class="field-hint">使用語言會影響遊戲過程中，其餘角色名稱的顯示方式</span></div>
-          <input class="hw-input" id="f-name" placeholder="請輸入姓名⋯">
-        </div>
-        <div class="field">
-          <div class="field-label">暱稱 <span class="field-opt">可選</span> <span class="field-hint">當 NPC
-              關係進展到一定程度時，有機會會更改稱呼</span></div>
-          <input class="hw-input" id="f-nick" placeholder="可留空⋯">
-        </div>
-        <div class="field">
-          <div class="field-label">性別</div>
-          <div class="tags" id="tg-gender"></div>
-        </div>
-        <div class="field">
-          <div class="field-label">生日 <span class="field-opt">可選</span> <span class="field-hint">星座會影響隨機生成玩家性格</span>
-          </div>
-          <input class="hw-input" id="f-bd" placeholder="例：9月19日⋯">
-        </div>
-        <div class="field">
-          <div class="field-label">MBTI <span class="field-opt">可選</span> <span class="field-hint">MBTI
-              會影響隨機生成玩家性格</span></div>
-          <div class="tags" id="tg-mbti"></div>
-        </div>
-        <div class="field">
-          <div class="field-label">性格傾向 <span class="field-hint">可複選，建議 2–4 個</span></div>
-          <div class="tags" id="tg-pers"></div>
-          <div class="cexp" id="ce-pers">
-            <div class="crow" style="margin-top:6px">
-              <textarea class="hw-input" id="ci-pers" placeholder="輸入自訂性格⋯"
-                        style="min-height:64px;resize:vertical"></textarea>
-              <button class="btn-sm" onclick="addChip('pers')">加入</button>
-            </div>
-          </div>
-          <div class="chips" id="ch-pers"></div>
-        </div>
-        <div class="field">
-          <div class="field-label">長相敘述 <span class="field-opt">可選</span> <span
-                  class="field-hint">若無則隨機生成，包含身高、髮色、眼睛顏色、體型等</span></div>
-          <textarea class="hw-input" id="f-look" placeholder="可自由描述，或留空由命運決定⋯"
-                    style="min-height:80px;resize:vertical"></textarea>
-        </div>
-      </div>
       <div class="btn-row"><button class="btn pri" onclick="go(1)">下一頁：家庭資訊 →</button></div>
     </div>
 
     <!-- PAGE 1 -->
     <div id="p1" style="display:none">
-      <div class="section">
-        <div class="section-title">家庭資訊</div>
-        <div class="field">
-          <div class="field-label">家族血統</div>
-          <div class="tags" id="tg-origin"></div>
-        </div>
-        <div class="field">
-          <div class="field-label">家庭氛圍</div>
-          <div class="tags" id="tg-fam"></div>
-          <div class="cexp" id="ce-fam">
-            <textarea class="hw-input" id="ci-fam" placeholder="描述家庭氛圍⋯"
-                      style="min-height:64px;resize:vertical;margin-top:6px"></textarea>
-          </div>
-        </div>
-        <div class="field">
-          <div class="field-label">其他家庭成員</div>
-          <div class="tags" id="tg-mem"></div>
-          <div class="cexp" id="ce-mem">
-            <textarea class="hw-input" id="ci-mem" placeholder="描述家庭成員組成⋯，如有兄弟姐妹、寵物等"
-                      style="min-height:64px;resize:vertical;margin-top:6px"></textarea>
-          </div>
-        </div>
-      </div>
       <div class="btn-row">
         <button class="btn" onclick="go(0)">← 返回</button>
         <button class="btn pri" onclick="go(2)">下一頁：入學資訊 →</button>
@@ -570,35 +652,6 @@
 
     <!-- PAGE 2 -->
     <div id="p2" style="display:none">
-      <div class="section">
-        <div class="section-title">入學資訊</div>
-        <div class="field">
-          <div class="field-label">學院</div>
-          <div class="tags" id="tg-house"></div>
-        </div>
-        <div class="field">
-          <div class="field-label">魔杖</div>
-          <div class="tags" id="tg-wand"></div>
-          <div class="cexp" id="ce-wand">
-            <div class="crow" style="margin-top:6px">
-              <input class="hw-input" id="ci-wand" placeholder="描述你的魔杖（木材、芯、長度等）⋯">
-              <button class="btn-sm" onclick="addChip('wand')">確認</button>
-            </div>
-          </div>
-          <div class="chips" id="ch-wand"></div>
-        </div>
-        <div class="field">
-          <div class="field-label">入學後天賦及興趣 <span class="field-hint">可複選</span></div>
-          <div class="tags" id="tg-tal"></div>
-          <div class="cexp" id="ce-tal">
-            <div class="crow" style="margin-top:6px">
-              <input class="hw-input" id="ci-tal" placeholder="輸入自訂天賦⋯">
-              <button class="btn-sm" onclick="addChip('tal')">加入</button>
-            </div>
-          </div>
-          <div class="chips" id="ch-tal"></div>
-        </div>
-      </div>
       <div class="btn-row">
         <button class="btn" onclick="go(1)">← 返回</button>
         <button class="btn pri" onclick="go(3)">下一頁：劇情偏好 →</button>
@@ -607,32 +660,6 @@
 
     <!-- PAGE 3 -->
     <div id="p3" style="display:none">
-      <div class="section">
-        <div class="section-title">遊戲劇情偏好</div>
-        <div class="field">
-          <div class="field-label">隱藏支線</div>
-          <div class="tags" id="tg-sub"></div>
-        </div>
-        <div class="field">
-          <div class="field-label">與原著 NPC 之關係 <span class="field-hint">可複選</span></div>
-          <div class="tags" id="tg-npc"></div>
-          <div class="cexp" id="ce-npc">
-            <div class="crow" style="margin-top:6px">
-              <textarea class="hw-input" id="ci-npc" placeholder="描述與 NPC 的關係⋯，如：朋友、敵人，入學後相識等"
-                        style="min-height:64px;resize:vertical"></textarea>
-              <button class="btn-sm" onclick="addChip('npc')">加入</button>
-            </div>
-          </div>
-          <div class="chips" id="ch-npc"></div>
-        </div>
-      </div>
-      <div class="section">
-        <div class="section-title">其他補充設定</div>
-        <div class="field">
-          <textarea class="hw-input" id="f-extra" placeholder="任何其他你想告訴主持人的設定⋯"
-                    style="min-height:100px;resize:vertical"></textarea>
-        </div>
-      </div>
       <div class="btn-row">
         <button class="btn" onclick="go(2)">← 返回</button>
         <button class="btn pri" onclick="buildConfirm()">填寫完畢</button>
@@ -656,15 +683,36 @@
       <div class="section">
         <div class="section-title">申請資料預覽</div>
         <div class="form-content-box" id="cbox">
-          <pre id="ctxt"></pre><button class="btn" onclick="doCopy()">📜 複製設定文字</button>
+          <pre id="ctxt"></pre>
+          <!-- <button class="btn" onclick="doCopy()">📜 複製設定文字</button> -->
         </div>
       </div>
       <div class="btn-row">
         <button class="btn" onclick="go(4)">← 返回</button>
-        <button class="btn pri" onclick="outputConfig()">✦ 提交入學申請</button>
+        <button class="btn" onclick="outputConfig()">✎ 儲存表單資料</button>
+        <button class="btn pri" onclick="copyFormContent()">✦ 輸出入學申請表</button>
       </div>
     </div>
 
+    <!-- Welcome Dialog（初始） -->
+    <div class="dialog-overlay open" id="welcome-overlay">
+      <div class="welcome-box parchment">
+        <div class="welcome-title">✦ 霍格華茲入學資料審核規章 ✦</div>
+        <div class="welcome-rules">本表單共分六章，請依魔法部規定逐頁填寫。帶有 <em>＊</em> 標記之欄位將影響命運之輪的轉動，請審慎作答。
+
+          填寫過程中，您的資料將由魔法羽毛筆自動記錄，可隨時中止並於日後繼續。
+
+          <em>凡未填寫之欄位，申請提交後，會由魔法墨水自動感應隨機生成相應資料。</em>
+        </div>
+        <div class="welcome-btns">
+          <button class="btn pri" onclick="startNewForm()">填寫新表單</button>
+          <button class="btn" id="btn-continue-form" onclick="continueForm()">繼續填寫表單
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- General Dialog -->
     <div class="dialog-overlay" id="dialog-overlay">
       <div class="dialog-box">
         <div class="dialog-msg" id="dialog-msg"></div>
@@ -675,28 +723,359 @@
       </div>
     </div>
 
+    <!-- Load Form Data Dialog -->
+    <div class="dialog-overlay" id="load-form-data-overlay">
+      <div class="dialog-box">
+        <div id="load-form-data-title">手動貼上表單資料</div>
+        <div id="load-form-data-hint">將匯出的 JSON 資料貼入下方欄位，然後點選「確認讀取」。</div>
+        <textarea id="load-form-data-textarea" placeholder='{ "currentPage": 0, ... }'></textarea>
+        <div id="load-form-data-error"></div>
+        <div class="dialog-btns">
+          <button class="btn" id="load-form-data-cancel">取消</button>
+          <button class="btn pri" id="load-form-data-confirm">確認讀取</button>
+        </div>
+      </div>
+    </div>
+
     <div class="toast" id="toast"></div>
 
     <script>
+      // ── Field config ──
+      const FIELDS = [
+        // PAGE 0 ─ 個人資訊
+        { page: 0, section: '個人資訊', id: 'name', label: '姓名', hint: '＊使用語言會影響遊戲過程中，其餘角色名稱的顯示方式', type: 'text', placeholder: '請輸入姓名⋯' },
+        { page: 0, section: '個人資訊', id: 'nick', label: '暱稱', hint: '當 NPC 關係進展到一定程度時，有可能會更改稱呼', type: 'text', placeholder: '請輸入暱稱⋯（可留空）' },
+        { page: 0, section: '個人資訊', id: 'gender', label: '性別', type: 'tags' },
+        { page: 0, section: '個人資訊', id: 'bd', label: '生日', hint: '＊星座會影響隨機生成玩家性格', type: 'text', placeholder: '請輸入生日月份與日期，例：7月12日' },
+        { page: 0, section: '個人資訊', id: 'mbti', label: 'MBTI', hint: '＊MBTI 會影響系統生成行動選項', type: 'tags' },
+        { page: 0, section: '個人資訊', id: 'pers', label: '性格傾向', hint: '可複選，建議 2–4 個 ＊性格會影響系統生成行動選項', type: 'tags', expand: { inputType: 'textarea', placeholder: '請輸入自訂性格⋯', chips: true, btnLabel: '加入' } },
+        { page: 0, section: '個人資訊', id: 'look', label: '長相敘述', hint: '若無則隨機生成', type: 'textarea', placeholder: '可自由描述玩家外貌⋯，包含身高、髮色、眼睛顏色、體型等', minHeight: 80 },
+        // PAGE 1 ─ 家庭資訊
+        { page: 1, section: '家庭資訊', id: 'origin', label: '家族血統', type: 'tags' },
+        { page: 1, section: '家庭資訊', id: 'fam', label: '家庭氛圍', type: 'tags', expand: { inputType: 'textarea', placeholder: '請描述家庭氛圍⋯' } },
+        { page: 1, section: '家庭資訊', id: 'mem', label: '其他家庭成員', type: 'tags', expand: { inputType: 'textarea', placeholder: '請描述家庭成員組成⋯，如有兄弟姐妹、寵物等' } },
+        // PAGE 2 ─ 入學資訊
+        { page: 2, section: '入學資訊', id: 'house', label: '學院', type: 'tags' },
+        { page: 2, section: '入學資訊', id: 'wand', label: '魔杖', type: 'tags', expand: { inputType: 'text', placeholder: '請描述你的魔杖（木材、芯、長度等）⋯', chips: true, btnLabel: '確認' } },
+        { page: 2, section: '入學資訊', id: 'tal', label: '入學後天賦及興趣', hint: '可複選', type: 'tags', expand: { inputType: 'text', placeholder: '請輸入自訂天賦⋯', chips: true, btnLabel: '加入' } },
+        // PAGE 3 ─ 遊戲劇情偏好
+        { page: 3, section: '遊戲劇情偏好', id: 'era', label: '時代背景', hint: '可複選', type: 'tags', expand: { inputType: 'text', placeholder: '請輸入自訂時代背景⋯', chips: true, btnLabel: '加入' } },
+        { page: 3, section: '遊戲劇情偏好', id: 'sub', label: '隱藏支線', type: 'tags' },
+        { page: 3, section: '遊戲劇情偏好', id: 'npc', label: '與原著 NPC 之關係', hint: '可複選', type: 'tags', expand: { inputType: 'textarea', placeholder: '請描述與 NPC 的關係⋯，如：朋友、敵人，入學後相識等', chips: true, btnLabel: '加入' } },
+        { page: 3, section: '遊戲劇情偏好', id: 'scene', label: '遊戲開始場景', hint: '若無則依玩家設定自動生成', type: 'textarea', placeholder: '描述遊戲開始時的場景⋯，如：早晨、玩家所在地點、季節氛圍等', minHeight: 80 },
+        { page: 3, section: '其他補充設定', id: 'extra', label: null, type: 'textarea', placeholder: '任何其他你想添加的故事設定⋯', minHeight: 100 },
+      ];
+
       // ── Tag definitions ──
       const TDEFS = {
         gender: { multi: false, opts: ['女', '男'] },
         mbti: { multi: false, opts: ['INTJ', 'INTP', 'ENTJ', 'ENTP', 'INFJ', 'INFP', 'ENFJ', 'ENFP', 'ISTJ', 'ISFJ', 'ESTJ', 'ESFJ', 'ISTP', 'ISFP', 'ESTP', 'ESFP'] },
         origin: { multi: false, opts: ['純血（家長皆是巫師）', '混血（一方巫師一方麻瓜）', '麻瓜（家長皆是麻瓜）'] },
-        fam: { multi: false, opts: ['熱鬧', '冷淡', '開放', '家教嚴格', '緊密', '其他', '隨機'], custom: '其他' },
+        fam: { multi: false, opts: ['熱鬧', '冷淡', '開放', '貴族', '嚴肅', '緊密', '其他', '隨機'], custom: '其他' },
         mem: { multi: false, opts: ['自訂', '隨機'], custom: '自訂' },
         house: { multi: false, opts: ['葛來分多', '史萊哲林', '赫夫帕夫', '雷文克勞', '於分類帽儀式決定'] },
         wand: { multi: false, opts: ['指定', '隨機'], custom: '指定' },
         tal: { multi: true, opts: ['黑魔法防禦術', '變形學', '魔藥學', '魔法史', '天文學', '符咒學', '藥草學', '飛行學', '魁地奇', '奇獸飼育學', '麻瓜研究', '算命學', '占卜學', '古代神秘文字研究', '隨機'] },
+        era: { multi: true, opts: ['現代時空背景', '原著時空背景', '原著故事線', '接續原著故事線', '自訂'], custom: '自訂' },
         sub: { multi: false, opts: ['直接開啟', '逐步開啟', '隨機'] },
         npc: { multi: false, opts: ['自訂', '隨機'], custom: '自訂' },
-        pers: { multi: true, opts: ['勇敢', '聰明', '善良', '仗義', '敏銳', '野心勃勃', '神秘', '溫柔', '細心', '沉默', '活潑', '高傲', '熱心', '謹慎', '其他', '隨機'], custom: '其他' },
+        pers: { multi: true, opts: ['勇敢', '豪爽', '正義', '守信', '果決', '聰明', '野心', '高傲', '神秘', '善良', '溫柔', '細心', '活潑', '熱心', '冷靜', '敏銳', '沉默', '謹慎', '博學', '其他', '隨機'], custom: '其他' },
       };
 
-      const SEL = {}; // key -> val or []
+      const SEL = {};
       Object.keys(TDEFS).forEach(k => { SEL[k] = TDEFS[k].multi ? [] : ''; });
 
       const CONFIRMED = {};
+
+      // ── localStorage ──
+      const STORAGE_KEY = 'hw_game_config';
+      let FORM_ID = '';
+
+      function generateFormId() {
+        const now = new Date();
+        return now.getFullYear().toString()
+          + String(now.getMonth() + 1).padStart(2, '0')
+          + String(now.getDate()).padStart(2, '0')
+          + '_'
+          + String(now.getHours()).padStart(2, '0')
+          + String(now.getMinutes()).padStart(2, '0')
+          + String(now.getSeconds()).padStart(2, '0');
+      }
+
+      function saveToStorage(currentPage) {
+        const data = {
+          form_id: FORM_ID,
+          currentPage: currentPage !== undefined ? currentPage : 0,
+          inputs: {
+            name: (document.getElementById('f-name') || {}).value || '',
+            nick: (document.getElementById('f-nick') || {}).value || '',
+            bd: (document.getElementById('f-bd') || {}).value || '',
+            look: (document.getElementById('f-look') || {}).value || '',
+            scene: (document.getElementById('f-scene') || {}).value || '',
+            extra: (document.getElementById('f-extra') || {}).value || '',
+          },
+          sel: JSON.parse(JSON.stringify(SEL)),
+          chips: {
+            pers: getChips('pers'),
+            wand: getChips('wand'),
+            tal: getChips('tal'),
+            npc: getChips('npc'),
+            era: getChips('era'),
+          },
+          customInputs: {
+            fam: (document.getElementById('ci-fam') || {}).value || '',
+            mem: (document.getElementById('ci-mem') || {}).value || '',
+          }
+        };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      }
+
+      function loadFromStorage() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          return raw ? JSON.parse(raw) : null;
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function clearStorage() {
+        localStorage.removeItem(STORAGE_KEY);
+      }
+
+      function restoreFromData(data) {
+        if (!data) return;
+
+        // form_id
+        if (data.form_id) FORM_ID = data.form_id;
+
+        // text inputs
+        if (data.inputs) {
+          ['name', 'nick', 'bd', 'look', 'scene', 'extra'].forEach(id => {
+            const el = document.getElementById('f-' + id);
+            if (el && data.inputs[id] !== undefined) el.value = data.inputs[id];
+          });
+        }
+
+        // tag selections
+        if (data.sel) {
+          Object.keys(TDEFS).forEach(k => {
+            if (data.sel[k] !== undefined) SEL[k] = data.sel[k];
+          });
+        }
+
+        // custom text inputs (expand textareas)
+        if (data.customInputs) {
+          ['fam', 'mem'].forEach(k => {
+            const el = document.getElementById('ci-' + k);
+            if (el && data.customInputs[k] !== undefined) el.value = data.customInputs[k];
+          });
+        }
+
+        // chips
+        if (data.chips) {
+          ['pers', 'wand', 'tal', 'npc', 'era'].forEach(k => {
+            const ch = document.getElementById('ch-' + k);
+            if (!ch) return;
+            ch.innerHTML = '';
+            const vals = data.chips[k] || [];
+            vals.forEach(v => {
+              const c = document.createElement('div');
+              c.className = 'chip';
+              c.dataset.v = v;
+              c.innerHTML = `<span>${v}</span><span class="chip-x" onclick="this.parentElement.remove()">✕</span>`;
+              ch.appendChild(c);
+            });
+          });
+        }
+
+        renderAll();
+        const page = Math.min(data.currentPage || 0, 3);
+        go(page);
+      }
+
+      // ── Welcome dialog actions ──
+      function startNewForm() {
+        clearStorage();
+        FORM_ID = generateFormId();
+        // reset all state
+        ['name', 'nick', 'bd', 'look', 'extra'].forEach(id => {
+          const el = document.getElementById('f-' + id);
+          if (el) el.value = '';
+        });
+        Object.keys(TDEFS).forEach(k => { SEL[k] = TDEFS[k].multi ? [] : ''; });
+        ['pers', 'wand', 'tal', 'npc', 'era'].forEach(k => {
+          const ch = document.getElementById('ch-' + k);
+          if (ch) ch.innerHTML = '';
+          const ci = document.getElementById('ci-' + k);
+          if (ci) ci.value = '';
+        });
+        ['fam', 'mem'].forEach(k => {
+          const ci = document.getElementById('ci-' + k);
+          if (ci) ci.value = '';
+        });
+        renderAll();
+        go(0);
+        saveToStorage(0);
+        document.getElementById('welcome-overlay').classList.remove('open');
+      }
+
+      function continueForm() {
+        document.getElementById('welcome-overlay').classList.remove('open');
+
+        // load from existing localStorage
+        const saved = loadFromStorage();
+        const hadFileHandler = window.isSecureContext && window.showSaveFilePicker;
+
+        showDialog('選擇讀取表單', () => {
+          showLoadFormDataDialog((stateData) => {
+            restoreFromData(stateData);
+            saveToStorage(Math.min(stateData.currentPage || 0, 3));
+            document.getElementById('welcome-overlay').classList.remove('open');
+            toast('表單資料已手動載入。');
+          });
+        }, async () => {
+          const loadExistStorage = () => {
+            restoreFromData(saved);
+            document.getElementById('welcome-overlay').classList.remove('open');
+            toast('已沿用既有的記憶水晶。');
+          }
+          if (hadFileHandler) {
+            // open file picker
+            try {
+              const [fileHandle] = await window.showOpenFilePicker({
+                startIn: 'desktop',
+                types: [{ description: 'JSON 設定檔', accept: { 'application/json': ['.json'] } }],
+                multiple: false,
+              });
+              const file = await fileHandle.getFile();
+              const text = await file.text();
+              const data = JSON.parse(text);
+              // support both new format (with rawState) and legacy format
+              const stateData = data.rawState || data;
+              restoreFromData(stateData);
+              // if loaded from file, update form_id from filename if possible
+              const match = fileHandle.name.match(/hw_game_config_(\d{8}_\d{6})\.json/);
+              if (match) FORM_ID = match[1];
+              saveToStorage(Math.min(stateData.currentPage || 0, 3));
+              document.getElementById('welcome-overlay').classList.remove('open');
+              toast('表單資料已從記憶水晶中還原。');
+            } catch (e) {
+              if (e.name === 'AbortError') {
+                loadExistStorage()
+              } else {
+                toast('無法讀取檔案：' + e.message);
+              }
+            }
+          } else {
+            loadExistStorage();
+          }
+        }, { confirmText: '手動貼上表單', cancelText: '讀取既有表單', hiddenCancel: !saved && !hadFileHandler });
+      }
+
+      // ── Render fields from config ──
+      function renderFields() {
+        const pages = {};
+        for (const f of FIELDS) {
+          if (!pages[f.page]) pages[f.page] = {};
+          if (!pages[f.page][f.section]) pages[f.page][f.section] = [];
+          pages[f.page][f.section].push(f);
+        }
+        for (const [pg, sections] of Object.entries(pages)) {
+          const pageEl = document.getElementById('p' + pg);
+          const btnRow = pageEl.querySelector('.btn-row');
+          for (const [title, fields] of Object.entries(sections)) {
+            const sec = document.createElement('div');
+            sec.className = 'section';
+            const h = document.createElement('div');
+            h.className = 'section-title';
+            h.textContent = title;
+            sec.appendChild(h);
+            for (const f of fields) sec.appendChild(buildField(f));
+            pageEl.insertBefore(sec, btnRow);
+          }
+        }
+      }
+
+      function buildField(f) {
+        const el = document.createElement('div');
+        el.className = 'field';
+
+        if (f.label !== null) {
+          const lbl = document.createElement('div');
+          lbl.className = 'field-label';
+          lbl.appendChild(document.createTextNode(f.label));
+          if (f.hint) {
+            lbl.append(' ');
+            const s = document.createElement('span');
+            s.className = 'field-hint';
+            s.textContent = f.hint;
+            lbl.appendChild(s);
+          }
+          el.appendChild(lbl);
+        }
+
+        if (f.type === 'text') {
+          const inp = document.createElement('input');
+          inp.className = 'hw-input';
+          inp.id = 'f-' + f.id;
+          inp.placeholder = f.placeholder || '';
+          el.appendChild(inp);
+        } else if (f.type === 'textarea') {
+          const ta = document.createElement('textarea');
+          ta.className = 'hw-input';
+          ta.id = 'f-' + f.id;
+          ta.placeholder = f.placeholder || '';
+          ta.style.cssText = `min-height:${f.minHeight || 80}px;resize:vertical`;
+          el.appendChild(ta);
+        } else if (f.type === 'tags') {
+          const tg = document.createElement('div');
+          tg.className = 'tags';
+          tg.id = 'tg-' + f.id;
+          el.appendChild(tg);
+
+          if (f.expand) {
+            const ce = document.createElement('div');
+            ce.className = 'cexp';
+            ce.id = 'ce-' + f.id;
+
+            if (f.expand.chips) {
+              const crow = document.createElement('div');
+              crow.className = 'crow';
+              crow.style.marginTop = '6px';
+              const inp = f.expand.inputType === 'textarea'
+                ? document.createElement('textarea')
+                : document.createElement('input');
+              inp.className = 'hw-input';
+              inp.id = 'ci-' + f.id;
+              inp.placeholder = f.expand.placeholder || '';
+              if (f.expand.inputType === 'textarea') inp.style.cssText = 'min-height:64px;resize:vertical';
+              const btn = document.createElement('button');
+              btn.className = 'btn-sm';
+              btn.textContent = f.expand.btnLabel || '加入';
+              btn.onclick = () => addChip(f.id);
+              crow.appendChild(inp);
+              crow.appendChild(btn);
+              ce.appendChild(crow);
+              el.appendChild(ce);
+              const ch = document.createElement('div');
+              ch.className = 'chips';
+              ch.id = 'ch-' + f.id;
+              el.appendChild(ch);
+            } else {
+              const ta = document.createElement('textarea');
+              ta.className = 'hw-input';
+              ta.id = 'ci-' + f.id;
+              ta.placeholder = f.expand.placeholder || '';
+              ta.style.cssText = 'min-height:64px;resize:vertical;margin-top:6px';
+              ce.appendChild(ta);
+              el.appendChild(ce);
+            }
+          }
+        }
+
+        return el;
+      }
 
       // ── Render tags ──
       function renderAll() {
@@ -788,6 +1167,8 @@
           else if (i === n) { d.classList.add('active'); l.classList.add('active'); }
         }
         window.scrollTo(0, 0);
+        // auto-save on every page transition
+        if (FORM_ID) saveToStorage(n);
       }
 
       function resolveField(field) {
@@ -826,6 +1207,11 @@
             const custom = getChips('tal');
             return [...t, ...custom].join('、');
           }
+          case 'era': {
+            const selected = SEL.era || [];
+            const custom = getChips('era');
+            return [...selected, ...custom].join('、') || '';
+          }
           case 'sub': return SEL.sub;
           case 'npc': {
             if (!SEL.npc) return '';
@@ -852,8 +1238,10 @@
           { key: '學院', id: 'house', val: () => resolveField('house'), pg: 2 },
           { key: '魔杖', id: 'wand', val: () => resolveField('wand'), pg: 2 },
           { key: '天賦興趣', id: 'tal', val: () => resolveField('tal'), pg: 2 },
+          { key: '時代背景', id: 'era', val: () => resolveField('era'), pg: 3 },
           { key: '隱藏支線', id: 'sub', val: () => resolveField('sub'), pg: 3 },
           { key: 'NPC關係', id: 'npc', val: () => resolveField('npc'), pg: 3 },
+          { key: '開始場景', id: 'scene', val: () => document.getElementById('f-scene').value.trim(), pg: 3 },
         ];
 
         rows.forEach(r => { CONFIRMED[r.id] = r.val(); });
@@ -877,6 +1265,11 @@
         row.className = 'conf-row';
         row.innerHTML = `<div class="conf-key">補充設定</div><div class="conf-val">${extra || '無'}</div><div class="conf-act"><button class="ed-btn" onclick="go(3)">編輯</button></div>`;
         grid.appendChild(row);
+
+        if (!FORM_ID) FORM_ID = generateFormId();
+
+        // save confirmed state
+        saveToStorage(4);
       }
 
       function buildText() {
@@ -900,7 +1293,7 @@
           '▌入學資訊',
           `學院：${CONFIRMED.house}`, `魔杖：${CONFIRMED.wand}`, `天賦興趣：${CONFIRMED.tal}`, '',
           '▌劇情偏好',
-          `隱藏支線：${CONFIRMED.sub}`, `與原著NPC關係：${CONFIRMED.npc}`
+          `時代背景：${CONFIRMED.era || '原著時空背景'}`, `隱藏支線：${CONFIRMED.sub}`, `與原著NPC關係：${CONFIRMED.npc}`, `開始場景：${CONFIRMED.scene || '自動生成'}`
         );
         if (extra) lines.push('', '▌補充設定', extra);
         return lines.join('\n');
@@ -911,20 +1304,38 @@
         go(5);
       }
 
-      function doCopy() {
-        navigator.clipboard.writeText(buildText()).then(() => toast('設定文字已複製至剪貼簿。'));
-      }
-
       async function outputConfig() {
+        const form_id = FORM_ID || generateFormId();
         const now = new Date();
-        const form_id = now.getFullYear().toString()
-          + String(now.getMonth() + 1).padStart(2, '0')
-          + String(now.getDate()).padStart(2, '0')
-          + '_'
-          + String(now.getHours()).padStart(2, '0')
-          + String(now.getMinutes()).padStart(2, '0')
-          + String(now.getSeconds()).padStart(2, '0');
+
+        // raw state for re-importing later
+        const rawState = {
+          form_id,
+          currentPage: 5,
+          inputs: {
+            name: document.getElementById('f-name').value.trim(),
+            nick: document.getElementById('f-nick').value.trim(),
+            bd: document.getElementById('f-bd').value.trim(),
+            look: document.getElementById('f-look').value.trim(),
+            scene: document.getElementById('f-scene').value.trim(),
+            extra: document.getElementById('f-extra').value.trim(),
+          },
+          sel: JSON.parse(JSON.stringify(SEL)),
+          chips: {
+            pers: getChips('pers'),
+            wand: getChips('wand'),
+            tal: getChips('tal'),
+            npc: getChips('npc'),
+            era: getChips('era'),
+          },
+          customInputs: {
+            fam: (document.getElementById('ci-fam') || {}).value || '',
+            mem: (document.getElementById('ci-mem') || {}).value || '',
+          }
+        };
+
         const data = {
+          form_id,
           createdAt: now.toISOString(),
           name: CONFIRMED.name || document.getElementById('f-name').value.trim() || '未命名角色',
           nick: document.getElementById('f-nick').value.trim(),
@@ -939,29 +1350,47 @@
           house: CONFIRMED.house,
           wand: CONFIRMED.wand,
           talents: CONFIRMED.tal,
+          era: CONFIRMED.era,
           hiddenQuest: CONFIRMED.sub,
           npcRelations: CONFIRMED.npc,
+          startScene: CONFIRMED.scene,
           extra: document.getElementById('f-extra').value.trim(),
-          rawText: buildText()
+          rawText: buildText(),
+          rawState,
         };
-        try {
-          const targetDirHandle = await window.showDirectoryPicker({
-            mode: 'readwrite'
-          });
-          const handle = await window.showSaveFilePicker({
-            startIn: '../data',
-            suggestedName: `hw_game_config_${form_id}.json`,
-            types: [{ description: 'JSON 檔案', accept: { 'application/json': ['.json'] } }],
-          });
-          const writable = await handle.createWritable();
-          await writable.write(JSON.stringify(data, null, 2));
-          await writable.close();
-          showAlert(`已提交您的入學申請，這是您的入學編號：${form_id}，請到報到處確認您的申請結果。`);
-        } catch (e) {
-          if (e.name !== 'AbortError') showAlert(`您的入學申請提交失敗，請確認錯誤訊息並再次提交申請。
-          錯誤訊息：${e.message}`);
-          return;
+        const json = JSON.stringify(data, null, 2);
+        const filename = `hw_game_config_${form_id}.json`;
+
+        // 複製到剪貼簿（使用者可以手動貼到檔案中）
+        const copyJsonToClipboard = () => {
+          copyToClipboard(json).then(() => toast('申請表單資料已複製至剪貼簿。')).catch((e) => toast(`無法複製到剪貼簿:${e.message}`));
         }
+
+        // showSaveFilePicker + createWritable 需要安全環境（https / localhost）
+        // file:// 開啟時 createWritable 會被瀏覽器封鎖，改用複製到剪貼簿
+        if (window.isSecureContext && window.showSaveFilePicker) {
+          try {
+            const handle = await window.showSaveFilePicker({
+              startIn: 'desktop',
+              suggestedName: filename,
+              types: [{ description: 'JSON 檔案', accept: { 'application/json': ['.json'] } }],
+            });
+            const writable = await handle.createWritable();
+            await writable.write(json);
+            await writable.close();
+            toast(`已輸出您的申請表單資料。請查看檔案：${filename}。`);
+            return;
+          } catch (e) {
+            if (e.name === 'AbortError') return;
+            showDialog(`輸出表單的過程發生錯誤：${e.message}，是否改為將資料複製到剪貼簿？`, copyJsonToClipboard, () => { });
+          }
+        } else {
+          copyJsonToClipboard()
+        }
+      }
+
+      function copyFormContent() {
+        copyToClipboard(buildText()).then(() => showAlert(`已輸出您的入學資料到剪貼簿，這是您的入學編號：${FORM_ID}，請到報到處提交您的申請內容。`));
       }
 
       function showAlert(msg) {
@@ -970,28 +1399,110 @@
         showDialog(msg, () => { cancelBtn.style.display = ''; });
       }
 
-      function showDialog(msg, onConfirm) {
+      function copyToClipboard(text) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          return navigator.clipboard.writeText(text);
+        }
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          return Promise.resolve();
+        } catch (e) {
+          document.body.removeChild(ta);
+          return Promise.reject(e);
+        }
+      }
+
+      function showLoadFormDataDialog(onLoaded) {
+        const overlay = document.getElementById('load-form-data-overlay');
+        const textarea = document.getElementById('load-form-data-textarea');
+        const errorEl = document.getElementById('load-form-data-error');
+        const confirmBtn = document.getElementById('load-form-data-confirm');
+        const cancelBtn = document.getElementById('load-form-data-cancel');
+
+        textarea.value = '';
+        errorEl.textContent = '';
+        overlay.classList.add('open');
+        setTimeout(() => textarea.focus(), 80);
+
+        const close = () => {
+          overlay.classList.remove('open');
+          confirmBtn.removeEventListener('click', doConfirm);
+          cancelBtn.removeEventListener('click', doCancel);
+        };
+        const doConfirm = () => {
+          errorEl.textContent = '';
+          try {
+            const raw = JSON.parse(textarea.value.trim());
+            const stateData = raw.rawState || raw;
+            close();
+            if (onLoaded) onLoaded(stateData);
+          } catch (e) {
+            errorEl.textContent = '格式錯誤，請確認貼入的是有效的 JSON 資料。';
+          }
+        };
+        const doCancel = () => close();
+
+        confirmBtn.addEventListener('click', doConfirm);
+        cancelBtn.addEventListener('click', doCancel);
+      }
+
+      function showDialog(msg, onConfirm, onCancel, opts = {}) {
         const overlay = document.getElementById('dialog-overlay');
         document.getElementById('dialog-msg').textContent = msg;
-        overlay.classList.add('open');
-        const close = () => overlay.classList.remove('open');
         const confirmBtn = document.getElementById('dialog-confirm');
         const cancelBtn = document.getElementById('dialog-cancel');
-        const onOk = () => { close(); confirmBtn.removeEventListener('click', onOk); cancelBtn.removeEventListener('click', onCancel); onConfirm(); };
-        const onCancel = () => { close(); confirmBtn.removeEventListener('click', onOk); cancelBtn.removeEventListener('click', onCancel); };
-        confirmBtn.addEventListener('click', onOk);
-        cancelBtn.addEventListener('click', onCancel);
+        confirmBtn.textContent = opts.confirmText || '確認';
+        cancelBtn.textContent = opts.cancelText || '取消';
+        overlay.classList.add('open');
+
+        if (!onConfirm) confirmBtn.setAttribute('disabled', !!onConfirm);
+        if (!onCancel) cancelBtn.setAttribute('disabled', !!onCancel);
+
+        if (opts.hiddenCancel) {
+          cancelBtn.classList.add('hidden')
+        } else {
+          cancelBtn.classList.remove('hidden')
+        };
+
+        const resetBtns = () => {
+          confirmBtn.textContent = '確認';
+          cancelBtn.textContent = '取消';
+          overlay.classList.remove('open');
+        };
+        const doOk = () => {
+          resetBtns();
+          confirmBtn.removeEventListener('click', doOk);
+          cancelBtn.removeEventListener('click', doCancel);
+          if (onConfirm) onConfirm();
+        };
+        const doCancel = () => {
+          resetBtns();
+          confirmBtn.removeEventListener('click', doOk);
+          cancelBtn.removeEventListener('click', doCancel);
+          if (onCancel) onCancel();
+        };
+        confirmBtn.addEventListener('click', doOk);
+        cancelBtn.addEventListener('click', doCancel);
       }
 
       function clearAll() {
         showDialog('確定要清除所有已填資料並重新填寫嗎？', () => {
+          clearStorage();
+          FORM_ID = generateFormId();
           document.getElementById('f-name').value = '';
           document.getElementById('f-nick').value = '';
           document.getElementById('f-bd').value = '';
           document.getElementById('f-look').value = '';
+          document.getElementById('f-scene').value = '';
           document.getElementById('f-extra').value = '';
           Object.keys(TDEFS).forEach(k => { SEL[k] = TDEFS[k].multi ? [] : ''; });
-          ['pers', 'wand', 'tal', 'npc'].forEach(k => {
+          ['pers', 'wand', 'tal', 'npc', 'era'].forEach(k => {
             const ch = document.getElementById('ch-' + k);
             if (ch) ch.innerHTML = '';
             const ci = document.getElementById('ci-' + k);
@@ -1003,6 +1514,7 @@
           });
           renderAll();
           go(0);
+          saveToStorage(0);
         });
       }
 
@@ -1012,7 +1524,15 @@
         setTimeout(() => t.classList.remove('show'), 2200);
       }
 
+      // ── Init ──
+      renderFields();
       renderAll();
+
+      // setup welcome dialog
+      (function initWelcome() {
+        // const saved = loadFromStorage();
+        const continueBtn = document.getElementById('btn-continue-form');
+      })();
     </script>
   </body>
 
