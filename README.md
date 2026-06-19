@@ -19,16 +19,19 @@
 
 ```
 src/
-├── conventions/          # 遊戲核心規則與設定（提示詞）
-│   ├── game_rules.md     # 敘事風格、輸出規範、禁止詞彙
-│   ├── game_system.md    # 玩法系統：學院分、魔法學習、時間事件、死亡結局、NPC 好感度
-│   ├── game_settings.md  # 時代背景、學院、魔杖、NPC 詳細設定
-│   ├── game_start.md     # 開局引導流程、角色建立、設定修改規則
-│   └── game_history.md   # 存檔讀取規則、查詢指令、儲思盆指令
-├── components/           # 遊戲介面 HTML 元件
-│   ├── pensieve-memory-vault.html   # 儲思盆存檔管理介面
+├── prompts/                          # 提示詞系統
+│   ├── system_prompt.md              # 系統設定：GM 職責、輸出格式、敘事風格、禁止內容
+│   ├── start_prompt.md               # 開局流程：角色建立引導、自動補全規則、入學檔案確認
+│   ├── game_prompt/
+│   │   ├── index.md                  # 遊戲開發者提示：世界觀、敘事、NPC、學院分、時間、隱藏劇情
+│   │   └── game_settings.md          # 詳細設定：時代背景、學院、魔杖、NPC 規則
+│   └── memory_prompt/
+│       ├── index.md                  # 存取系統：/menu、/status、/npcs、/save、/load 指令規範
+│       └── game_history.md           # 存檔格式定義、save/load 指令行為、多存檔讀取規範
+├── components/                       # 遊戲介面 HTML 元件
+│   ├── pensieve-memory-vault.html    # 儲思盆存檔管理介面
 │   └── hogwarts-application-form.html  # 霍格華茲入學申請表
-└── history/              # 玩家遊戲存檔（JSON）
+└── history/                          # 玩家遊戲存檔（JSON）
 ```
 
 ---
@@ -51,7 +54,7 @@ src/
 
 ### 1. 載入設定
 
-將 `src/conventions/` 下的所有 `.md` 檔案作為 System Prompt 或 Project Knowledge 載入 AI 對話環境。
+將 `src/prompts/` 下的所有 `.md` 檔案作為 System Prompt 或 Project Knowledge 載入 AI 對話環境。
 
 ### 2. 開始遊戲
 
@@ -121,7 +124,7 @@ src/
 
 初始好感度預設 20–30；首次互動帶有衝突或敵意可低至 0–10。感情線選項須好感度達 60 以上才解鎖，部分深度支線需達 70 以上。`/npcs` 顯示關係描述依標籤呈現，不直接顯示數字。
 
-某些 NPC 在特定劇情觸發前好感度上限會被凍結（如 Draco 未觸發相關支線前上限為 39）。
+NPC 對玩家態度由好感度、學院立場、過往事件、個人價值觀共同決定。NPC 擁有獨立記憶，只會依據自己親歷的事件調整態度，未親歷的劇情對其行為無效。
 
 ### 魔法學習
 
@@ -129,7 +132,11 @@ src/
 
 ### 時間推進
 
-每天分為清晨、上午課程、午餐、下午課程、黃昏自由活動、夜晚、深夜特殊事件。時間自然推進，無需每次寫完完整一天。
+每天分為清晨、上午課程、午餐、下午課程、晚餐、夜晚、深夜特殊事件。時間自然推進，無需每次寫完完整一天。重要日期（魁地奇比賽、聖誕節、考試週）由事件排程器追蹤，不會遺漏。
+
+### 技能與特質
+
+施法成功率依技能等級提升，高等級解鎖特殊事件。玩家行為會累積人格特質（如夜遊多次 → `reckless`、常幫助同學 → `kind`），影響 NPC 對玩家的長期看法。
 
 ### 死亡與遊戲結束
 
@@ -153,98 +160,114 @@ src/
 
 ## 存取進度
 
-### 存檔指令
+### 功能選單
+
+輸入以下任一指令開啟選單：
 
 ```
-/save        # 主動存檔（或輸入「記錄魔法日誌」），選擇快速記憶或完整記憶
-/load        # 讀取存檔（或輸入「抽取記憶銀絲」）
-/status      # 查看當前角色狀態（或輸入「查看魔法筆記」）
-/npcs        # 查看人際關係（或輸入「查看人際關係」）
+/menu
+開啟選單
+打開魔法筆記本
 ```
 
-### 查詢指令
-
-`/status` 輸出格式：
+### 遊戲指令
 
 ```
-📋 當前狀態
-學年：X 年級
-學院：XXX（學院分：XXX 分）
-位置：XXX
-已觸發支線：XXX / 尚無
+/status      # 查看當前角色狀態（名稱、學年、學院、地點、時間、學院分、劇情進度）
+/npcs        # 查看人際關係（已互動 NPC 的關係描述）
+/save        # 主動存檔，輸出 JSON 與劇情摘要
+/load        # 讀取存檔，恢復玩家資訊、NPC 關係、旗標、任務與劇情摘要
 ```
 
-`/npcs` 輸出格式（僅列出已實際互動過的 NPC）：
+### 存檔格式
 
-```
-👥 人際關係一覽
-NPC名：關係簡述（如：好友、競爭對手、暗戀中）
-...
+```json
+{
+  "form_id": "{start_game_timestamp}",
+  "savedAt": "{game_scene_date_time}",
+  "character": {
+    "name": "",
+    "nick": "",
+    "gender": "",
+    "birthday": "",
+    "house": "",
+    "year": 1,
+    "wand": "",
+    "origin": "",
+    "mbti": "",
+    "personality": [],
+    "talents": [],
+    "housePoints": 0
+  },
+  "worldState": {
+    "date": "1991-09-01",
+    "season": "autumn",
+    "weekday": "Sunday",
+    "location": "Hogwarts Express",
+    "weather": "sunny",
+    "currentArc": "First Year",
+    "activeStorylines": []
+  },
+  "npcs": {
+    "hermione_granger": {
+      "affection": 48,
+      "relationship": "friend",
+      "known_events": ["library_help"],
+      "opinion": "responsible student",
+      "last_interaction": "1991-10-03"
+    }
+  },
+  "flags": {
+    "met_harry": true,
+    "sorting_completed": true
+  },
+  "inventory": [{ "id": "wand", "name": "冬青木魔杖" }],
+  "skills": {
+    "charms": 12,
+    "transfiguration": 8,
+    "potions": 15,
+    "flying": 4,
+    "defense": 10
+  },
+  "traits": ["curious", "brave"],
+  "reputation": {
+    "gryffindor": 30,
+    "slytherin": -10,
+    "teachers": 15,
+    "students": 20
+  },
+  "futureEvents": [{ "id": "quidditch_match", "date": "1991-11-12" }],
+  "summary": ""
+}
 ```
 
 ### 自動存檔觸發時機
 
 - 每累積 10–15 輪對話
 - 重大劇情節點（支線開啟、感情線轉折、重要選擇）
-- 高風險行動前自動儲存（夜遊禁林、與敵對角色衝突、魁地奇比賽開始）
-
-### 存檔格式
-
-**快速記憶**：精簡 JSON + 不超過 100 字劇情摘要
-
-```json
-{
-  "character": { "name": "", "house": "", "year": 0, "wand": "", "origin": "" },
-  "location": "",
-  "npcs": { "NPC名": { "affinity": 0, "note": "關係簡述" } },
-  "flags": { "支線旗標": true },
-  "notes": ""
-}
-```
-
-**完整記憶**：完整角色資料 + 不超過 300 字詳細摘要
-
-```json
-{
-  "character": {
-    "name": "",
-    "nick": "",
-    "gender": "",
-    "house": "",
-    "year": 0,
-    "wand": "",
-    "origin": "",
-    "mbti": "",
-    "personality": "",
-    "talents": [],
-    "housePoints": 0
-  },
-  "location": "",
-  "datetime": { "season": "", "timeOfDay": "" },
-  "npcs": {
-    "NPC名": { "affinity": 0, "label": "關係標籤", "note": "關係現狀簡述" }
-  },
-  "flags": { "支線旗標": true },
-  "summary": ""
-}
-```
+- 高風險行動前（夜遊禁林、與敵對角色衝突、魁地奇比賽開始）
 
 ### 讀取存檔
 
-在對話開頭貼上存檔 JSON，AI 解析後以魔法語氣確認：
+在對話開頭貼上存檔 JSON，或提供 `form_id`，AI 解析後以魔法語氣確認：
 
-> _記憶自儲思盆的銀霧緩緩旋轉，記憶自深處一幕幕浮現⋯_
+> _記憶自儲思盆的銀霧緩緩旋轉，記憶自深處一幕幕浮現 ⋯_
 
 然後簡述當前狀態（學年、地點、最近事件）並提供行動選項。
+
+若存檔中有多筆紀錄，顯示清單（`form_id`、`savedAt`、`character.name`、`summary`）供玩家選擇讀取點。
 
 ---
 
 ## 介面元件
 
-| 檔案                             | 用途                                           |
-| -------------------------------- | ---------------------------------------------- |
-| `pensieve-memory-vault.html`     | 儲思盆存檔管理介面，供玩家讀取、刪除或新增存檔 |
-| `hogwarts-application-form.html` | 霍格華茲入學申請表，開局角色建立視覺化介面     |
+以下指令 AI 需將操作選項製作互動元件，玩家可直接點擊操作：
+
+- `/start`：開始遊戲
+- `/menu`：開啟功能選單
+- `/save`：存檔，輸出 JSON 與劇情摘要
+- `/load`：讀取存檔，恢復玩家資訊、NPC 關係、旗標、任務與劇情摘要
+- 對話中的可選行動：點擊後直接輸入對應指令，無需手動輸入文字（除自由行動選項）
 
 元件設計為嵌入 AI 對話介面的 Artifact，使用 Cinzel 與 EB Garamond 字型呼應魔法氛圍。
 
@@ -254,12 +277,16 @@ NPC名：關係簡述（如：好友、競爭對手、暗戀中）
 
 **格式**：劇情（小說敘事）+ `### 可選行動`（1–4 條）+ 第 5 條自由行動。
 
-**Token 精簡規則**：狀態數據僅在玩家使用查詢指令時輸出；存檔提醒在一般情況以一行敘事帶過，僅在重要節點才展開完整選項；可選行動每條一句話，不加說明或預測後果。
+**Token 精簡規則**：狀態數據僅在玩家使用查詢指令時輸出；可選行動每條一句話，不加說明或預測後果；避免冗餘過渡句（如「你思考了片刻」）。
+
+**建議切換 model**：在劇情密度特別高的關鍵節點（支線核心揭露、重要對決、感情線高潮），提示玩家可切換至較強的 model：
+
+> ✦ _即將進入重要的事件節點。若希望獲得更豐富細膩的敘事體驗，可考慮使用更高級的魔法羊皮紙（model），在對話介面切換後再繼續。_
 
 **禁用詞彙與句型**：
 
 - 破折號
-- 句型：「不是⋯而是那種⋯」「他沒說，但你知道⋯」「像是⋯像是⋯」「不是⋯也不是⋯」
+- 句型：「不是 ⋯ 而是那種 ⋯」「他沒說，但你知道 ⋯」「像是 ⋯ 像是 ⋯」「不是 ⋯ 也不是 ⋯」
 - 詞彙：這種／某種／那種／若有所思／說不清楚的／很穩／扛
 - 中國用語與非皇冠出版社翻譯（正確如：斜角巷、妖精、馬份）
 - 相鄰字詞重複
