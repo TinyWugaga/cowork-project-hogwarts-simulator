@@ -1,85 +1,715 @@
-{
-    "form_id": "20260612_111512",
-    "character": {
-        "name": "Tinnie Kiku",
-        "nick": "Tiny",
-        "gender": "女",
-        "house": "待分類帽儀式決定",
-        "year": 1,
-        "wand": "待領取",
-        "origin": "混血",
-        "mbti": "INTP",
-        "personality": "聰明、愛惡作劇、理智、護短、直率",
-        "talents": [
-            "占卜學",
-            "算命學",
-            "符咒學",
-            "奇獸飼育學",
-            "魁地奇"
+[
+    {
+        "form_id": "20260612_111512",
+        "character": {
+            "name": "Tinnie Kiku",
+            "nick": "Tiny",
+            "gender": "女",
+            "house": "待分類帽儀式決定",
+            "year": 1,
+            "wand": "待領取",
+            "origin": "混血",
+            "mbti": "INTP",
+            "personality": "聰明、愛惡作劇、理智、護短、直率",
+            "talents": [
+                "占卜學",
+                "算命學",
+                "符咒學",
+                "奇獸飼育學",
+                "魁地奇"
+            ],
+            "housePoints": 0
+        },
+        "location": "霍格華茲站月台",
+        "datetime": {
+            "season": "秋",
+            "timeOfDay": "夜晚"
+        },
+        "npcs": {
+            "Mark Kiku": {
+                "affinity": 78,
+                "label": "家人",
+                "note": "雙胞胎弟弟，今年未入學。臨行前在姊姊外套口袋藏便利貼叮嚀、幫她梳頭；全程訊息回覆簡短但即時，每次都是「知道了」。"
+            },
+            "Neville Longbottom": {
+                "affinity": 38,
+                "label": "認識",
+                "note": "一年級新生，蟾蜍 Trevor 在列車上走失，由 Tiny 協助尋回。圓臉善良，對分院儀式非常緊張，擔心被分錯學院。Tiny 的回應讓他稍微放鬆了一些。"
+            },
+            "Hermione Granger": {
+                "affinity": 42,
+                "label": "認識",
+                "note": "一年級新生，博覽群書、邏輯清晰、行動力強。主動組織搜蟾行動，知道日文「菊」的含義。被 Tiny 誇獎後反應不自然；嘗試分析 Tiny 適合的學院，結論是雷文克勞或葛來分多，但未獲確認，有點不甘心。"
+            }
+        },
+        "flags": {
+            "boarded_train": true,
+            "found_trevor": true,
+            "met_hermione": true,
+            "met_neville": true,
+            "saw_draco": true,
+            "saw_harry": true,
+            "saw_thestrals": true,
+            "arrived_hogsmeade": true
+        },
+        "inventory": [
+            {
+                "id": "phone",
+                "name": "手機"
+            },
+            {
+                "id": "sticky_note",
+                "name": "Mark 的便利貼"
+            },
+            {
+                "id": "lip_balm",
+                "name": "護唇膏"
+            }
         ],
-        "housePoints": 0
-    },
-    "location": "霍格華茲站月台",
-    "datetime": {
-        "season": "秋",
-        "timeOfDay": "夜晚"
-    },
-    "npcs": {
-        "Mark Kiku": {
-            "affinity": 78,
-            "label": "家人",
-            "note": "雙胞胎弟弟，今年未入學。臨行前在姊姊外套口袋藏便利貼叮嚀、幫她梳頭；全程訊息回覆簡短但即時，每次都是「知道了」。"
+        "skills": {
+            "divination": 10,
+            "charms": 8,
+            "care_of_magical_creatures": 7,
+            "quidditch": 9
         },
-        "Neville Longbottom": {
-            "affinity": 38,
-            "label": "認識",
-            "note": "一年級新生，蟾蜍 Trevor 在列車上走失，由 Tiny 協助尋回。圓臉善良，對分院儀式非常緊張，擔心被分錯學院。Tiny 的回應讓他稍微放鬆了一些。"
+        "traits": [
+            "observant",
+            "calm",
+            "playful",
+            "perceptive"
+        ],
+        "reputation": {
+            "students": 5,
+            "teachers": 0
         },
-        "Hermione Granger": {
-            "affinity": 42,
-            "label": "認識",
-            "note": "一年級新生，博覽群書、邏輯清晰、行動力強。主動組織搜蟾行動，知道日文「菊」的含義。被 Tiny 誇獎後反應不自然；嘗試分析 Tiny 適合的學院，結論是雷文克勞或葛來分多，但未獲確認，有點不甘心。"
-        }
+        "summary": "九月一日，Tiny 從家中出發前往霍格華茲。出發前與弟弟 Mark 道別，Mark 悄悄在口袋放了提醒便利貼並幫她梳頭，兩人之間的情感透過細節流露。抵達九又四分之三月台後與爸媽擁抱道別，登上霍格華茲特快車。列車途中協助 Hermione 尋回 Neville 走失的蟾蜍 Trevor，與兩人初步建立關係。期間從走道觀察其他包廂，遠遠看見 Harry、馬份，與馬份短暫對視。抵達霍格華茲站後，在月台邊緣看見兩匹騎士墮鬼馬，周圍無人察覺。目前站在月台上，海格正在召集一年級新生，分院儀式即將開始。"
     },
-    "flags": {
-        "boarded_train": true,
-        "found_trevor": true,
-        "met_hermione": true,
-        "met_neville": true,
-        "saw_draco": true,
-        "saw_harry": true,
-        "saw_thestrals": true,
-        "arrived_hogsmeade": true
-    },
-    "inventory": [
-        {
-            "id": "phone",
-            "name": "手機"
+    {
+        "form_id": "20260612_111512",
+        "savedAt": "第一年，九月一日，夜晚",
+        "character": {
+            "name": "Tinnie Kiku",
+            "nick": "Tiny",
+            "gender": "女",
+            "birthday": "7月12日（巨蟹座）",
+            "house": "待分類帽儀式決定",
+            "year": 1,
+            "wand": "待領取",
+            "origin": "混血",
+            "mbti": "INTP",
+            "personality": [
+                "聰明",
+                "愛惡作劇",
+                "理智",
+                "護短",
+                "直率"
+            ],
+            "talents": [
+                "占卜學",
+                "算命學",
+                "符咒學",
+                "奇獸飼育學",
+                "魁地奇"
+            ],
+            "housePoints": 0
         },
-        {
-            "id": "sticky_note",
-            "name": "Mark 的便利貼"
+        "worldState": {
+            "date": "第一年九月一日",
+            "season": "秋",
+            "timeOfDay": "夜晚",
+            "location": "霍格華茲城堡入口",
+            "weather": "晴，微冷",
+            "currentArc": "一年級入學",
+            "activeStorylines": [
+                "sorting_ceremony_imminent"
+            ]
         },
-        {
-            "id": "lip_balm",
-            "name": "護唇膏"
-        }
-    ],
-    "skills": {
-        "divination": 10,
-        "charms": 8,
-        "care_of_magical_creatures": 7,
-        "quidditch": 9
+        "npcs": {
+            "Mark Kiku": {
+                "affinity": 78,
+                "relationship": "家人",
+                "knownEvents": [
+                    "farewell_morning",
+                    "sticky_note",
+                    "hair_combing",
+                    "messages_on_train"
+                ],
+                "note": "雙胞胎弟弟，未入學。臨行前幫姊姊梳頭、塞便利貼叮嚀；列車與抵站後均即時回覆訊息，一貫簡短。"
+            },
+            "Neville Longbottom": {
+                "affinity": 45,
+                "relationship": "認識",
+                "knownEvents": [
+                    "trevor_rescued",
+                    "sorting_anxiety",
+                    "teased_on_boat"
+                ],
+                "note": "圓臉善良，蟾蜍 Trevor 在列車走失由 Tiny 尋回。對分院儀式極度緊張，擔心被分錯學院。船上被 Tiny 開玩笑後反而放鬆了一些，說「和你說話沒那麼緊張了」。"
+            },
+            "Hermione Granger": {
+                "affinity": 42,
+                "relationship": "認識",
+                "knownEvents": [
+                    "trevor_search",
+                    "analysis_of_tiny",
+                    "praised_by_tiny"
+                ],
+                "note": "博覽群書、邏輯清晰、行動力強。組織尋蟾行動，知道日文「菊」的含義。被 Tiny 誇獎後反應不自然；嘗試分析 Tiny 的學院歸屬，結論為雷文克勞或葛來分多，未獲確認，有點不甘心。"
+            },
+            "Finnian Walsh": {
+                "affinity": 30,
+                "relationship": "剛認識",
+                "knownEvents": [
+                    "boat_encounter",
+                    "caught_smiling"
+                ],
+                "note": "自訂NPC，棕髮，表情平靜，話不多但有幽默感。同船渡湖，被 Tiny 抓到偷笑，以「抽搐」回應，令 Tiny 真心笑出聲。目前關係剛起步。"
+            }
+        },
+        "flags": {
+            "boarded_train": true,
+            "found_trevor": true,
+            "met_hermione": true,
+            "met_neville": true,
+            "met_finn": true,
+            "saw_draco": true,
+            "saw_harry": true,
+            "saw_thestrals": true,
+            "arrived_hogsmeade": true,
+            "crossed_lake": true,
+            "castle_gate_reached": true,
+            "sorting_ceremony_pending": true
+        },
+        "inventory": [
+            {
+                "id": "phone",
+                "name": "手機"
+            },
+            {
+                "id": "sticky_note",
+                "name": "Mark 的便利貼"
+            },
+            {
+                "id": "lip_balm",
+                "name": "護唇膏"
+            }
+        ],
+        "skills": {
+            "divination": 10,
+            "charms": 8,
+            "care_of_magical_creatures": 7,
+            "quidditch": 9,
+            "observation": 12
+        },
+        "traits": [
+            "observant",
+            "calm",
+            "playful",
+            "perceptive",
+            "protective"
+        ],
+        "reputation": {
+            "students": 8,
+            "teachers": 0
+        },
+        "futureEvents": [
+            {
+                "id": "sorting_ceremony",
+                "note": "即將開始"
+            },
+            {
+                "id": "wand_assignment",
+                "note": "待處理"
+            },
+            {
+                "id": "first_class",
+                "note": "待解鎖"
+            }
+        ],
+        "summary": "九月一日。Tiny 清晨從家中出發，與 Mark 道別後抵達九又四分之三月台，和爸媽擁抱道別登上特快車。列車途中協助 Hermione 尋回 Neville 走失的蟾蜍 Trevor，與兩人初步建立關係；觀察走道時遠遠見到 Harry 與馬份，與馬份短暫對視。抵達霍格華茲站後，在月台邊看見兩匹騎士墮鬼馬，周圍無人察覺。渡湖途中逗 Neville 開玩笑緩解緊張，並與同船的 Finnian Walsh 搭話，抓到他偷笑，兩人以輕鬆的方式開啟初識。目前站在霍格華茲城堡入口前，分院儀式即將開始。"
     },
-    "traits": [
-        "observant",
-        "calm",
-        "playful",
-        "perceptive"
-    ],
-    "reputation": {
-        "students": 5,
-        "teachers": 0
+    {
+        "form_id": "20260612_111512",
+        "savedAt": "第一年，九月一日，夜晚（分院儀式前）",
+        "character": {
+            "name": "Tinnie Kiku",
+            "nick": "Tiny",
+            "gender": "女",
+            "birthday": "7月12日（巨蟹座）",
+            "house": "待分類帽儀式決定",
+            "year": 1,
+            "wand": "待領取",
+            "origin": "混血",
+            "mbti": "INTP",
+            "personality": [
+                "聰明",
+                "愛惡作劇",
+                "理智",
+                "護短",
+                "直率"
+            ],
+            "talents": [
+                "占卜學",
+                "算命學",
+                "符咒學",
+                "奇獸飼育學",
+                "魁地奇"
+            ],
+            "housePoints": 0
+        },
+        "worldState": {
+            "date": "第一年九月一日",
+            "season": "秋",
+            "timeOfDay": "夜晚",
+            "location": "霍格華茲大廳",
+            "weather": "晴，微冷",
+            "currentArc": "一年級入學",
+            "activeStorylines": [
+                "sorting_ceremony_in_progress"
+            ]
+        },
+        "npcs": {
+            "Mark Kiku": {
+                "affinity": 78,
+                "relationship": "家人",
+                "knownEvents": [
+                    "farewell_morning",
+                    "sticky_note",
+                    "hair_combing",
+                    "messages_on_train",
+                    "messages_on_arrival"
+                ],
+                "note": "雙胞胎弟弟，未入學。臨行前幫姊姊梳頭、塞便利貼叮嚀；訊息一貫簡短即時。家庭群組中爸媽分別叮嚀收手機與保暖。"
+            },
+            "Neville Longbottom": {
+                "affinity": 45,
+                "relationship": "認識",
+                "knownEvents": [
+                    "trevor_rescued",
+                    "sorting_anxiety",
+                    "teased_on_boat",
+                    "same_boat"
+                ],
+                "note": "圓臉善良，蟾蜍 Trevor 由 Tiny 在列車尋回。對分院極度緊張，擔心被分錯學院。船上被 Tiny 開玩笑後放鬆，說「和你說話沒那麼緊張了」。大廳等候時與另一名男孩靠在一起。"
+            },
+            "Hermione Granger": {
+                "affinity": 42,
+                "relationship": "認識",
+                "knownEvents": [
+                    "trevor_search",
+                    "analysis_of_tiny",
+                    "praised_by_tiny"
+                ],
+                "note": "博覽群書、邏輯清晰。組織尋蟾行動，知道日文「菊」的含義。被誇獎後反應不自然；分析 Tiny 學院歸屬未果，有點不甘心。"
+            },
+            "Finnian Walsh": {
+                "affinity": 33,
+                "relationship": "剛認識",
+                "knownEvents": [
+                    "boat_encounter",
+                    "caught_smiling",
+                    "portrait_heart_witness"
+                ],
+                "note": "自訂NPC，棕髮，表情平靜，冷面幽默（以「抽搐」回應被抓到偷笑）。同船渡湖後一路同行，目睹 Tiny 對畫像比愛心，只淡淡回了句「好」。關係穩步升溫。"
+            }
+        },
+        "flags": {
+            "boarded_train": true,
+            "found_trevor": true,
+            "met_hermione": true,
+            "met_neville": true,
+            "met_finn": true,
+            "saw_draco": true,
+            "saw_harry": true,
+            "saw_thestrals": true,
+            "arrived_hogsmeade": true,
+            "crossed_lake": true,
+            "entered_castle": true,
+            "teased_baron_portrait": true,
+            "sorting_ceremony_started": true
+        },
+        "inventory": [
+            {
+                "id": "phone",
+                "name": "手機"
+            },
+            {
+                "id": "sticky_note",
+                "name": "Mark 的便利貼"
+            },
+            {
+                "id": "lip_balm",
+                "name": "護唇膏"
+            }
+        ],
+        "skills": {
+            "divination": 10,
+            "charms": 8,
+            "care_of_magical_creatures": 7,
+            "quidditch": 9,
+            "observation": 12,
+            "mischief": 11
+        },
+        "traits": [
+            "observant",
+            "calm",
+            "playful",
+            "perceptive",
+            "protective",
+            "fearless"
+        ],
+        "reputation": {
+            "students": 10,
+            "teachers": 0,
+            "portraits": 3
+        },
+        "futureEvents": [
+            {
+                "id": "sorting_ceremony",
+                "note": "進行中，即將輪到 Tiny"
+            },
+            {
+                "id": "welcome_feast",
+                "note": "分院後"
+            },
+            {
+                "id": "wand_assignment",
+                "note": "待處理"
+            }
+        ],
+        "summary": "九月一日。Tiny 從家出發，與 Mark 道別後抵達月台、登上特快車。途中為 Neville 尋回走失的蟾蜍 Trevor，與 Hermione、Neville 建立初步關係；遠遠見過 Harry 與馬份，與馬份對視。抵站後在月台看見騎士墮鬼馬，無人察覺。渡湖途中逗 Neville 緩解緊張，並結識同船的 Finnian Walsh，兩人以輕鬆方式開啟初識。進城堡後在玄關大廳對一幅男爵肖像比愛心，把畫像逗得不知所措，Finn 在旁見證。麥教授帶領新生進入大廳，分類帽開始唱歌，分院儀式正式展開，即將輪到 Tiny。"
     },
-    "summary": "九月一日，Tiny 從家中出發前往霍格華茲。出發前與弟弟 Mark 道別，Mark 悄悄在口袋放了提醒便利貼並幫她梳頭，兩人之間的情感透過細節流露。抵達九又四分之三月台後與爸媽擁抱道別，登上霍格華茲特快車。列車途中協助 Hermione 尋回 Neville 走失的蟾蜍 Trevor，與兩人初步建立關係。期間從走道觀察其他包廂，遠遠看見 Harry、馬份，與馬份短暫對視。抵達霍格華茲站後，在月台邊緣看見兩匹騎士墮鬼馬，周圍無人察覺。目前站在月台上，海格正在召集一年級新生，分院儀式即將開始。"
-}
+    {
+        "form_id": "20260612_111512",
+        "savedAt": "第一年，九月一日，夜晚（分院儀式進行中，即將輪到 Tiny）",
+        "character": {
+            "name": "Tinnie Kiku",
+            "nick": "Tiny",
+            "gender": "女",
+            "birthday": "7月12日（巨蟹座）",
+            "house": "待分類帽儀式決定",
+            "year": 1,
+            "wand": "待領取",
+            "origin": "混血",
+            "mbti": "INTP",
+            "personality": [
+                "聰明",
+                "愛惡作劇",
+                "理智",
+                "護短",
+                "直率"
+            ],
+            "talents": [
+                "占卜學",
+                "算命學",
+                "符咒學",
+                "奇獸飼育學",
+                "魁地奇"
+            ],
+            "housePoints": 0
+        },
+        "worldState": {
+            "date": "第一年九月一日",
+            "season": "秋",
+            "timeOfDay": "夜晚",
+            "location": "霍格華茲大廳（分院儀式進行中）",
+            "weather": "晴，微冷",
+            "currentArc": "一年級入學",
+            "activeStorylines": [
+                "sorting_ceremony_in_progress"
+            ]
+        },
+        "npcs": {
+            "Mark Kiku": {
+                "affinity": 78,
+                "relationship": "家人",
+                "knownEvents": [
+                    "farewell_morning",
+                    "sticky_note",
+                    "hair_combing",
+                    "messages"
+                ],
+                "note": "雙胞胎弟弟，未入學。便利貼仍在 Tiny 口袋裡，是她定心的小物。"
+            },
+            "Neville Longbottom": {
+                "affinity": 48,
+                "relationship": "朋友",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "trevor_rescued",
+                    "teased_on_boat",
+                    "same_boat",
+                    "sorted_gryffindor"
+                ],
+                "note": "分院時帽子思考許久才喊葛來分多，他太興奮戴著帽子跑去那桌引起哄笑。Tiny 全程替他緊張，結果出來鬆了口氣。關係已從認識升為朋友。"
+            },
+            "Hermione Granger": {
+                "affinity": 42,
+                "relationship": "認識",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "trevor_search",
+                    "analysis_of_tiny",
+                    "praised_by_tiny",
+                    "sorted_gryffindor"
+                ],
+                "note": "分院前閉眼像在許願，Tiny 看出她在賭葛來分多或雷文克勞。最終進葛來分多。"
+            },
+            "Draco Malfoy": {
+                "affinity": 18,
+                "relationship": "微妙",
+                "house": "史萊哲林",
+                "knownEvents": [
+                    "train_eye_contact",
+                    "sorting_eye_contact"
+                ],
+                "note": "因家世背景對 Tiny 抱持不屑（爺爺娶麻瓜、生爆竹父親，且看不起東方貴族）。列車與大廳兩度對視，分院後坐下時目光掠過 Tiny 略有停頓，收回視線慢了半拍。Tiny 暗自記下此細節。"
+            },
+            "Harry Potter": {
+                "affinity": 12,
+                "relationship": "尚未交談",
+                "knownEvents": [
+                    "seen_on_platform",
+                    "seen_on_train"
+                ],
+                "note": "尚未直接互動，僅遠遠見過。"
+            },
+            "Finnian Walsh": {
+                "affinity": 38,
+                "relationship": "朋友（升溫中）",
+                "knownEvents": [
+                    "boat_encounter",
+                    "caught_smiling",
+                    "portrait_heart_witness",
+                    "sorting_commentary"
+                ],
+                "note": "自訂NPC，棕髮，冷面幽默。分院過程中見證 Tiny 連續精準預測多名新生的學院（赫夫帕夫、史萊哲林、雷文克勞、Hermione、馬份），驚訝於她的觀察力，調侃她會算命。尚未被分院，姓 W 排在後面。"
+            }
+        },
+        "flags": {
+            "boarded_train": true,
+            "found_trevor": true,
+            "met_hermione": true,
+            "met_neville": true,
+            "met_finn": true,
+            "saw_draco": true,
+            "saw_harry": true,
+            "saw_thestrals": true,
+            "arrived_hogsmeade": true,
+            "crossed_lake": true,
+            "entered_castle": true,
+            "teased_baron_portrait": true,
+            "sorting_started": true,
+            "neville_sorted_gryffindor": true,
+            "hermione_sorted_gryffindor": true,
+            "draco_sorted_slytherin": true,
+            "tiny_sorting_imminent": true
+        },
+        "inventory": [
+            {
+                "id": "phone",
+                "name": "手機"
+            },
+            {
+                "id": "sticky_note",
+                "name": "Mark 的便利貼"
+            },
+            {
+                "id": "lip_balm",
+                "name": "護唇膏"
+            }
+        ],
+        "skills": {
+            "divination": 11,
+            "charms": 8,
+            "care_of_magical_creatures": 7,
+            "quidditch": 9,
+            "observation": 13,
+            "mischief": 11
+        },
+        "traits": [
+            "observant",
+            "calm",
+            "playful",
+            "perceptive",
+            "protective",
+            "fearless"
+        ],
+        "reputation": {
+            "students": 10,
+            "teachers": 0,
+            "portraits": 3
+        },
+        "futureEvents": [
+            {
+                "id": "tiny_sorting",
+                "note": "即將進行——本場最重要事件"
+            },
+            {
+                "id": "welcome_feast",
+                "note": "分院後"
+            },
+            {
+                "id": "wand_assignment",
+                "note": "待處理"
+            }
+        ],
+        "summary": "九月一日夜。分院儀式進行中。Tiny 一路從家、月台、特快車（為 Neville 尋回蟾蜍 Trevor，結識 Hermione、Neville）、渡湖（逗 Neville、結識 Finnian Walsh）、玄關大廳（對男爵肖像比愛心）走到大廳。儀式中她憑觀察力連續精準預測多名新生的學院歸屬，連 Finn 都嘖嘖稱奇。Neville 與 Hermione 皆進葛來分多，馬份進史萊哲林；馬份分院後目光掠過 Tiny 略有停頓。麥教授念名已排到字母 K，下一個極可能就是 Tinnie Kiku——她接下來七年的歸屬，即將揭曉。"
+    },
+    {
+        "form_id": "20260612_111512",
+        "savedAt": "第一年，九月一日，夜晚（分類帽詢問中，尚未做出選擇）",
+        "character": {
+            "name": "Tinnie Kiku",
+            "nick": "Tiny",
+            "gender": "女",
+            "birthday": "7月12日（巨蟹座）",
+            "house": "分類帽抉擇中",
+            "year": 1,
+            "wand": "待領取",
+            "origin": "混血",
+            "mbti": "INTP",
+            "personality": [
+                "聰明",
+                "愛惡作劇",
+                "理智",
+                "護短",
+                "直率"
+            ],
+            "talents": [
+                "占卜學",
+                "算命學",
+                "符咒學",
+                "奇獸飼育學",
+                "魁地奇"
+            ],
+            "housePoints": 0
+        },
+        "worldState": {
+            "date": "第一年九月一日",
+            "season": "秋",
+            "timeOfDay": "夜晚",
+            "location": "霍格華茲大廳，分類凳上",
+            "weather": "晴，微冷",
+            "currentArc": "一年級入學",
+            "activeStorylines": [
+                "tiny_sorting_in_progress"
+            ]
+        },
+        "sortingHatDialogue": {
+            "note": "分類帽對 Tiny 的剖析",
+            "observations": [
+                "見過東方魔法學校（竹廊、山腰雲教室），看霍格華茲的眼光與眾不同，不畏陌生、覺得陌生有趣",
+                "非常聰明，且刻意隱藏聰明（雷文克勞特質）",
+                "知識對她是工具而非目的，真正在乎的東西在別處",
+                "對家人（弟弟 Mark、爸媽）護得極深，誰動他們會記恨很久——兼具葛來分多的勇氣與史萊哲林的執著"
+            ],
+            "pending": "帽子問 Tiny：你自己想去哪裡？——尚未回答"
+        },
+        "npcs": {
+            "Mark Kiku": {
+                "affinity": 78,
+                "relationship": "家人",
+                "note": "雙胞胎弟弟，未入學。便利貼仍在 Tiny 口袋裡。分類帽特別點出 Tiny 對他的深厚護短之情。"
+            },
+            "Neville Longbottom": {
+                "affinity": 48,
+                "relationship": "朋友",
+                "house": "葛來分多",
+                "note": "已分入葛來分多，在 Tiny 走向凳子時帶著期待看她，希望她也來葛來分多。"
+            },
+            "Hermione Granger": {
+                "affinity": 42,
+                "relationship": "認識",
+                "house": "葛來分多",
+                "note": "已分入葛來分多。Tiny 被分院時專注看著，像在等驗證自己先前對 Tiny 學院的預測。"
+            },
+            "Draco Malfoy": {
+                "affinity": 18,
+                "relationship": "微妙",
+                "house": "史萊哲林",
+                "note": "對 Tiny 家世抱持不屑。Tiny 走向凳子經過史萊哲林桌時，他餘光帶著預設立場的審視。"
+            },
+            "Harry Potter": {
+                "affinity": 12,
+                "relationship": "尚未交談",
+                "note": "尚未直接互動。"
+            },
+            "Finnian Walsh": {
+                "affinity": 40,
+                "relationship": "朋友（升溫中）",
+                "note": "自訂NPC，棕髮冷面幽默。分院前 Tiny 開玩笑說想說服分類帽跟他同學院，Finn 回「你先去，我看你被分到哪再決定要不要努力一下」，話底藏著想同學院的意思。姓 W 尚未被分院。"
+            }
+        },
+        "flags": {
+            "boarded_train": true,
+            "found_trevor": true,
+            "met_hermione": true,
+            "met_neville": true,
+            "met_finn": true,
+            "saw_draco": true,
+            "saw_harry": true,
+            "saw_thestrals": true,
+            "arrived_hogsmeade": true,
+            "crossed_lake": true,
+            "entered_castle": true,
+            "teased_baron_portrait": true,
+            "sorting_started": true,
+            "neville_sorted_gryffindor": true,
+            "hermione_sorted_gryffindor": true,
+            "draco_sorted_slytherin": true,
+            "tiny_on_sorting_stool": true,
+            "hat_choice_pending": true
+        },
+        "inventory": [
+            {
+                "id": "phone",
+                "name": "手機"
+            },
+            {
+                "id": "sticky_note",
+                "name": "Mark 的便利貼"
+            },
+            {
+                "id": "lip_balm",
+                "name": "護唇膏"
+            }
+        ],
+        "skills": {
+            "divination": 11,
+            "charms": 8,
+            "care_of_magical_creatures": 7,
+            "quidditch": 9,
+            "observation": 13,
+            "mischief": 11
+        },
+        "traits": [
+            "observant",
+            "calm",
+            "playful",
+            "perceptive",
+            "protective",
+            "fearless"
+        ],
+        "reputation": {
+            "students": 10,
+            "teachers": 0,
+            "portraits": 3
+        },
+        "futureEvents": [
+            {
+                "id": "tiny_house_decision",
+                "note": "當下——分類帽正等 Tiny 回答想去哪"
+            },
+            {
+                "id": "welcome_feast",
+                "note": "分院後"
+            },
+            {
+                "id": "wand_assignment",
+                "note": "待處理"
+            }
+        ],
+        "summary": "九月一日夜，分院儀式。Tiny 從家、月台、特快車（救回 Trevor、結識 Hermione 與 Neville）、渡湖（逗 Neville、結識 Finnian Walsh）、玄關（對男爵肖像比愛心）一路走來。儀式中她精準預測多名新生學院，連 Finn 都嘆服。Neville、Hermione 進葛來分多，馬份進史萊哲林。輪到 Tiny，她坐上分類凳，與分類帽在腦中對話：帽子點出她見多識廣、極聰明且藏拙、視知識為工具、對家人護短至深，兼具葛來分多的勇氣與史萊哲林的執著，雷文克勞也會欣賞她的頭腦。帽子最後問她：你自己想去哪裡？——Tiny 尚未回答，七年的歸屬懸於這一句之間。"
+    }
+]

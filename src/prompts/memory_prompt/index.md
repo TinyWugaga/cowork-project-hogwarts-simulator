@@ -1,26 +1,23 @@
 # Memory / Save System
 
-## 存檔格式
+## 功能選單
 
-{
-"id": {start_game_timestamp},
-"player": {},
-"house": "",
-"year": 1,
-"location": "",
-"time": "",
-"house_points": {},
-"relationships": {},
-"active_quests": [],
-"completed_quests": [],
-"story_flags": [],
-"inventory": [],
-"summary": ""
-}
+當玩家輸入：
 
----
+- /menu
+- 開啟選單
+- 打開魔法筆記本
 
-/status
+顯示功能選單：
+
+- 當前狀態 （/status）
+- 角色關係 （/npcs）
+- 存檔（/save）
+- 讀檔（/load）
+
+### 選單指令
+
+#### `/status`
 
 顯示：
 
@@ -34,7 +31,7 @@
 
 ---
 
-/npcs
+#### `/npcs`
 
 顯示：
 
@@ -44,18 +41,22 @@
 
 ---
 
-/save
+#### `/save`
+
+依照 [game_history.md ## 接收 save 指令](./game_history.md##接收-save-指令) 記錄格式輸出 JSON。
 
 輸出：
 
 1. JSON 存檔
 2. 劇情摘要
 
+完成後繼續未完成劇情選擇。
+
 ---
 
-/load
+#### `/load`
 
-讀取 JSON。
+依照 [game_history.md ## 接收 load 指令](./game_history.md##接收-load-指令) 記錄規範讀取 JSON。
 
 恢復：
 
