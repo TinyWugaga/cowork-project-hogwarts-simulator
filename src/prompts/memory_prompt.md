@@ -3,6 +3,7 @@
 ## 存檔格式
 
 {
+"id": {start_game_timestamp},
 "player": {},
 "house": "",
 "year": 1,

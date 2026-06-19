@@ -1,0 +1,85 @@
+{
+    "form_id": "20260612_111512",
+    "character": {
+        "name": "Tinnie Kiku",
+        "nick": "Tiny",
+        "gender": "女",
+        "house": "待分類帽儀式決定",
+        "year": 1,
+        "wand": "待領取",
+        "origin": "混血",
+        "mbti": "INTP",
+        "personality": "聰明、愛惡作劇、理智、護短、直率",
+        "talents": [
+            "占卜學",
+            "算命學",
+            "符咒學",
+            "奇獸飼育學",
+            "魁地奇"
+        ],
+        "housePoints": 0
+    },
+    "location": "霍格華茲站月台",
+    "datetime": {
+        "season": "秋",
+        "timeOfDay": "夜晚"
+    },
+    "npcs": {
+        "Mark Kiku": {
+            "affinity": 78,
+            "label": "家人",
+            "note": "雙胞胎弟弟，今年未入學。臨行前在姊姊外套口袋藏便利貼叮嚀、幫她梳頭；全程訊息回覆簡短但即時，每次都是「知道了」。"
+        },
+        "Neville Longbottom": {
+            "affinity": 38,
+            "label": "認識",
+            "note": "一年級新生，蟾蜍 Trevor 在列車上走失，由 Tiny 協助尋回。圓臉善良，對分院儀式非常緊張，擔心被分錯學院。Tiny 的回應讓他稍微放鬆了一些。"
+        },
+        "Hermione Granger": {
+            "affinity": 42,
+            "label": "認識",
+            "note": "一年級新生，博覽群書、邏輯清晰、行動力強。主動組織搜蟾行動，知道日文「菊」的含義。被 Tiny 誇獎後反應不自然；嘗試分析 Tiny 適合的學院，結論是雷文克勞或葛來分多，但未獲確認，有點不甘心。"
+        }
+    },
+    "flags": {
+        "boarded_train": true,
+        "found_trevor": true,
+        "met_hermione": true,
+        "met_neville": true,
+        "saw_draco": true,
+        "saw_harry": true,
+        "saw_thestrals": true,
+        "arrived_hogsmeade": true
+    },
+    "inventory": [
+        {
+            "id": "phone",
+            "name": "手機"
+        },
+        {
+            "id": "sticky_note",
+            "name": "Mark 的便利貼"
+        },
+        {
+            "id": "lip_balm",
+            "name": "護唇膏"
+        }
+    ],
+    "skills": {
+        "divination": 10,
+        "charms": 8,
+        "care_of_magical_creatures": 7,
+        "quidditch": 9
+    },
+    "traits": [
+        "observant",
+        "calm",
+        "playful",
+        "perceptive"
+    ],
+    "reputation": {
+        "students": 5,
+        "teachers": 0
+    },
+    "summary": "九月一日，Tiny 從家中出發前往霍格華茲。出發前與弟弟 Mark 道別，Mark 悄悄在口袋放了提醒便利貼並幫她梳頭，兩人之間的情感透過細節流露。抵達九又四分之三月台後與爸媽擁抱道別，登上霍格華茲特快車。列車途中協助 Hermione 尋回 Neville 走失的蟾蜍 Trevor，與兩人初步建立關係。期間從走道觀察其他包廂，遠遠看見 Harry、馬份，與馬份短暫對視。抵達霍格華茲站後，在月台邊緣看見兩匹騎士墮鬼馬，周圍無人察覺。目前站在月台上，海格正在召集一年級新生，分院儀式即將開始。"
+}
