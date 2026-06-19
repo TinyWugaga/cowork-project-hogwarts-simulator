@@ -6,7 +6,7 @@
 
 ### 遊戲設定
 
-遊戲生成劇情內容，需符合 [game_settings.md](src/conventions/game_settings.md) 中的系統設定
+遊戲生成劇情內容，需符合 [game_settings.md](./game_settings.md) 中的系統設定
 
 ## 【世界觀】
 
