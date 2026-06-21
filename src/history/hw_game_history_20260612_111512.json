@@ -1196,7 +1196,7 @@
     },
     {
         "form_id": "20260612_111512",
-        "savedAt": "第一年，九月二日，上午（魔法史第一堂課進行中）",
+        "savedAt": "第一年，九月二日，上午（魔法史課堂中——無杖折紙事件後，台灣魔法設定補充完成）",
         "character": {
             "name": "Tinnie Kiku",
             "nick": "Tiny",
@@ -1204,7 +1204,7 @@
             "birthday": "7月12日（巨蟹座）",
             "house": "葛來分多",
             "year": 1,
-            "wand": "待領取",
+            "wand": "待領取（爺爺改造桃木劍為魔杖雙型態，包裹未到）",
             "origin": "混血",
             "mbti": "INTP",
             "personality": [
@@ -1238,8 +1238,31 @@
                 "third_floor_mystery",
                 "unease_about_year_ahead",
                 "harry_acquaintance_building",
-                "marauders_map_intel_shared"
+                "marauders_map_intel_shared",
+                "wand_pending_arrival",
+                "wandless_magic_witnessed",
+                "taiwan_magic_culture_established"
             ]
+        },
+        "taiwanMagicSystem": {
+            "school": "雲天宮（台灣魔法學校，隱於中央山脈深處）",
+            "coreTool": "桃木劍",
+            "castingRequirements": [
+                "咒語",
+                "劍勢",
+                "符印"
+            ],
+            "wandConversion": {
+                "status": "爺爺改造中",
+                "goal": "桃木劍／魔杖雙型態，相容霍格華茲咒語體系",
+                "difficulty": "兩套施法底層邏輯不同，全台灣魔法界能做到者屈指可數"
+            },
+            "wandlessMagic": {
+                "mechanism": "魔力直接驅動，非正規施法途徑",
+                "accuracy": "低於有法器輔助時",
+                "trigger": "Tiny 習慣以響指作為施法節奏觸發點（非必要，是習慣）",
+                "condition": "情緒平穩、意念集中時成功率較高"
+            }
         },
         "npcs": {
             "Mark Kiku": {
@@ -1254,9 +1277,29 @@
                     "just_asking_conversation",
                     "goodnight_exchange",
                     "morning_banter",
-                    "star_folding_comment"
+                    "star_folding_comment",
+                    "goblin_photo_sent"
                 ],
-                "note": "雙胞胎弟弟，未入學。早餐後傳訊嘴仗：Tiny 說情報買賣是正當利益交換，Mark 傳小兔子拜香貼圖表示自求多福。被問有沒有好好吃早餐，回「不一樣的吐司」。替 Tiny 轉達爸爸問有沒有好好上課。最後傳貼圖暗示「認真聽課」和「不惹麻煩」只能選一個。"
+                "note": "雙胞胎弟弟，未入學。Tiny 拍下賓斯幽靈背影傳給他，他問「你在拍鬼嗎」，Tiny 回「拍哥布林」。"
+            },
+            "Hermione Granger": {
+                "affinity": 60,
+                "relationship": "室友／朋友",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "trevor_search",
+                    "sorted_gryffindor",
+                    "dorm_encounter",
+                    "muggle_tech_discussion",
+                    "hermy_nickname_dispute",
+                    "morning_early_rise",
+                    "chocolate_frog_plan_acknowledged",
+                    "history_class_seatmate",
+                    "phone_in_class_discovered",
+                    "wandless_magic_witnessed",
+                    "schoolrule_loophole_acknowledged"
+                ],
+                "note": "目睹手機事件，找不到明文校規禁止麻瓜物品，轉為沉默。目睹無杖折紙，試圖尋找理論依據。漏抄年份被 Tiny 輕描淡寫打斷後補上，耳尖微紅。好感持續上升。"
             },
             "Neville Longbottom": {
                 "affinity": 57,
@@ -1269,40 +1312,25 @@
                     "morning_common_room",
                     "breakfast_group",
                     "chocolate_frog_witness",
-                    "history_class_same_room"
+                    "history_class_same_room",
+                    "wandless_magic_witnessed"
                 ],
-                "note": "坐在教室靠窗位置，Trevor 在口袋裡。目睹 Tiny 和雙胞胎的巧克力蛙談判後，表情是消化中的樣子。"
-            },
-            "Hermione Granger": {
-                "affinity": 58,
-                "relationship": "室友／朋友",
-                "house": "葛來分多",
-                "knownEvents": [
-                    "trevor_search",
-                    "sorted_gryffindor",
-                    "dorm_encounter",
-                    "muggle_tech_discussion",
-                    "hermy_nickname_dispute",
-                    "morning_early_rise",
-                    "chocolate_frog_plan_acknowledged",
-                    "harry_observation_moment",
-                    "history_class_seatmate"
-                ],
-                "note": "坐在 Tiny 旁邊，第一個到教室，桌面已備好羊皮紙羽毛筆墨水。早餐後跟 Tiny 說了「我知道那種感覺」——指麻瓜出身被人對名字比對本人更熟悉的感受。在教室幫 Tiny 指出羊皮紙捲邊和墨水瓶問題，被 Tiny 打斷後閉嘴，但不是生氣。關係持續升溫。"
+                "note": "目睹無杖折紙，表情是消化中的樣子。Trevor 仍在口袋裡。"
             },
             "Harry Potter": {
-                "affinity": 32,
+                "affinity": 36,
                 "relationship": "朋友（初期）",
                 "house": "葛來分多",
                 "knownEvents": [
                     "first_conversation_morning",
                     "walk_to_class_together",
-                    "history_class_same_room"
+                    "history_class_same_room",
+                    "wandless_magic_witnessed"
                 ],
-                "note": "走廊上說今天想認真聽魔法史，因為對魔法世界歷史不太了解。說「床比以前睡的軟很多」，Tiny 聽出但沒有追問。討論帶回霍格華茲床鋪的計畫時嘴角往上了一點。坐在 Tiny 後方一排。Tiny 注意到他的眼睛和媽媽相簿裡的 Lily Evans 一模一樣，沒有說出口。"
+                "note": "目睹無杖折紙，反應淡定，側身角度加大，好奇心是真實的。Tiny 仍未說出眼睛的事。"
             },
             "Ron Weasley": {
-                "affinity": 38,
+                "affinity": 40,
                 "relationship": "朋友（升溫中）",
                 "house": "葛來分多",
                 "knownEvents": [
@@ -1310,9 +1338,10 @@
                     "morning_common_room",
                     "intel_provider",
                     "walk_to_class_together",
-                    "history_class_behind_tiny"
+                    "history_class_behind_tiny",
+                    "star_rescued_by_wandless_magic"
                 ],
-                "note": "走廊上說賓斯教授的課是全霍格華茲最好睡的，預言 Harry 會後悔說要認真聽。進教室後拿出羊皮紙，擺放角度是「等等要折星星」的姿勢。坐在 Tiny 後方一排。"
+                "note": "折壞多顆星星，被無杖魔法折好的那顆已收進口袋珍藏。語無倫次問 Harry 確認，Harry 點頭。"
             },
             "Dean Thomas": {
                 "affinity": 28,
@@ -1322,8 +1351,7 @@
                     "morning_common_room",
                     "betting_info_shared",
                     "history_class_same_room"
-                ],
-                "note": "Neville 的室友，提供了雙胞胎賭注情報。坐在 Neville 旁邊。"
+                ]
             },
             "Finnian Walsh": {
                 "affinity": 47,
@@ -1337,7 +1365,7 @@
                     "morning_sofa_corner",
                     "map_intel_overheard"
                 ],
-                "note": "坐在教室最後一排靠角落。早餐桌上低聲問地圖情報來源，Tiny 說了「床邊故事」，他沈默沒有回話，但也沒有追問。清晨在交誼廳沙發徹夜未眠，吃了一個巧克力蛙當早餐。"
+                "note": "坐在最後一排靠角落，無杖折紙事件是否目睹未確認。"
             },
             "Fred Weasley": {
                 "affinity": 45,
@@ -1350,7 +1378,7 @@
                     "chocolate_frog_negotiation",
                     "map_intel_deal_struck"
                 ],
-                "note": "早餐時搭上 Tiny 肩膀打招呼，被 Tiny 以「信任」和「賭約」及「某張特別的地圖」三連擊成功談判。以兩盒巧克力蛙換取地圖情報，約好在交誼廳交接。離開時按了 Tiny 頭頂一下說「有點意思」。實際上他們已經偷到地圖，只是不知道怎麼用。"
+                "note": "課後交誼廳交接情報待執行。已有地圖，不知道怎麼用。"
             },
             "George Weasley": {
                 "affinity": 45,
@@ -1362,17 +1390,15 @@
                     "betting_on_tiny",
                     "chocolate_frog_negotiation",
                     "map_intel_deal_struck"
-                ],
-                "note": "與 Fred 同步。談判中表情從逗弄一年級生轉為真實的興味。說了「有點意思」後和 Fred 一起離開。"
+                ]
             },
             "Percy Weasley": {
                 "affinity": 10,
-                "relationship": "同學院，風紀股長",
+                "relationship": "同學院・風紀股長",
                 "house": "葛來分多",
                 "knownEvents": [
                     "led_firstyears_to_tower"
-                ],
-                "note": "早餐時坐在另一邊，看文件，認真得有點過頭。"
+                ]
             },
             "Draco Malfoy": {
                 "affinity": 12,
@@ -1383,42 +1409,36 @@
                     "sorting_eye_contact",
                     "tiny_sorted_gryffindor",
                     "feast_caught_staring"
-                ],
-                "note": "暫無新互動，但 Tiny 已對他的習慣模式有所掌握。"
+                ]
             }
         },
         "activeOperation": {
             "id": "chocolate_frog_operation",
-            "target": [
-                "Fred Weasley",
-                "George Weasley"
-            ],
-            "goal": "以劫盜地圖使用方法換取兩盒巧克力蛙",
+            "status": "談判完成，待課後交誼廳交接",
             "intel_to_share": {
                 "activation": "我嚴肅聲明我正在圖謀不軌",
                 "deactivation": "惡作劇已經完成了",
-                "source": "媽媽的好友 Lily Evans（Lily Potter）告知",
+                "source": "Lily Evans（Lily Potter）",
                 "tiny_believes": "地圖在 Filch 辦公室（實際上已被雙胞胎偷走）"
             },
-            "status": "談判完成，待交誼廳交接",
             "hidden_twist": "雙胞胎已有地圖，Tiny 的情報將解鎖他們拿到手卻不會用的地圖"
         },
         "knownSecrets": [
             {
                 "id": "marauders_map",
-                "note": "劫盜地圖，由 James Potter 和其友人製作，能看見霍格華茲所有人位置與秘密通道。媽媽從 Lily Evans 處得知使用方法並告訴 Tiny。Tiny 以為在 Filch 辦公室，實際上已被 Fred、George 偷走但不會用。"
+                "note": "劫盜地圖啟動：「我嚴肅聲明我正在圖謀不軌」；收起：「惡作劇已經完成了」。Tiny 以為地圖在 Filch 辦公室。"
             },
             {
                 "id": "seventh_floor_corridor",
-                "note": "城堡北側第七層走廊，需求之室。對面來回走三趟、心裡想著需要什麼，出現一扇門。"
+                "note": "需求之室——對面來回走三趟並心想所需，出現一扇門。Fred 和 George 在裡面藏了東西。"
             },
             {
                 "id": "third_floor_corridor",
-                "note": "三樓某條走廊封著，原因不明，待查。"
+                "note": "三樓某走廊封著，原因不明，待查。"
             },
             {
                 "id": "lily_potter_eyes",
-                "note": "Harry 的眼睛和媽媽相簿裡的 Lily Evans 一模一樣。Tiny 認出但沒有說出口。"
+                "note": "Harry 的眼睛和媽媽相簿裡的 Lily Evans 一模一樣。Tiny 認出但未說出口。"
             }
         ],
         "dorm": {
@@ -1429,11 +1449,11 @@
                 },
                 {
                     "name": "金髮女孩",
-                    "note": "姓名未知"
+                    "note": "靠窗床位，姓名未知"
                 },
                 {
                     "name": "馬尾女孩",
-                    "note": "姓名未知"
+                    "note": "中間床位，姓名未知"
                 },
                 {
                     "name": "Lavender Brown",
@@ -1458,12 +1478,17 @@
             "dean_thomas_met": true,
             "morning_group_formed": true,
             "first_class_started": true,
-            "hermione_muggle_connection_hinted": true
+            "hermione_muggle_connection_hinted": true,
+            "phone_used_in_class": true,
+            "wandless_magic_public_debut": true,
+            "wand_package_pending": true,
+            "taiwan_magic_system_established": true,
+            "paper_talismans_in_inventory": true
         },
         "inventory": [
             {
                 "id": "phone",
-                "name": "手機（電量待補充）"
+                "name": "手機（附魔力壓縮錄音功能，電量待補）"
             },
             {
                 "id": "sticky_note",
@@ -1476,6 +1501,18 @@
             {
                 "id": "charging_ring",
                 "name": "魔力充電環（媽媽製）"
+            },
+            {
+                "id": "paper_talisman_repel",
+                "name": "驅邪符 ×2"
+            },
+            {
+                "id": "paper_talisman_invisible",
+                "name": "隱身符 ×2"
+            },
+            {
+                "id": "paper_talisman_bind",
+                "name": "定身符 ×2"
             }
         ],
         "skills": {
@@ -1484,10 +1521,12 @@
             "care_of_magical_creatures": 7,
             "quidditch": 9,
             "observation": 15,
-            "mischief": 16,
-            "magical_control": 9,
+            "mischief": 17,
+            "magical_control": 10,
             "social_reading": 13,
-            "negotiation": 12
+            "negotiation": 12,
+            "wandless_magic": 14,
+            "talisman_craft": 11
         },
         "traits": [
             "observant",
@@ -1499,12 +1538,13 @@
             "gryffindor_spirit",
             "instinctive",
             "strategic",
-            "adaptable"
+            "adaptable",
+            "understated"
         ],
         "reputation": {
-            "gryffindor": 18,
+            "gryffindor": 22,
             "slytherin": -8,
-            "students": 28,
+            "students": 32,
             "teachers": 0,
             "portraits": 3
         },
@@ -1527,11 +1567,11 @@
             },
             {
                 "id": "chocolate_frog_exchange",
-                "note": "課後在交誼廳，與 Fred、George 交接情報"
+                "note": "課後交誼廳，與 Fred、George 交接劫盜地圖情報"
             },
             {
-                "id": "wand_assignment",
-                "note": "開學後待處理"
+                "id": "wand_package_arrival",
+                "note": "爺爺改造桃木劍為魔杖雙型態，包裹未到，待觸發"
             },
             {
                 "id": "seventh_floor_exploration",
@@ -1546,6 +1586,6 @@
                 "note": "明年 Mark 魔力天賦出現，一同入學"
             }
         ],
-        "summary": "第一年九月二日。清晨起床後問 Hermione 課表，下到交誼廳發現 Finn 徹夜未眠窩在沙發。陸續集合 Neville、Dean、Hermione，Harry 和 Ron 也加入。早餐時 Fred 和 George 出現，Tiny 以「信任」、「賭約」和「某張特別的地圖」三連擊完成談判，換取兩盒巧克力蛙，約好交誼廳交接。得知情報來源時 Ron 耳朵紅了但堅稱什麼都沒說。與 Mark 嘴仗，Mark 傳貼圖自求多福。走廊上與 Harry 初步建立朋友關係，他說床比以前軟，Tiny 沒追問。Hermione 說了一句「我知道那種感覺」，指麻瓜出身被人對名字比對本人熟悉的感受。目前坐在魔法史教室，賓斯教授正從黑板飄出來開始授課。"
+        "summary": "九月二日上午，魔法史教室。賓斯教授講哥布林叛亂，Ron 折星星折壞多顆。Tiny 以媽媽研發部的錄音手機記錄課程，拍下賓斯幽靈背影傳給 Mark（他問「你在拍鬼嗎」）。Hermione 發現手機，找不到禁用校規只好沉默。Tiny 幾乎無意識打響指，無杖折好 Ron 折壞的紙星星——Ron 語無倫次，Harry 淡定確認，Hermione 壓下驚呼找理論依據，Neville 消化中。Tiny 以「家教」輕描淡寫帶過。爺爺改造桃木劍（目標為桃木劍／魔杖雙型態）的包裹仍未到。台灣魔法文化設定已整合：施法三要素為咒語、劍勢、符印；無杖魔法為魔力直接驅動，響指是 Tiny 的習慣觸發點；隨身備有紙符六張。"
     }
 ]

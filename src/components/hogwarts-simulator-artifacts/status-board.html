@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      @import url("./styles.css");
+      * {
+        box-sizing: border-box;
+      }
+      .container {
+        font-family: inherit;
+        max-width: 600px;
+      }
+      .header {
+        margin-bottom: 1rem;
+      }
+      .header h2 {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--color-text-primary);
+        margin: 0 0 4px;
+      }
+      .header p {
+        font-size: 12px;
+        color: var(--color-text-secondary);
+        margin: 0;
+      }
+      .s-panel {
+        border: 0.5px solid var(--color-border-tertiary);
+        border-radius: var(--border-radius-lg);
+        padding: 12px 14px;
+        margin-bottom: 8px;
+        background: var(--color-background-primary);
+        transition: border-color 0.15s;
+      }
+      .s-panel:hover {
+        border-color: var(--color-border-secondary);
+      }
+      .s-title {
+        font-size: 11px;
+        color: var(--color-text-secondary);
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+      .s-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 8px;
+      }
+      .s-cell {
+        background: var(--color-background-secondary);
+        border-radius: var(--border-radius-md);
+        padding: 8px 10px;
+      }
+      .s-label {
+        font-size: 10px;
+        color: var(--color-text-secondary);
+        margin-bottom: 2px;
+      }
+      .s-value {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--color-text-primary);
+      }
+      .badge {
+        display: inline-block;
+        font-size: 10px;
+        padding: 2px 7px;
+        border-radius: 999px;
+        font-weight: 500;
+      }
+      .skill-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 6px;
+      }
+      .skill-name {
+        font-size: 12px;
+        color: var(--color-text-secondary);
+        width: 80px;
+        flex-shrink: 0;
+      }
+      .skill-bar-bg {
+        flex: 1;
+        height: 3px;
+        background: var(--color-background-secondary);
+        border-radius: 2px;
+        overflow: hidden;
+      }
+      .skill-bar {
+        height: 100%;
+        border-radius: 2px;
+        transition: width 0.3s;
+      }
+      .skill-val {
+        font-size: 11px;
+        color: var(--color-text-secondary);
+        width: 24px;
+        text-align: right;
+      }
+      .trait-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-top: 2px;
+      }
+      .trait {
+        font-size: 10px;
+        padding: 2px 7px;
+        border: 0.5px solid var(--color-border-tertiary);
+        border-radius: 999px;
+        color: var(--color-text-secondary);
+      }
+      .story-item {
+        font-size: 12px;
+        color: var(--color-text-secondary);
+        margin-bottom: 4px;
+        line-height: 1.5;
+      }
+      .rep-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 5px;
+      }
+      .rep-name {
+        font-size: 12px;
+        color: var(--color-text-secondary);
+      }
+      .rep-val {
+        font-size: 12px;
+        font-weight: 500;
+      }
+      .item-row {
+        font-size: 12px;
+        color: var(--color-text-secondary);
+        margin-bottom: 3px;
+        line-height: 1.5;
+      }
+      .avatar {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: #b5d4f4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 600;
+        color: #0c447c;
+        flex-shrink: 0;
+      }
+      .char-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+      .char-name {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--color-text-primary);
+      }
+      .char-sub {
+        font-size: 11px;
+        color: var(--color-text-secondary);
+        margin-top: 2px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2>🎭 角色狀態面板</h2>
+        <p>第一年・九月二日・上午</p>
+      </div>
+
+      <!-- 角色基本 -->
+      <div class="s-panel" id="char-panel"></div>
+
+      <!-- 劇情進度 -->
+      <div class="s-panel" id="story-panel"></div>
+
+      <!-- 技能 -->
+      <div class="s-panel">
+        <div class="s-title">技能值</div>
+        <div id="skills-container"></div>
+      </div>
+
+      <!-- 聲望 -->
+      <div class="s-panel">
+        <div class="s-title">聲望</div>
+        <div id="rep-container"></div>
+      </div>
+
+      <!-- 特質 -->
+      <div class="s-panel">
+        <div class="s-title">人格特質</div>
+        <div class="trait-wrap" id="traits-container"></div>
+      </div>
+
+      <!-- 道具 -->
+      <div class="s-panel">
+        <div class="s-title">隨身物品</div>
+        <div id="items-container"></div>
+      </div>
+    </div>
+
+    <script>
+      // 數值和文字內容皆為示例，請根據實際情況調整
+      const character = {
+        initials: "TK",
+        name: "Tinnie Kiku",
+        nick: "Tiny",
+        sub: "一年級・混血・INTP・巨蟹座・女",
+        house: "葛來分多",
+        houseBadgeStyle: "background:#faeeda;color:#854f0b",
+        location: "魔法史教室",
+        time: "上午・九月二日",
+        housePoints: "0 分",
+        wand: { text: "待領取 ⏳", color: "#f59e0b" },
+        stories: [
+          { highlight: "一年級第一週", text: "・魔法史第一堂課進行中" },
+          { highlight: null, text: "無杖折紙事件剛發生，四名目擊者各有反應" },
+          {
+            highlight: null,
+            text: "巧克力蛙行動——課後與 Fred & George 交接劫盜地圖情報",
+          },
+          { highlight: null, text: "爺爺的桃木劍改造包裹仍未抵達" },
+          {
+            highlight: null,
+            text: "今日課程：藥草學（上午）→ 符咒學・變形學（下午）",
+          },
+        ],
+        items: [
+          "📱 手機（魔力壓縮錄音功能・電量待補）",
+          "📝 Mark 的便利貼",
+          "💋 護唇膏",
+          "💍 魔力充電環（媽媽製）",
+          "📄 驅邪符 ×2・隱身符 ×2・定身符 ×2",
+        ],
+        traits: [
+          "觀察者",
+          "冷靜",
+          "愛玩",
+          "敏銳",
+          "護短",
+          "無畏",
+          "葛來分多精神",
+          "直覺強",
+          "策略型",
+          "適應力強",
+          "低調",
+        ],
+      };
+
+      document.getElementById("char-panel").innerHTML = `
+        <div class="char-row">
+          <div class="avatar">${character.initials}</div>
+          <div>
+            <div class="char-name">
+              ${character.name}
+              <span style="font-size:12px;font-weight:400;color:var(--color-text-secondary)">「${character.nick}」</span>
+            </div>
+            <div class="char-sub">${character.sub}</div>
+          </div>
+          <span class="badge" style="margin-left:auto;${character.houseBadgeStyle}">⚡ ${character.house}</span>
+        </div>
+        <div class="s-grid">
+          <div class="s-cell"><div class="s-label">當前位置</div><div class="s-value">${character.location}</div></div>
+          <div class="s-cell"><div class="s-label">時間</div><div class="s-value">${character.time}</div></div>
+          <div class="s-cell"><div class="s-label">學院分</div><div class="s-value">${character.housePoints}</div></div>
+          <div class="s-cell"><div class="s-label">魔杖</div><div class="s-value" style="color:${character.wand.color}">${character.wand.text}</div></div>
+        </div>
+      `;
+
+      document.getElementById("story-panel").innerHTML = `
+        <div class="s-title">劇情進度</div>
+        ${character.stories
+          .map(
+            (s) =>
+              `<div class="story-item">✦ ${
+                s.highlight
+                  ? `<span style="color:var(--color-text-primary)">${s.highlight}</span>`
+                  : ""
+              }${s.text}</div>`,
+          )
+          .join("")}
+      `;
+
+      document.getElementById("traits-container").innerHTML = character.traits
+        .map((t) => `<span class="trait">${t}</span>`)
+        .join("");
+
+      document.getElementById("items-container").innerHTML = character.items
+        .map((i) => `<div class="item-row">${i}</div>`)
+        .join("");
+
+      const skills = [
+        { name: "惡作劇", val: 17, max: 20, color: "#f59e0b" },
+        { name: "觀察力", val: 15, max: 20, color: "#3b82f6" },
+        { name: "無杖魔法", val: 14, max: 20, color: "#8b5cf6" },
+        { name: "社交洞察", val: 13, max: 20, color: "#10b981" },
+        { name: "談判", val: 12, max: 20, color: "#10b981" },
+        { name: "符籙學", val: 11, max: 20, color: "#ec4899" },
+        { name: "占卜學", val: 11, max: 20, color: "#ec4899" },
+        { name: "魔力控制", val: 10, max: 20, color: "#8b5cf6" },
+        { name: "魁地奇", val: 9, max: 20, color: "#f97316" },
+        { name: "符咒學", val: 8, max: 20, color: "#6366f1" },
+      ];
+
+      const reputations = [
+        { name: "學生圈", val: 32, color: "#10b981" },
+        { name: "葛來分多", val: 22, color: "#f59e0b" },
+        { name: "肖像畫", val: 3, color: "#6366f1" },
+        { name: "教授", val: 0, color: null },
+        { name: "史萊哲林", val: -8, color: "#ef4444" },
+      ];
+
+      document.getElementById("skills-container").innerHTML = skills
+        .map(
+          (s) => `
+        <div class="skill-row">
+          <span class="skill-name">${s.name}</span>
+          <div class="skill-bar-bg">
+            <div class="skill-bar" style="width:${
+              (s.val / s.max) * 100
+            }%;background:${s.color}"></div>
+          </div>
+          <span class="skill-val">${s.val}</span>
+        </div>
+      `,
+        )
+        .join("");
+
+      document.getElementById("rep-container").innerHTML = reputations
+        .map(
+          (r) => `
+        <div class="rep-row">
+          <span class="rep-name">${r.name}</span>
+          <span class="rep-val" style="color:${
+            r.color ?? "var(--color-text-secondary)"
+          }">
+            ${r.val > 0 ? "+" : ""}${r.val}
+          </span>
+        </div>
+      `,
+        )
+        .join("");
+    </script>
+  </body>
+</html>

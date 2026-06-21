@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      @import url("./styles.css");
+      * {
+        box-sizing: border-box;
+      }
+      .container {
+        font-family: inherit;
+        max-width: 600px;
+      }
+      .header {
+        margin-bottom: 1rem;
+      }
+      .header h2 {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--color-text-primary);
+        margin: 0 0 4px;
+      }
+      .header p {
+        font-size: 12px;
+        color: var(--color-text-secondary);
+        margin: 0;
+      }
+      .filter-row {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+      }
+      .filter-btn {
+        padding: 4px 10px;
+        font-size: 11px;
+        border: 0.5px solid var(--color-border-tertiary);
+        border-radius: 999px;
+        background: transparent;
+        color: var(--color-text-secondary);
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+      .filter-btn.active,
+      .filter-btn:hover {
+        background: var(--color-background-secondary);
+        color: var(--color-text-primary);
+        border-color: var(--color-border-secondary);
+      }
+      .npc-card {
+        border: 0.5px solid var(--color-border-tertiary);
+        border-radius: var(--border-radius-lg);
+        padding: 12px 14px;
+        margin-bottom: 8px;
+        background: var(--color-background-primary);
+        transition: border-color 0.15s;
+      }
+      .npc-card:hover {
+        border-color: var(--color-border-secondary);
+      }
+      .npc-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .npc-avatar {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 600;
+        flex-shrink: 0;
+      }
+      .npc-name {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--color-text-primary);
+      }
+      .npc-sub {
+        font-size: 11px;
+        color: var(--color-text-secondary);
+        margin-top: 1px;
+      }
+      .npc-right {
+        margin-left: auto;
+        text-align: right;
+      }
+      .affinity-num {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--color-text-primary);
+      }
+      .affinity-label {
+        font-size: 10px;
+        color: var(--color-text-secondary);
+        margin-top: 1px;
+      }
+      .bar-wrap {
+        margin-top: 6px;
+        height: 3px;
+        background: var(--color-background-secondary);
+        border-radius: 2px;
+        overflow: hidden;
+      }
+      .bar-fill {
+        height: 100%;
+        border-radius: 2px;
+        transition: width 0.3s;
+      }
+      .npc-note {
+        font-size: 11px;
+        color: var(--color-text-secondary);
+        margin-top: 8px;
+        line-height: 1.5;
+        border-top: 0.5px solid var(--color-border-tertiary);
+        padding-top: 8px;
+      }
+      .house-badge {
+        display: inline-block;
+        font-size: 10px;
+        padding: 1px 6px;
+        border-radius: 999px;
+        font-weight: 500;
+        margin-left: 4px;
+      }
+      .section-label {
+        font-size: 11px;
+        color: var(--color-text-secondary);
+        margin: 12px 0 6px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2>📖 魔法備忘錄 — 人物關係</h2>
+        <p>第一年・九月二日・上午</p>
+      </div>
+
+      <div class="filter-row">
+        <button class="filter-btn active" onclick="filterCards('all',this)">
+          全部
+        </button>
+        <button class="filter-btn" onclick="filterCards('family',this)">
+          家人
+        </button>
+        <button class="filter-btn" onclick="filterCards('gryffindor',this)">
+          葛來分多
+        </button>
+        <button class="filter-btn" onclick="filterCards('slytherin',this)">
+          史萊哲林
+        </button>
+        <button class="filter-btn" onclick="filterCards('ally',this)">
+          同盟
+        </button>
+      </div>
+
+      <div id="cards-container"></div>
+    </div>
+
+    <script>
+      // 數值和文字內容皆為示例，請根據實際情況調整
+      const npcs = [
+        {
+          name: "Mark Kiku",
+          nick: "Mark",
+          group: "family",
+          house: null,
+          affinity: 84,
+          rel: "家人",
+          color: "#B5D4F4",
+          textColor: "#0C447C",
+          initials: "MK",
+          note: "雙胞胎弟弟，未入學。話少、禮貌，對姊姊極其寬容。今早傳了兔子拜香貼圖自求多福，回覆永遠簡短但從不消音。",
+        },
+        {
+          name: "Hermione Granger",
+          nick: "Hermy",
+          group: "gryffindor",
+          house: "葛來分多",
+          affinity: 58,
+          rel: "室友／朋友",
+          color: "#F4D4B5",
+          textColor: "#7C3B0C",
+          initials: "HG",
+          note: "博覽群書，行動力強。被叫「Hermy」會糾正但速度越來越像反射動作。剛才被 Tiny 的無杖魔法震驚，正在努力找理論依據。",
+        },
+        {
+          name: "Finnian Walsh",
+          nick: "Finn",
+          group: "gryffindor",
+          house: "葛來分多",
+          affinity: 47,
+          rel: "朋友",
+          color: "#E1D5F4",
+          textColor: "#3C1A7C",
+          initials: "FW",
+          note: "自訂NPC，乾冷幽默。昨夜徹夜未眠窩在交誼廳沙發，早餐吃了一個巧克力蛙。對地圖情報沉默不追問，但耳朵在燭光下動了一下。",
+        },
+        {
+          name: "Harry Potter",
+          nick: null,
+          group: "gryffindor",
+          house: "葛來分多",
+          affinity: 32,
+          rel: "朋友（初期）",
+          color: "#B5D4F4",
+          textColor: "#0C3A7C",
+          initials: "HP",
+          note: "剛才目睹無杖魔法，反應比 Ron 淡定許多。說話不帶表演成分，好奇心是真實的。Tiny 知道他眼睛和媽媽相簿裡的 Lily Evans 一模一樣，沒說出口。",
+        },
+        {
+          name: "Ron Weasley",
+          nick: null,
+          group: "gryffindor",
+          house: "葛來分多",
+          affinity: 38,
+          rel: "朋友（升溫中）",
+          color: "#FFCDD2",
+          textColor: "#7C0C0C",
+          initials: "RW",
+          note: "折星星折了不知道幾顆，剛才那顆被無杖魔法折好了，已小心翼翼地收進口袋。主動提供雙胞胎情報後堅稱什麼都沒說。",
+        },
+        {
+          name: "Draco Malfoy",
+          nick: "馬份",
+          group: "slytherin",
+          house: "史萊哲林",
+          affinity: 12,
+          rel: "對立苗頭",
+          color: "#CFD8DC",
+          textColor: "#263238",
+          initials: "DM",
+          note: "對 Tiny 家世抱持不屑。晚宴中偷偷打量被抓到，露出窘迫。只要不越界，Tiny 隨他去，但已記下他的習慣模式。",
+        },
+      ];
+
+      function getAffinityLabel(n) {
+        if (n >= 95) return "摯友／戀愛";
+        if (n >= 80) return "親密";
+        if (n >= 60) return "朋友";
+        if (n >= 40) return "熟識";
+        if (n >= 20) return "認識";
+        return "陌生";
+      }
+      function getBarColor(n) {
+        if (n >= 80) return "#4CAF50";
+        if (n >= 60) return "#8BC34A";
+        if (n >= 40) return "#FFC107";
+        if (n >= 20) return "#FF9800";
+        return "#F44336";
+      }
+
+      function renderCards(filter) {
+        const container = document.getElementById("cards-container");
+        const filtered =
+          filter === "all" ? npcs : npcs.filter((n) => n.group === filter);
+        if (!filtered.length) {
+          container.innerHTML =
+            '<p style="font-size:13px;color:var(--color-text-secondary);padding:1rem 0">無符合的人物記錄。</p>';
+          return;
+        }
+        container.innerHTML = filtered
+          .map(
+            (n) => `
+    <div class="npc-card">
+      <div class="npc-row">
+        <div class="npc-avatar" style="background:${n.color};color:${
+              n.textColor
+            }">${n.initials}</div>
+        <div>
+          <div class="npc-name">${n.name}${
+              n.nick
+                ? ` <span style="color:var(--color-text-secondary);font-weight:400;font-size:11px">「${n.nick}」</span>`
+                : ""
+            }${
+              n.house
+                ? `<span class="house-badge" style="background:${n.color}22;color:${n.textColor}">${n.house}</span>`
+                : ""
+            }</div>
+          <div class="npc-sub">${n.rel}</div>
+        </div>
+        <div class="npc-right">
+          <div class="affinity-num">${n.affinity}</div>
+          <div class="affinity-label">${getAffinityLabel(n.affinity)}</div>
+        </div>
+      </div>
+      <div class="bar-wrap"><div class="bar-fill" style="width:${
+        n.affinity
+      }%;background:${getBarColor(n.affinity)}"></div></div>
+      <div class="npc-note">${n.note}</div>
+    </div>
+  `,
+          )
+          .join("");
+      }
+
+      function filterCards(filter, btn) {
+        document
+          .querySelectorAll(".filter-btn")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderCards(filter);
+      }
+
+      renderCards("all");
+    </script>
+  </body>
+</html>
