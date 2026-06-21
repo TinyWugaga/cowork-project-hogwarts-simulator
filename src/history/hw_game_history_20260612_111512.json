@@ -86,478 +86,6 @@
     },
     {
         "form_id": "20260612_111512",
-        "savedAt": "第一年，九月一日，夜晚",
-        "character": {
-            "name": "Tinnie Kiku",
-            "nick": "Tiny",
-            "gender": "女",
-            "birthday": "7月12日（巨蟹座）",
-            "house": "待分類帽儀式決定",
-            "year": 1,
-            "wand": "待領取",
-            "origin": "混血",
-            "mbti": "INTP",
-            "personality": [
-                "聰明",
-                "愛惡作劇",
-                "理智",
-                "護短",
-                "直率"
-            ],
-            "talents": [
-                "占卜學",
-                "算命學",
-                "符咒學",
-                "奇獸飼育學",
-                "魁地奇"
-            ],
-            "housePoints": 0
-        },
-        "worldState": {
-            "date": "第一年九月一日",
-            "season": "秋",
-            "timeOfDay": "夜晚",
-            "location": "霍格華茲城堡入口",
-            "weather": "晴，微冷",
-            "currentArc": "一年級入學",
-            "activeStorylines": [
-                "sorting_ceremony_imminent"
-            ]
-        },
-        "npcs": {
-            "Mark Kiku": {
-                "affinity": 78,
-                "relationship": "家人",
-                "knownEvents": [
-                    "farewell_morning",
-                    "sticky_note",
-                    "hair_combing",
-                    "messages_on_train"
-                ],
-                "note": "雙胞胎弟弟，未入學。臨行前幫姊姊梳頭、塞便利貼叮嚀；列車與抵站後均即時回覆訊息，一貫簡短。"
-            },
-            "Neville Longbottom": {
-                "affinity": 45,
-                "relationship": "認識",
-                "knownEvents": [
-                    "trevor_rescued",
-                    "sorting_anxiety",
-                    "teased_on_boat"
-                ],
-                "note": "圓臉善良，蟾蜍 Trevor 在列車走失由 Tiny 尋回。對分院儀式極度緊張，擔心被分錯學院。船上被 Tiny 開玩笑後反而放鬆了一些，說「和你說話沒那麼緊張了」。"
-            },
-            "Hermione Granger": {
-                "affinity": 42,
-                "relationship": "認識",
-                "knownEvents": [
-                    "trevor_search",
-                    "analysis_of_tiny",
-                    "praised_by_tiny"
-                ],
-                "note": "博覽群書、邏輯清晰、行動力強。組織尋蟾行動，知道日文「菊」的含義。被 Tiny 誇獎後反應不自然；嘗試分析 Tiny 的學院歸屬，結論為雷文克勞或葛來分多，未獲確認，有點不甘心。"
-            },
-            "Finnian Walsh": {
-                "affinity": 30,
-                "relationship": "剛認識",
-                "knownEvents": [
-                    "boat_encounter",
-                    "caught_smiling"
-                ],
-                "note": "自訂NPC，棕髮，表情平靜，話不多但有幽默感。同船渡湖，被 Tiny 抓到偷笑，以「抽搐」回應，令 Tiny 真心笑出聲。目前關係剛起步。"
-            }
-        },
-        "flags": {
-            "boarded_train": true,
-            "found_trevor": true,
-            "met_hermione": true,
-            "met_neville": true,
-            "met_finn": true,
-            "saw_draco": true,
-            "saw_harry": true,
-            "saw_thestrals": true,
-            "arrived_hogsmeade": true,
-            "crossed_lake": true,
-            "castle_gate_reached": true,
-            "sorting_ceremony_pending": true
-        },
-        "inventory": [
-            {
-                "id": "phone",
-                "name": "手機"
-            },
-            {
-                "id": "sticky_note",
-                "name": "Mark 的便利貼"
-            },
-            {
-                "id": "lip_balm",
-                "name": "護唇膏"
-            }
-        ],
-        "skills": {
-            "divination": 10,
-            "charms": 8,
-            "care_of_magical_creatures": 7,
-            "quidditch": 9,
-            "observation": 12
-        },
-        "traits": [
-            "observant",
-            "calm",
-            "playful",
-            "perceptive",
-            "protective"
-        ],
-        "reputation": {
-            "students": 8,
-            "teachers": 0
-        },
-        "futureEvents": [
-            {
-                "id": "sorting_ceremony",
-                "note": "即將開始"
-            },
-            {
-                "id": "wand_assignment",
-                "note": "待處理"
-            },
-            {
-                "id": "first_class",
-                "note": "待解鎖"
-            }
-        ],
-        "summary": "九月一日。Tiny 清晨從家中出發，與 Mark 道別後抵達九又四分之三月台，和爸媽擁抱道別登上特快車。列車途中協助 Hermione 尋回 Neville 走失的蟾蜍 Trevor，與兩人初步建立關係；觀察走道時遠遠見到 Harry 與馬份，與馬份短暫對視。抵達霍格華茲站後，在月台邊看見兩匹騎士墮鬼馬，周圍無人察覺。渡湖途中逗 Neville 開玩笑緩解緊張，並與同船的 Finnian Walsh 搭話，抓到他偷笑，兩人以輕鬆的方式開啟初識。目前站在霍格華茲城堡入口前，分院儀式即將開始。"
-    },
-    {
-        "form_id": "20260612_111512",
-        "savedAt": "第一年，九月一日，夜晚（分院儀式前）",
-        "character": {
-            "name": "Tinnie Kiku",
-            "nick": "Tiny",
-            "gender": "女",
-            "birthday": "7月12日（巨蟹座）",
-            "house": "待分類帽儀式決定",
-            "year": 1,
-            "wand": "待領取",
-            "origin": "混血",
-            "mbti": "INTP",
-            "personality": [
-                "聰明",
-                "愛惡作劇",
-                "理智",
-                "護短",
-                "直率"
-            ],
-            "talents": [
-                "占卜學",
-                "算命學",
-                "符咒學",
-                "奇獸飼育學",
-                "魁地奇"
-            ],
-            "housePoints": 0
-        },
-        "worldState": {
-            "date": "第一年九月一日",
-            "season": "秋",
-            "timeOfDay": "夜晚",
-            "location": "霍格華茲大廳",
-            "weather": "晴，微冷",
-            "currentArc": "一年級入學",
-            "activeStorylines": [
-                "sorting_ceremony_in_progress"
-            ]
-        },
-        "npcs": {
-            "Mark Kiku": {
-                "affinity": 78,
-                "relationship": "家人",
-                "knownEvents": [
-                    "farewell_morning",
-                    "sticky_note",
-                    "hair_combing",
-                    "messages_on_train",
-                    "messages_on_arrival"
-                ],
-                "note": "雙胞胎弟弟，未入學。臨行前幫姊姊梳頭、塞便利貼叮嚀；訊息一貫簡短即時。家庭群組中爸媽分別叮嚀收手機與保暖。"
-            },
-            "Neville Longbottom": {
-                "affinity": 45,
-                "relationship": "認識",
-                "knownEvents": [
-                    "trevor_rescued",
-                    "sorting_anxiety",
-                    "teased_on_boat",
-                    "same_boat"
-                ],
-                "note": "圓臉善良，蟾蜍 Trevor 由 Tiny 在列車尋回。對分院極度緊張，擔心被分錯學院。船上被 Tiny 開玩笑後放鬆，說「和你說話沒那麼緊張了」。大廳等候時與另一名男孩靠在一起。"
-            },
-            "Hermione Granger": {
-                "affinity": 42,
-                "relationship": "認識",
-                "knownEvents": [
-                    "trevor_search",
-                    "analysis_of_tiny",
-                    "praised_by_tiny"
-                ],
-                "note": "博覽群書、邏輯清晰。組織尋蟾行動，知道日文「菊」的含義。被誇獎後反應不自然；分析 Tiny 學院歸屬未果，有點不甘心。"
-            },
-            "Finnian Walsh": {
-                "affinity": 33,
-                "relationship": "剛認識",
-                "knownEvents": [
-                    "boat_encounter",
-                    "caught_smiling",
-                    "portrait_heart_witness"
-                ],
-                "note": "自訂NPC，棕髮，表情平靜，冷面幽默（以「抽搐」回應被抓到偷笑）。同船渡湖後一路同行，目睹 Tiny 對畫像比愛心，只淡淡回了句「好」。關係穩步升溫。"
-            }
-        },
-        "flags": {
-            "boarded_train": true,
-            "found_trevor": true,
-            "met_hermione": true,
-            "met_neville": true,
-            "met_finn": true,
-            "saw_draco": true,
-            "saw_harry": true,
-            "saw_thestrals": true,
-            "arrived_hogsmeade": true,
-            "crossed_lake": true,
-            "entered_castle": true,
-            "teased_baron_portrait": true,
-            "sorting_ceremony_started": true
-        },
-        "inventory": [
-            {
-                "id": "phone",
-                "name": "手機"
-            },
-            {
-                "id": "sticky_note",
-                "name": "Mark 的便利貼"
-            },
-            {
-                "id": "lip_balm",
-                "name": "護唇膏"
-            }
-        ],
-        "skills": {
-            "divination": 10,
-            "charms": 8,
-            "care_of_magical_creatures": 7,
-            "quidditch": 9,
-            "observation": 12,
-            "mischief": 11
-        },
-        "traits": [
-            "observant",
-            "calm",
-            "playful",
-            "perceptive",
-            "protective",
-            "fearless"
-        ],
-        "reputation": {
-            "students": 10,
-            "teachers": 0,
-            "portraits": 3
-        },
-        "futureEvents": [
-            {
-                "id": "sorting_ceremony",
-                "note": "進行中，即將輪到 Tiny"
-            },
-            {
-                "id": "welcome_feast",
-                "note": "分院後"
-            },
-            {
-                "id": "wand_assignment",
-                "note": "待處理"
-            }
-        ],
-        "summary": "九月一日。Tiny 從家出發，與 Mark 道別後抵達月台、登上特快車。途中為 Neville 尋回走失的蟾蜍 Trevor，與 Hermione、Neville 建立初步關係；遠遠見過 Harry 與馬份，與馬份對視。抵站後在月台看見騎士墮鬼馬，無人察覺。渡湖途中逗 Neville 緩解緊張，並結識同船的 Finnian Walsh，兩人以輕鬆方式開啟初識。進城堡後在玄關大廳對一幅男爵肖像比愛心，把畫像逗得不知所措，Finn 在旁見證。麥教授帶領新生進入大廳，分類帽開始唱歌，分院儀式正式展開，即將輪到 Tiny。"
-    },
-    {
-        "form_id": "20260612_111512",
-        "savedAt": "第一年，九月一日，夜晚（分院儀式進行中，即將輪到 Tiny）",
-        "character": {
-            "name": "Tinnie Kiku",
-            "nick": "Tiny",
-            "gender": "女",
-            "birthday": "7月12日（巨蟹座）",
-            "house": "待分類帽儀式決定",
-            "year": 1,
-            "wand": "待領取",
-            "origin": "混血",
-            "mbti": "INTP",
-            "personality": [
-                "聰明",
-                "愛惡作劇",
-                "理智",
-                "護短",
-                "直率"
-            ],
-            "talents": [
-                "占卜學",
-                "算命學",
-                "符咒學",
-                "奇獸飼育學",
-                "魁地奇"
-            ],
-            "housePoints": 0
-        },
-        "worldState": {
-            "date": "第一年九月一日",
-            "season": "秋",
-            "timeOfDay": "夜晚",
-            "location": "霍格華茲大廳（分院儀式進行中）",
-            "weather": "晴，微冷",
-            "currentArc": "一年級入學",
-            "activeStorylines": [
-                "sorting_ceremony_in_progress"
-            ]
-        },
-        "npcs": {
-            "Mark Kiku": {
-                "affinity": 78,
-                "relationship": "家人",
-                "knownEvents": [
-                    "farewell_morning",
-                    "sticky_note",
-                    "hair_combing",
-                    "messages"
-                ],
-                "note": "雙胞胎弟弟，未入學。便利貼仍在 Tiny 口袋裡，是她定心的小物。"
-            },
-            "Neville Longbottom": {
-                "affinity": 48,
-                "relationship": "朋友",
-                "house": "葛來分多",
-                "knownEvents": [
-                    "trevor_rescued",
-                    "teased_on_boat",
-                    "same_boat",
-                    "sorted_gryffindor"
-                ],
-                "note": "分院時帽子思考許久才喊葛來分多，他太興奮戴著帽子跑去那桌引起哄笑。Tiny 全程替他緊張，結果出來鬆了口氣。關係已從認識升為朋友。"
-            },
-            "Hermione Granger": {
-                "affinity": 42,
-                "relationship": "認識",
-                "house": "葛來分多",
-                "knownEvents": [
-                    "trevor_search",
-                    "analysis_of_tiny",
-                    "praised_by_tiny",
-                    "sorted_gryffindor"
-                ],
-                "note": "分院前閉眼像在許願，Tiny 看出她在賭葛來分多或雷文克勞。最終進葛來分多。"
-            },
-            "Draco Malfoy": {
-                "affinity": 18,
-                "relationship": "微妙",
-                "house": "史萊哲林",
-                "knownEvents": [
-                    "train_eye_contact",
-                    "sorting_eye_contact"
-                ],
-                "note": "因家世背景對 Tiny 抱持不屑（爺爺娶麻瓜、生爆竹父親，且看不起東方貴族）。列車與大廳兩度對視，分院後坐下時目光掠過 Tiny 略有停頓，收回視線慢了半拍。Tiny 暗自記下此細節。"
-            },
-            "Harry Potter": {
-                "affinity": 12,
-                "relationship": "尚未交談",
-                "knownEvents": [
-                    "seen_on_platform",
-                    "seen_on_train"
-                ],
-                "note": "尚未直接互動，僅遠遠見過。"
-            },
-            "Finnian Walsh": {
-                "affinity": 38,
-                "relationship": "朋友（升溫中）",
-                "knownEvents": [
-                    "boat_encounter",
-                    "caught_smiling",
-                    "portrait_heart_witness",
-                    "sorting_commentary"
-                ],
-                "note": "自訂NPC，棕髮，冷面幽默。分院過程中見證 Tiny 連續精準預測多名新生的學院（赫夫帕夫、史萊哲林、雷文克勞、Hermione、馬份），驚訝於她的觀察力，調侃她會算命。尚未被分院，姓 W 排在後面。"
-            }
-        },
-        "flags": {
-            "boarded_train": true,
-            "found_trevor": true,
-            "met_hermione": true,
-            "met_neville": true,
-            "met_finn": true,
-            "saw_draco": true,
-            "saw_harry": true,
-            "saw_thestrals": true,
-            "arrived_hogsmeade": true,
-            "crossed_lake": true,
-            "entered_castle": true,
-            "teased_baron_portrait": true,
-            "sorting_started": true,
-            "neville_sorted_gryffindor": true,
-            "hermione_sorted_gryffindor": true,
-            "draco_sorted_slytherin": true,
-            "tiny_sorting_imminent": true
-        },
-        "inventory": [
-            {
-                "id": "phone",
-                "name": "手機"
-            },
-            {
-                "id": "sticky_note",
-                "name": "Mark 的便利貼"
-            },
-            {
-                "id": "lip_balm",
-                "name": "護唇膏"
-            }
-        ],
-        "skills": {
-            "divination": 11,
-            "charms": 8,
-            "care_of_magical_creatures": 7,
-            "quidditch": 9,
-            "observation": 13,
-            "mischief": 11
-        },
-        "traits": [
-            "observant",
-            "calm",
-            "playful",
-            "perceptive",
-            "protective",
-            "fearless"
-        ],
-        "reputation": {
-            "students": 10,
-            "teachers": 0,
-            "portraits": 3
-        },
-        "futureEvents": [
-            {
-                "id": "tiny_sorting",
-                "note": "即將進行——本場最重要事件"
-            },
-            {
-                "id": "welcome_feast",
-                "note": "分院後"
-            },
-            {
-                "id": "wand_assignment",
-                "note": "待處理"
-            }
-        ],
-        "summary": "九月一日夜。分院儀式進行中。Tiny 一路從家、月台、特快車（為 Neville 尋回蟾蜍 Trevor，結識 Hermione、Neville）、渡湖（逗 Neville、結識 Finnian Walsh）、玄關大廳（對男爵肖像比愛心）走到大廳。儀式中她憑觀察力連續精準預測多名新生的學院歸屬，連 Finn 都嘖嘖稱奇。Neville 與 Hermione 皆進葛來分多，馬份進史萊哲林；馬份分院後目光掠過 Tiny 略有停頓。麥教授念名已排到字母 K，下一個極可能就是 Tinnie Kiku——她接下來七年的歸屬，即將揭曉。"
-    },
-    {
-        "form_id": "20260612_111512",
         "savedAt": "第一年，九月一日，夜晚（分類帽詢問中，尚未做出選擇）",
         "character": {
             "name": "Tinnie Kiku",
@@ -711,5 +239,1313 @@
             }
         ],
         "summary": "九月一日夜，分院儀式。Tiny 從家、月台、特快車（救回 Trevor、結識 Hermione 與 Neville）、渡湖（逗 Neville、結識 Finnian Walsh）、玄關（對男爵肖像比愛心）一路走來。儀式中她精準預測多名新生學院，連 Finn 都嘆服。Neville、Hermione 進葛來分多，馬份進史萊哲林。輪到 Tiny，她坐上分類凳，與分類帽在腦中對話：帽子點出她見多識廣、極聰明且藏拙、視知識為工具、對家人護短至深，兼具葛來分多的勇氣與史萊哲林的執著，雷文克勞也會欣賞她的頭腦。帽子最後問她：你自己想去哪裡？——Tiny 尚未回答，七年的歸屬懸於這一句之間。"
+    },
+    {
+        "form_id": "20260612_111512",
+        "savedAt": "第一年，九月一日，夜晚（歡迎晚宴進行中）",
+        "character": {
+            "name": "Tinnie Kiku",
+            "nick": "Tiny",
+            "gender": "女",
+            "birthday": "7月12日（巨蟹座）",
+            "house": "葛來分多",
+            "year": 1,
+            "wand": "待領取",
+            "origin": "混血",
+            "mbti": "INTP",
+            "personality": [
+                "聰明",
+                "愛惡作劇",
+                "理智",
+                "護短",
+                "直率"
+            ],
+            "talents": [
+                "占卜學",
+                "算命學",
+                "符咒學",
+                "奇獸飼育學",
+                "魁地奇"
+            ],
+            "housePoints": 0
+        },
+        "worldState": {
+            "date": "第一年九月一日",
+            "season": "秋",
+            "timeOfDay": "夜晚",
+            "location": "霍格華茲大廳，葛來分多桌",
+            "weather": "晴，微冷",
+            "currentArc": "一年級入學",
+            "activeStorylines": [
+                "welcome_feast_ongoing",
+                "mischief_alliance_active",
+                "draco_tension_simmering",
+                "seventh_floor_corridor_noted",
+                "unease_about_year_ahead"
+            ]
+        },
+        "npcs": {
+            "Mark Kiku": {
+                "affinity": 80,
+                "relationship": "家人",
+                "knownEvents": [
+                    "farewell_morning",
+                    "sticky_note",
+                    "hair_combing",
+                    "messages_on_train",
+                    "feast_photo_exchange"
+                ],
+                "note": "雙胞胎弟弟，未入學。晚宴期間收到 Tiny 傳的食物照片，回傳了一碗泡麵——爸媽出去慶祝，他懶得煮。回了「葛來分多不意外」五個字。"
+            },
+            "Neville Longbottom": {
+                "affinity": 55,
+                "relationship": "朋友",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "trevor_rescued",
+                    "teased_on_boat",
+                    "sorted_gryffindor",
+                    "same_house",
+                    "seated_together",
+                    "feast_conversation"
+                ],
+                "note": "與 Tiny 同入葛來分多，坐在她左側。Trevor 塞進外套口袋只露出頭，Neville 自己沒察覺。晚宴期間和旁邊的男孩聊寵物，說「只要不讓牠跑掉就好」，表情非常認真。"
+            },
+            "Hermione Granger": {
+                "affinity": 48,
+                "relationship": "認識",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "trevor_search",
+                    "analysis_of_tiny",
+                    "praised_by_tiny",
+                    "sorted_gryffindor",
+                    "prediction_half_correct",
+                    "harry_prediction_correct",
+                    "unease_conversation"
+                ],
+                "note": "與 Tiny 同入葛來分多。Tiny 告知她猜 Harry 進葛來分多猜對了，她回應克制但滿足。Tiny 說「直覺告訴我今年不會太平靜」，她問有沒有具體理由，Tiny 說沒有，她欲言又止。晚宴開始後已在討論課程表。"
+            },
+            "Draco Malfoy": {
+                "affinity": 12,
+                "relationship": "對立苗頭",
+                "house": "史萊哲林",
+                "knownEvents": [
+                    "train_eye_contact",
+                    "sorting_eye_contact",
+                    "tiny_sorted_gryffindor",
+                    "feast_caught_staring"
+                ],
+                "note": "晚宴期間持續用餘光打量 Tiny，被 Tiny 當場抓到，眼神碰上後收回視線明顯快了半拍，露出一絲窘迫。Tiny 評價：piece of cake，但記下了他的習慣。只要不越界，打量就隨他去。"
+            },
+            "Harry Potter": {
+                "affinity": 15,
+                "relationship": "同學院，尚未交談",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "seen_on_platform",
+                    "seen_on_train",
+                    "same_house",
+                    "sorting_observed",
+                    "feast_observed"
+                ],
+                "note": "Tiny 觀察到 Harry 在凳子上低語，判斷他不是在等結果而是在請求某個結果——害怕走錯，不是害怕未知。晚宴中和 Ron 坐在一起，應接不暇但眼神有東西在發亮。Tiny 心中對今年有隱隱不安的預感，和他有關。"
+            },
+            "Finnian Walsh": {
+                "affinity": 45,
+                "relationship": "朋友",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "boat_encounter",
+                    "caught_smiling",
+                    "portrait_heart_witness",
+                    "sorting_commentary",
+                    "sorted_gryffindor",
+                    "feast_phone_witness",
+                    "tiny_eavesdropping_witness"
+                ],
+                "note": "與 Tiny 同入葛來分多，坐在她右側。目睹 Tiny 在晚宴中拍食物傳給 Mark，只說了「你剛才拍照」「在霍格華茲大廳裡」「好」。Tiny 往 Fred、George 那邊挪動時他給了個「你又想幹嘛」的眼神，Tiny 假裝沒看見。"
+            },
+            "Fred Weasley": {
+                "affinity": 40,
+                "relationship": "同盟（升溫中）",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "mischief_alliance_handshake",
+                    "seventh_floor_intel_shared",
+                    "name_exchange"
+                ],
+                "note": "衛斯理雙胞胎之一。晚宴中透露第七層北側走廊有一面需求之室的牆，說今年「大概不會無聊」。Tiny 自我介紹後他記下了名字，說「記住了」。"
+            },
+            "George Weasley": {
+                "affinity": 40,
+                "relationship": "同盟（升溫中）",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "mischief_alliance_handshake",
+                    "seventh_floor_intel_shared",
+                    "name_exchange"
+                ],
+                "note": "衛斯理雙胞胎之一。與 Fred 同步行動，透露第七層情報後說「要等你自己去發現」。同樣記下了 Tiny 的名字。"
+            },
+            "Ron Weasley": {
+                "affinity": 18,
+                "relationship": "同學院，初識",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "sorted_gryffindor",
+                    "overheard_seventh_floor"
+                ],
+                "note": "衛斯理家老六，毫無懸念進葛來分多。被雙胞胎哥哥夾在中間，試圖阻止他們透露第七層情報給一年級生，被兩人說「我們只是在聊城堡建築結構」敷衍掉，一臉無奈。"
+            },
+            "Albus Dumbledore": {
+                "affinity": 20,
+                "relationship": "校長，初次見到",
+                "knownEvents": [
+                    "welcome_feast_speech"
+                ],
+                "note": "銀白長鬚，深紫長袍，半月眼鏡後有雙藍得很深的眼睛。致詞說「傻瓜、嘟嘟、！」，讓大廳笑了起來。Tiny 評價：裝得下很多東西，但那些東西不會壓下來。"
+            }
+        },
+        "flags": {
+            "boarded_train": true,
+            "found_trevor": true,
+            "met_hermione": true,
+            "met_neville": true,
+            "met_finn": true,
+            "met_fred_george": true,
+            "met_ron": true,
+            "saw_draco": true,
+            "saw_harry": true,
+            "saw_dumbledore": true,
+            "saw_thestrals": true,
+            "arrived_hogsmeade": true,
+            "crossed_lake": true,
+            "entered_castle": true,
+            "teased_baron_portrait": true,
+            "sorting_completed": true,
+            "tiny_sorted_gryffindor": true,
+            "mischief_alliance_formed": true,
+            "welcome_feast_started": true,
+            "mark_notified_house": true,
+            "seventh_floor_corridor_learned": true,
+            "draco_caught_staring": true,
+            "unease_flag": true
+        },
+        "inventory": [
+            {
+                "id": "phone",
+                "name": "手機"
+            },
+            {
+                "id": "sticky_note",
+                "name": "Mark 的便利貼"
+            },
+            {
+                "id": "lip_balm",
+                "name": "護唇膏"
+            }
+        ],
+        "skills": {
+            "divination": 11,
+            "charms": 8,
+            "care_of_magical_creatures": 7,
+            "quidditch": 9,
+            "observation": 14,
+            "mischief": 14
+        },
+        "traits": [
+            "observant",
+            "calm",
+            "playful",
+            "perceptive",
+            "protective",
+            "fearless",
+            "gryffindor_spirit",
+            "instinctive",
+            "strategic"
+        ],
+        "reputation": {
+            "gryffindor": 12,
+            "slytherin": -8,
+            "students": 18,
+            "teachers": 0,
+            "portraits": 3
+        },
+        "knownSecrets": [
+            {
+                "id": "seventh_floor_corridor",
+                "note": "城堡北側第七層走廊，有一面需求之室的牆。在對面來回走三趟、心裡想著需要什麼，就會出現一扇門。Fred 和 George 在裡面藏了東西，具體內容未知。"
+            },
+            {
+                "id": "third_floor_corridor",
+                "note": "三樓某條走廊封著，Filch 釘了牌子，但牌子被 Peeves 拿走當武器。封著的原因不明，待查。"
+            }
+        ],
+        "futureEvents": [
+            {
+                "id": "welcome_feast_end",
+                "note": "即將結束"
+            },
+            {
+                "id": "gryffindor_tower",
+                "note": "晚宴後前往葛來分多塔樓"
+            },
+            {
+                "id": "wand_assignment",
+                "note": "待處理"
+            },
+            {
+                "id": "first_class",
+                "note": "明日開始"
+            },
+            {
+                "id": "seventh_floor_exploration",
+                "note": "待解鎖，時機待定"
+            },
+            {
+                "id": "fred_george_collaboration",
+                "note": "惡作劇同盟，待激活"
+            },
+            {
+                "id": "draco_confrontation_potential",
+                "note": "若他越界則啟動"
+            }
+        ],
+        "summary": "九月一日。Tiny 從家出發，經九又四分之三月台、霍格華茲特快車、渡湖、玄關大廳，一路走進大廳完成分院。分類帽以同謀語氣宣告葛來分多，Tiny 分院前向 Fred、George 握手無聲成立惡作劇同盟。歡迎晚宴中：對著食物「手機先吃」傳給 Mark 炫耀，Mark 回了泡麵和「葛來分多不意外」；與 Hermione 聊了對今年的隱隱不安；抓到馬份在偷偷打量，兩人眼神交會後馬份略顯窘迫；從 Fred、George 處得知第七層北側走廊有需求之室，三樓有封著的走廊原因不明。晚宴仍在進行，葛來分多塔樓之行即將開始。"
+    },
+    {
+        "form_id": "20260612_111512",
+        "savedAt": "第一年，九月一日，深夜（第一天完整結束，已入睡）",
+        "character": {
+            "name": "Tinnie Kiku",
+            "nick": "Tiny",
+            "gender": "女",
+            "birthday": "7月12日（巨蟹座）",
+            "house": "葛來分多",
+            "year": 1,
+            "wand": "待領取",
+            "origin": "混血",
+            "mbti": "INTP",
+            "personality": [
+                "聰明",
+                "愛惡作劇",
+                "理智",
+                "護短",
+                "直率"
+            ],
+            "talents": [
+                "占卜學",
+                "算命學",
+                "符咒學",
+                "奇獸飼育學",
+                "魁地奇"
+            ],
+            "housePoints": 0
+        },
+        "worldState": {
+            "date": "第一年九月一日深夜",
+            "season": "秋",
+            "timeOfDay": "深夜",
+            "location": "葛來分多塔樓，一年級女生寢室，床上",
+            "weather": "晴，微冷，星空清晰",
+            "currentArc": "一年級入學",
+            "activeStorylines": [
+                "mischief_alliance_active",
+                "draco_tension_simmering",
+                "seventh_floor_corridor_noted",
+                "third_floor_mystery",
+                "unease_about_year_ahead",
+                "hermione_muggle_tech_exchange",
+                "hermione_nickname_dispute"
+            ]
+        },
+        "npcs": {
+            "Mark Kiku": {
+                "affinity": 84,
+                "relationship": "家人",
+                "knownEvents": [
+                    "farewell_morning",
+                    "sticky_note",
+                    "hair_combing",
+                    "messages_on_train",
+                    "feast_photo_exchange",
+                    "just_asking_conversation",
+                    "goodnight_exchange"
+                ],
+                "note": "雙胞胎弟弟，未入學。睡前 Tiny 傳了「晚安」，他回了「嗯」，一個字，但回了。今晚一個人在家吃泡麵，爸媽出去慶祝。"
+            },
+            "Neville Longbottom": {
+                "affinity": 55,
+                "relationship": "朋友",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "trevor_rescued",
+                    "teased_on_boat",
+                    "sorted_gryffindor",
+                    "same_house",
+                    "feast_conversation",
+                    "tower_walk_together"
+                ],
+                "note": "前往葛來分多塔樓途中走在 Tiny 旁邊，被告知樓梯會動後把腳踩得更穩。Trevor 安然無恙。"
+            },
+            "Hermione Granger": {
+                "affinity": 55,
+                "relationship": "室友／朋友（升溫中）",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "trevor_search",
+                    "analysis_of_tiny",
+                    "praised_by_tiny",
+                    "sorted_gryffindor",
+                    "feast_conversation",
+                    "dorm_encounter",
+                    "muggle_tech_discussion",
+                    "shower_together",
+                    "hermy_nickname_dispute",
+                    "bedtime_reading"
+                ],
+                "note": "同寢室，麻瓜出身。Tiny 叫她「Hermy」，她堅持全名「Hermione」，但糾正速度越來越像反射動作。一起去洗澡，各自七分鐘與十五分鐘。洗完後繼續整理書本、預習明天課程，Tiny 帳幔拉上時她還在翻書，說「不會很久」。關係從「認識」升溫為「室友／朋友」。"
+            },
+            "Draco Malfoy": {
+                "affinity": 12,
+                "relationship": "對立苗頭",
+                "house": "史萊哲林",
+                "knownEvents": [
+                    "train_eye_contact",
+                    "sorting_eye_contact",
+                    "tiny_sorted_gryffindor",
+                    "feast_caught_staring"
+                ],
+                "note": "晚宴中持續打量，被抓到時露出窘迫。Tiny 評估：只要不越界就隨他去，但已記下他的習慣與模式。"
+            },
+            "Harry Potter": {
+                "affinity": 15,
+                "relationship": "同學院，尚未交談",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "seen_on_platform",
+                    "seen_on_train",
+                    "same_house",
+                    "sorting_observed",
+                    "feast_observed"
+                ],
+                "note": "分院時低語，Tiny 判斷他害怕走錯而非害怕未知。Tiny 對今年有隱隱不安的預感，直覺與他有關。"
+            },
+            "Finnian Walsh": {
+                "affinity": 47,
+                "relationship": "朋友",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "boat_encounter",
+                    "caught_smiling",
+                    "portrait_heart_witness",
+                    "sorting_commentary",
+                    "sorted_gryffindor",
+                    "feast_phone_witness",
+                    "seventh_floor_intel_shared",
+                    "needs_room_acknowledged"
+                ],
+                "note": "同入葛來分多。得知需求之室位置，說「我聽過，書上有」。被問要不要去探索時說「看情況」，耳朵在燭光下微動。"
+            },
+            "Fred Weasley": {
+                "affinity": 42,
+                "relationship": "同盟（升溫中）",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "mischief_alliance_handshake",
+                    "seventh_floor_intel_shared",
+                    "name_exchange"
+                ],
+                "note": "惡作劇同盟成員。透露第七層需求之室，記下了 Tiny 的名字。"
+            },
+            "George Weasley": {
+                "affinity": 42,
+                "relationship": "同盟（升溫中）",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "mischief_alliance_handshake",
+                    "seventh_floor_intel_shared",
+                    "name_exchange"
+                ],
+                "note": "惡作劇同盟成員，與 Fred 同步行動。"
+            },
+            "Percy Weasley": {
+                "affinity": 10,
+                "relationship": "同學院，風紀股長",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "led_firstyears_to_tower"
+                ],
+                "note": "帶新生前往塔樓，口令「豬鼻糖」，認真得有點過頭。"
+            },
+            "Ron Weasley": {
+                "affinity": 18,
+                "relationship": "同學院，初識",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "sorted_gryffindor",
+                    "feast_with_harry"
+                ],
+                "note": "與 Harry 坐在一起，氣氛融洽。"
+            },
+            "Albus Dumbledore": {
+                "affinity": 20,
+                "relationship": "校長",
+                "knownEvents": [
+                    "welcome_feast_speech"
+                ],
+                "note": "Tiny 評價：裝得下很多東西，但那些東西不會壓下來。"
+            }
+        },
+        "dorm": {
+            "roommates": [
+                {
+                    "name": "Hermione Granger",
+                    "note": "麻瓜出身，室友關係升溫，睡前仍在看書"
+                },
+                {
+                    "name": "金髮女孩",
+                    "note": "靠窗床位，帳幔已拉上，燈滅，姓名未知"
+                },
+                {
+                    "name": "馬尾女孩",
+                    "note": "中間床位，睡前在寫東西，姓名未知"
+                },
+                {
+                    "name": "未知",
+                    "note": "第五張床仍空著"
+                }
+            ]
+        },
+        "flags": {
+            "boarded_train": true,
+            "found_trevor": true,
+            "met_hermione": true,
+            "met_neville": true,
+            "met_finn": true,
+            "met_fred_george": true,
+            "met_percy": true,
+            "met_ron": true,
+            "saw_draco": true,
+            "saw_harry": true,
+            "saw_dumbledore": true,
+            "saw_thestrals": true,
+            "sorting_completed": true,
+            "tiny_sorted_gryffindor": true,
+            "mischief_alliance_formed": true,
+            "welcome_feast_completed": true,
+            "mark_notified_house": true,
+            "seventh_floor_corridor_learned": true,
+            "third_floor_corridor_noted": true,
+            "draco_caught_staring": true,
+            "unease_flag": true,
+            "arrived_gryffindor_tower": true,
+            "dorm_settled": true,
+            "phone_charged": true,
+            "hermione_muggle_tech_noted": true,
+            "hermy_nickname_established": true,
+            "mark_goodnight_exchange": true,
+            "day_one_complete": true,
+            "asleep": true
+        },
+        "inventory": [
+            {
+                "id": "phone",
+                "name": "手機（電量68%，已關螢幕）"
+            },
+            {
+                "id": "sticky_note",
+                "name": "Mark 的便利貼（壓在手機下）"
+            },
+            {
+                "id": "lip_balm",
+                "name": "護唇膏"
+            },
+            {
+                "id": "charging_ring",
+                "name": "魔力充電環（收進小袋子）"
+            }
+        ],
+        "skills": {
+            "divination": 11,
+            "charms": 8,
+            "care_of_magical_creatures": 7,
+            "quidditch": 9,
+            "observation": 14,
+            "mischief": 14,
+            "magical_control": 9
+        },
+        "traits": [
+            "observant",
+            "calm",
+            "playful",
+            "perceptive",
+            "protective",
+            "fearless",
+            "gryffindor_spirit",
+            "instinctive",
+            "strategic",
+            "adaptable"
+        ],
+        "reputation": {
+            "gryffindor": 12,
+            "slytherin": -8,
+            "students": 20,
+            "teachers": 0,
+            "portraits": 3
+        },
+        "knownSecrets": [
+            {
+                "id": "seventh_floor_corridor",
+                "note": "城堡北側第七層走廊，需求之室。對面來回走三趟、心裡想著需要什麼，出現一扇門。Fred 和 George 在裡面藏了東西，具體未知。Finn 也知道此地。"
+            },
+            {
+                "id": "third_floor_corridor",
+                "note": "三樓某條走廊封著，Filch 釘了牌子，被 Peeves 拿走。封著的原因不明，待查。"
+            }
+        ],
+        "futureEvents": [
+            {
+                "id": "wand_assignment",
+                "note": "開學後待處理"
+            },
+            {
+                "id": "first_class",
+                "note": "明日——魔法史與魔咒學"
+            },
+            {
+                "id": "seventh_floor_exploration",
+                "note": "待解鎖，時機待定"
+            },
+            {
+                "id": "fred_george_collaboration",
+                "note": "惡作劇同盟，待激活"
+            },
+            {
+                "id": "draco_confrontation_potential",
+                "note": "若越界則啟動"
+            },
+            {
+                "id": "hermione_tech_followup",
+                "note": "她可能會查魔力充電的文獻"
+            },
+            {
+                "id": "unknown_roommate",
+                "note": "第五個室友尚未出現"
+            },
+            {
+                "id": "mark_year_two",
+                "note": "明年 Mark 魔力天賦出現，一同入學"
+            }
+        ],
+        "summary": "第一年九月一日，完整結束。Tiny 的霍格華茲第一天從清晨家中出發，到深夜帳幔拉上，裝了很多：Mark 的便利貼與「嗯」、爸爸的後背、分類帽的同謀笑意、葛來分多、Fred 和 George 的惡作劇同盟、需求之室的情報、馬份的窘迫、對今年不太平靜的預感、Hermione 對齊書本的樣子與「Hermione」的倔強、Finn 的耳朵、最後那個「晚安」與「嗯」。都壓進枕頭裡了，不沉，但都在。"
+    },
+    {
+        "form_id": "20260612_111512",
+        "savedAt": "第一年，九月二日，清晨（前往大廳早餐途中）",
+        "character": {
+            "name": "Tinnie Kiku",
+            "nick": "Tiny",
+            "gender": "女",
+            "birthday": "7月12日（巨蟹座）",
+            "house": "葛來分多",
+            "year": 1,
+            "wand": "待領取",
+            "origin": "混血",
+            "mbti": "INTP",
+            "personality": [
+                "聰明",
+                "愛惡作劇",
+                "理智",
+                "護短",
+                "直率"
+            ],
+            "talents": [
+                "占卜學",
+                "算命學",
+                "符咒學",
+                "奇獸飼育學",
+                "魁地奇"
+            ],
+            "housePoints": 0
+        },
+        "worldState": {
+            "date": "第一年九月二日",
+            "season": "秋",
+            "timeOfDay": "清晨",
+            "location": "葛來分多塔樓往大廳的走廊",
+            "weather": "晴，藍白色晨光",
+            "currentArc": "一年級第一週",
+            "activeStorylines": [
+                "mischief_alliance_active",
+                "chocolate_frog_operation",
+                "draco_tension_simmering",
+                "seventh_floor_corridor_noted",
+                "third_floor_mystery",
+                "unease_about_year_ahead",
+                "harry_first_contact"
+            ]
+        },
+        "npcs": {
+            "Mark Kiku": {
+                "affinity": 84,
+                "relationship": "家人",
+                "knownEvents": [
+                    "farewell_morning",
+                    "sticky_note",
+                    "hair_combing",
+                    "messages_on_train",
+                    "feast_photo_exchange",
+                    "just_asking_conversation",
+                    "goodnight_exchange",
+                    "morning_message_sent"
+                ],
+                "note": "雙胞胎弟弟，未入學。清晨 Tiny 傳了「早安，今天第一堂魔法史，教授是鬼魂」，尚未回覆。昨晚一個人吃泡麵，爸媽慶祝去了。"
+            },
+            "Neville Longbottom": {
+                "affinity": 57,
+                "relationship": "朋友",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "trevor_rescued",
+                    "teased_on_boat",
+                    "sorted_gryffindor",
+                    "same_house",
+                    "feast_conversation",
+                    "tower_walk_together",
+                    "morning_common_room",
+                    "heading_to_breakfast"
+                ],
+                "note": "清晨從男生寢室出來，制服扣錯了一邊高一邊低，Trevor 在口袋裡。被 Tiny 招手加入交誼廳的小圈子。對 Tiny 要去找 Fred、George 討巧克力蛙感到緊張，認真提醒「要小心」。"
+            },
+            "Hermione Granger": {
+                "affinity": 55,
+                "relationship": "室友／朋友",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "trevor_search",
+                    "sorted_gryffindor",
+                    "dorm_encounter",
+                    "muggle_tech_discussion",
+                    "shower_together",
+                    "hermy_nickname_dispute",
+                    "bedtime_reading",
+                    "morning_early_rise",
+                    "chocolate_frog_plan_acknowledged"
+                ],
+                "note": "六點就起來，昨晚讀到十二點半。下來交誼廳時制服頭髮一絲不苟。聽完巧克力蛙計畫說了一個「好」，Neville 和 Dean 無法判斷是贊成還是保留意見。走在隊伍最前面往大廳去。"
+            },
+            "Harry Potter": {
+                "affinity": 25,
+                "relationship": "同學院，初次交談",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "seen_on_platform",
+                    "seen_on_train",
+                    "same_house",
+                    "sorting_observed",
+                    "feast_observed",
+                    "first_conversation_morning"
+                ],
+                "note": "清晨從男生寢室出來，跟著 Ron 加入交誼廳。Tiny 注意到他的眼睛是亮綠色、杏仁狀，和媽媽相簿裡某個女生一模一樣，沒有說出口。Tiny 用很自然的方式跟他說話——不因為他是誰，就是說話。他說了「我也是」，嘴角動了一下。走廊上自我介紹，他說了「Harry Potter」，Tiny 說「我知道」然後繼續走，他跟上來，嘴角比剛才多了一點。"
+            },
+            "Ron Weasley": {
+                "affinity": 35,
+                "relationship": "朋友（升溫中）",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "sorted_gryffindor",
+                    "feast_with_harry",
+                    "morning_common_room",
+                    "intel_provider"
+                ],
+                "note": "清晨跟著 Harry 一起出來。得知 Fred、George 昨晚裝不認識 Tiny，臉上走過幾個階段最後定格在「果然」。主動提供雙胞胎情報：最怕被人比下去、在意過程不在意東西、不能正面去要。最後說「我什麼都沒說，你自己打聽到的」，Tiny 心裡給他加了好感度。"
+            },
+            "Dean Thomas": {
+                "affinity": 28,
+                "relationship": "認識",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "morning_common_room",
+                    "betting_info_shared"
+                ],
+                "note": "Neville 的室友，圓臉，頭髮有睡痕。告知昨晚有人賭 Tiny 去雷文克勞輸了二十塊，賭贏的是 Fred 或 George 其中一個。語氣直接不帶惡意，評估說「他們更有說服力」。"
+            },
+            "Finnian Walsh": {
+                "affinity": 47,
+                "relationship": "朋友",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "boat_encounter",
+                    "caught_smiling",
+                    "sorted_gryffindor",
+                    "seventh_floor_intel_shared",
+                    "morning_sofa_corner"
+                ],
+                "note": "清晨窩在交誼廳角落沙發，帽T蓋住半張臉，旁邊有一個空的巧克力蛙包裝，書翻到一半扣著，像是待了一段時間。Tiny 大發善心讓他繼續享受寧靜。後來被 Tiny 大聲叫喊，說了「知道了」，跟著一起往大廳走。"
+            },
+            "Fred Weasley": {
+                "affinity": 42,
+                "relationship": "同盟（計畫中）",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "mischief_alliance_handshake",
+                    "seventh_floor_intel_shared",
+                    "fake_name_exchange",
+                    "betting_on_tiny"
+                ],
+                "note": "昨晚裝不認識 Tiny，但其實提前研究了分院名單並押了她去葛來分多。Tiny 已掌握其弱點：最怕被比下去、在意過程、不能正面要東西。目標：讓他自己把兩盒巧克力蛙送來。"
+            },
+            "George Weasley": {
+                "affinity": 42,
+                "relationship": "同盟（計畫中）",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "mischief_alliance_handshake",
+                    "seventh_floor_intel_shared",
+                    "fake_name_exchange",
+                    "betting_on_tiny"
+                ],
+                "note": "與 Fred 同步，同樣裝不認識 Tiny。弱點同上。兩盒巧克力蛙的目標：一盒分成，一盒表演費。"
+            },
+            "Percy Weasley": {
+                "affinity": 10,
+                "relationship": "同學院，風紀股長",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "led_firstyears_to_tower"
+                ],
+                "note": "帶新生上塔樓，認真得有點過頭。"
+            },
+            "Draco Malfoy": {
+                "affinity": 12,
+                "relationship": "對立苗頭",
+                "house": "史萊哲林",
+                "knownEvents": [
+                    "train_eye_contact",
+                    "sorting_eye_contact",
+                    "tiny_sorted_gryffindor",
+                    "feast_caught_staring"
+                ],
+                "note": "晚宴中被抓到打量，露出窘迫。Tiny 評估：只要不越界就隨他去。"
+            },
+            "Albus Dumbledore": {
+                "affinity": 20,
+                "relationship": "校長",
+                "knownEvents": [
+                    "welcome_feast_speech"
+                ],
+                "note": "Tiny 評價：裝得下很多東西，但那些東西不會壓下來。"
+            }
+        },
+        "activeOperation": {
+            "id": "chocolate_frog_operation",
+            "target": [
+                "Fred Weasley",
+                "George Weasley"
+            ],
+            "goal": "讓雙胞胎主動送來兩盒巧克力蛙，不能正面要",
+            "intel": [
+                "最怕被人說比不上別人或自己的惡作劇不夠好",
+                "在意過程，不在意東西本身",
+                "正面去要必輸，要讓他們自己想給",
+                "情報來源：Ron Weasley（本人否認提供）"
+            ],
+            "status": "情報蒐集完成，計畫尚未執行"
+        },
+        "dorm": {
+            "roommates": [
+                {
+                    "name": "Hermione Granger",
+                    "note": "室友關係升溫，昨晚讀到十二點半"
+                },
+                {
+                    "name": "金髮女孩",
+                    "note": "靠窗床位，姓名未知"
+                },
+                {
+                    "name": "馬尾女孩",
+                    "note": "中間床位，姓名未知"
+                },
+                {
+                    "name": "Lavender Brown",
+                    "note": "第五張床，昨晚未歸，姓名由 Hermione 提供"
+                }
+            ]
+        },
+        "flags": {
+            "day_one_complete": true,
+            "tiny_sorted_gryffindor": true,
+            "mischief_alliance_formed": true,
+            "seventh_floor_corridor_learned": true,
+            "third_floor_corridor_noted": true,
+            "draco_caught_staring": true,
+            "unease_flag": true,
+            "harry_first_contact": true,
+            "ron_intel_obtained": true,
+            "chocolate_frog_operation_started": true,
+            "lavender_brown_identified": true,
+            "dean_thomas_met": true,
+            "morning_group_formed": true
+        },
+        "inventory": [
+            {
+                "id": "phone",
+                "name": "手機（電量68%）"
+            },
+            {
+                "id": "sticky_note",
+                "name": "Mark 的便利貼"
+            },
+            {
+                "id": "lip_balm",
+                "name": "護唇膏"
+            },
+            {
+                "id": "charging_ring",
+                "name": "魔力充電環（媽媽製）"
+            }
+        ],
+        "skills": {
+            "divination": 11,
+            "charms": 8,
+            "care_of_magical_creatures": 7,
+            "quidditch": 9,
+            "observation": 15,
+            "mischief": 15,
+            "magical_control": 9,
+            "social_reading": 12
+        },
+        "traits": [
+            "observant",
+            "calm",
+            "playful",
+            "perceptive",
+            "protective",
+            "fearless",
+            "gryffindor_spirit",
+            "instinctive",
+            "strategic",
+            "adaptable"
+        ],
+        "reputation": {
+            "gryffindor": 15,
+            "slytherin": -8,
+            "students": 25,
+            "teachers": 0,
+            "portraits": 3
+        },
+        "knownSecrets": [
+            {
+                "id": "seventh_floor_corridor",
+                "note": "城堡北側第七層走廊，需求之室。對面來回走三趟、心裡想著需要什麼，出現一扇門。Fred 和 George 在裡面藏了東西。"
+            },
+            {
+                "id": "third_floor_corridor",
+                "note": "三樓某條走廊封著，原因不明，待查。"
+            },
+            {
+                "id": "lily_potter_eyes",
+                "note": "Harry 的眼睛——亮綠色、杏仁狀——和媽媽學生時代相簿裡某個女生一模一樣。Tiny 認出了但沒有說出口。"
+            }
+        ],
+        "futureEvents": [
+            {
+                "id": "breakfast",
+                "note": "即將抵達大廳"
+            },
+            {
+                "id": "first_class_history_of_magic",
+                "note": "今日上午，賓斯教授"
+            },
+            {
+                "id": "herbology",
+                "note": "今日上午"
+            },
+            {
+                "id": "charms",
+                "note": "今日下午"
+            },
+            {
+                "id": "transfiguration",
+                "note": "今日下午"
+            },
+            {
+                "id": "wand_assignment",
+                "note": "開學後待處理"
+            },
+            {
+                "id": "chocolate_frog_operation",
+                "note": "計畫執行中，時機待定"
+            },
+            {
+                "id": "seventh_floor_exploration",
+                "note": "待解鎖"
+            },
+            {
+                "id": "lavender_brown_first_meeting",
+                "note": "第五個室友，尚未正式見面"
+            },
+            {
+                "id": "mark_year_two",
+                "note": "明年 Mark 魔力天賦出現，一同入學"
+            }
+        ],
+        "summary": "第一年九月二日清晨。Tiny 六點四十七分醒來，邊刷牙邊問 Hermione 課表，得知今天有魔法史、藥草學、魔咒學、變形學。問起第五個室友，Hermione 告知是 Lavender Brown，昨晚未歸。下到交誼廳，發現 Finn 窩在角落沙發徹夜未眠，大發善心沒打擾。招呼 Neville 和 Dean 加入，隨後 Hermione 下來，接著 Harry 和 Ron 也從男生寢室出來。得知 Fred 或 George 昨晚裝不認識 Tiny 但其實押了她去葛來分多，巧克力蛙從兩盒升級計畫啟動。Ron 主動提供雙胞胎情報（本人否認）。往大廳途中，Tiny 以自然方式跟 Harry 初次交談，注意到他的眼睛和媽媽相簿裡某個女生一模一樣，沒有說出口。目前整個小隊正走在前往大廳的走廊上。"
+    },
+    {
+        "form_id": "20260612_111512",
+        "savedAt": "第一年，九月二日，上午（魔法史第一堂課進行中）",
+        "character": {
+            "name": "Tinnie Kiku",
+            "nick": "Tiny",
+            "gender": "女",
+            "birthday": "7月12日（巨蟹座）",
+            "house": "葛來分多",
+            "year": 1,
+            "wand": "待領取",
+            "origin": "混血",
+            "mbti": "INTP",
+            "personality": [
+                "聰明",
+                "愛惡作劇",
+                "理智",
+                "護短",
+                "直率"
+            ],
+            "talents": [
+                "占卜學",
+                "算命學",
+                "符咒學",
+                "奇獸飼育學",
+                "魁地奇"
+            ],
+            "housePoints": 0
+        },
+        "worldState": {
+            "date": "第一年九月二日",
+            "season": "秋",
+            "timeOfDay": "上午",
+            "location": "魔法史教室，二○七號，五樓",
+            "weather": "晴",
+            "currentArc": "一年級第一週",
+            "activeStorylines": [
+                "mischief_alliance_active",
+                "chocolate_frog_operation",
+                "draco_tension_simmering",
+                "seventh_floor_corridor_noted",
+                "third_floor_mystery",
+                "unease_about_year_ahead",
+                "harry_acquaintance_building",
+                "marauders_map_intel_shared"
+            ]
+        },
+        "npcs": {
+            "Mark Kiku": {
+                "affinity": 84,
+                "relationship": "家人",
+                "knownEvents": [
+                    "farewell_morning",
+                    "sticky_note",
+                    "hair_combing",
+                    "messages_on_train",
+                    "feast_photo_exchange",
+                    "just_asking_conversation",
+                    "goodnight_exchange",
+                    "morning_banter",
+                    "star_folding_comment"
+                ],
+                "note": "雙胞胎弟弟，未入學。早餐後傳訊嘴仗：Tiny 說情報買賣是正當利益交換，Mark 傳小兔子拜香貼圖表示自求多福。被問有沒有好好吃早餐，回「不一樣的吐司」。替 Tiny 轉達爸爸問有沒有好好上課。最後傳貼圖暗示「認真聽課」和「不惹麻煩」只能選一個。"
+            },
+            "Neville Longbottom": {
+                "affinity": 57,
+                "relationship": "朋友",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "trevor_rescued",
+                    "teased_on_boat",
+                    "sorted_gryffindor",
+                    "morning_common_room",
+                    "breakfast_group",
+                    "chocolate_frog_witness",
+                    "history_class_same_room"
+                ],
+                "note": "坐在教室靠窗位置，Trevor 在口袋裡。目睹 Tiny 和雙胞胎的巧克力蛙談判後，表情是消化中的樣子。"
+            },
+            "Hermione Granger": {
+                "affinity": 58,
+                "relationship": "室友／朋友",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "trevor_search",
+                    "sorted_gryffindor",
+                    "dorm_encounter",
+                    "muggle_tech_discussion",
+                    "hermy_nickname_dispute",
+                    "morning_early_rise",
+                    "chocolate_frog_plan_acknowledged",
+                    "harry_observation_moment",
+                    "history_class_seatmate"
+                ],
+                "note": "坐在 Tiny 旁邊，第一個到教室，桌面已備好羊皮紙羽毛筆墨水。早餐後跟 Tiny 說了「我知道那種感覺」——指麻瓜出身被人對名字比對本人更熟悉的感受。在教室幫 Tiny 指出羊皮紙捲邊和墨水瓶問題，被 Tiny 打斷後閉嘴，但不是生氣。關係持續升溫。"
+            },
+            "Harry Potter": {
+                "affinity": 32,
+                "relationship": "朋友（初期）",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "first_conversation_morning",
+                    "walk_to_class_together",
+                    "history_class_same_room"
+                ],
+                "note": "走廊上說今天想認真聽魔法史，因為對魔法世界歷史不太了解。說「床比以前睡的軟很多」，Tiny 聽出但沒有追問。討論帶回霍格華茲床鋪的計畫時嘴角往上了一點。坐在 Tiny 後方一排。Tiny 注意到他的眼睛和媽媽相簿裡的 Lily Evans 一模一樣，沒有說出口。"
+            },
+            "Ron Weasley": {
+                "affinity": 38,
+                "relationship": "朋友（升溫中）",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "sorted_gryffindor",
+                    "morning_common_room",
+                    "intel_provider",
+                    "walk_to_class_together",
+                    "history_class_behind_tiny"
+                ],
+                "note": "走廊上說賓斯教授的課是全霍格華茲最好睡的，預言 Harry 會後悔說要認真聽。進教室後拿出羊皮紙，擺放角度是「等等要折星星」的姿勢。坐在 Tiny 後方一排。"
+            },
+            "Dean Thomas": {
+                "affinity": 28,
+                "relationship": "認識",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "morning_common_room",
+                    "betting_info_shared",
+                    "history_class_same_room"
+                ],
+                "note": "Neville 的室友，提供了雙胞胎賭注情報。坐在 Neville 旁邊。"
+            },
+            "Finnian Walsh": {
+                "affinity": 47,
+                "relationship": "朋友",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "boat_encounter",
+                    "caught_smiling",
+                    "sorted_gryffindor",
+                    "seventh_floor_intel_shared",
+                    "morning_sofa_corner",
+                    "map_intel_overheard"
+                ],
+                "note": "坐在教室最後一排靠角落。早餐桌上低聲問地圖情報來源，Tiny 說了「床邊故事」，他沈默沒有回話，但也沒有追問。清晨在交誼廳沙發徹夜未眠，吃了一個巧克力蛙當早餐。"
+            },
+            "Fred Weasley": {
+                "affinity": 45,
+                "relationship": "同盟（談判完成）",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "mischief_alliance_handshake",
+                    "fake_name_exchange",
+                    "betting_on_tiny",
+                    "chocolate_frog_negotiation",
+                    "map_intel_deal_struck"
+                ],
+                "note": "早餐時搭上 Tiny 肩膀打招呼，被 Tiny 以「信任」和「賭約」及「某張特別的地圖」三連擊成功談判。以兩盒巧克力蛙換取地圖情報，約好在交誼廳交接。離開時按了 Tiny 頭頂一下說「有點意思」。實際上他們已經偷到地圖，只是不知道怎麼用。"
+            },
+            "George Weasley": {
+                "affinity": 45,
+                "relationship": "同盟（談判完成）",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "mischief_alliance_handshake",
+                    "fake_name_exchange",
+                    "betting_on_tiny",
+                    "chocolate_frog_negotiation",
+                    "map_intel_deal_struck"
+                ],
+                "note": "與 Fred 同步。談判中表情從逗弄一年級生轉為真實的興味。說了「有點意思」後和 Fred 一起離開。"
+            },
+            "Percy Weasley": {
+                "affinity": 10,
+                "relationship": "同學院，風紀股長",
+                "house": "葛來分多",
+                "knownEvents": [
+                    "led_firstyears_to_tower"
+                ],
+                "note": "早餐時坐在另一邊，看文件，認真得有點過頭。"
+            },
+            "Draco Malfoy": {
+                "affinity": 12,
+                "relationship": "對立苗頭",
+                "house": "史萊哲林",
+                "knownEvents": [
+                    "train_eye_contact",
+                    "sorting_eye_contact",
+                    "tiny_sorted_gryffindor",
+                    "feast_caught_staring"
+                ],
+                "note": "暫無新互動，但 Tiny 已對他的習慣模式有所掌握。"
+            }
+        },
+        "activeOperation": {
+            "id": "chocolate_frog_operation",
+            "target": [
+                "Fred Weasley",
+                "George Weasley"
+            ],
+            "goal": "以劫盜地圖使用方法換取兩盒巧克力蛙",
+            "intel_to_share": {
+                "activation": "我嚴肅聲明我正在圖謀不軌",
+                "deactivation": "惡作劇已經完成了",
+                "source": "媽媽的好友 Lily Evans（Lily Potter）告知",
+                "tiny_believes": "地圖在 Filch 辦公室（實際上已被雙胞胎偷走）"
+            },
+            "status": "談判完成，待交誼廳交接",
+            "hidden_twist": "雙胞胎已有地圖，Tiny 的情報將解鎖他們拿到手卻不會用的地圖"
+        },
+        "knownSecrets": [
+            {
+                "id": "marauders_map",
+                "note": "劫盜地圖，由 James Potter 和其友人製作，能看見霍格華茲所有人位置與秘密通道。媽媽從 Lily Evans 處得知使用方法並告訴 Tiny。Tiny 以為在 Filch 辦公室，實際上已被 Fred、George 偷走但不會用。"
+            },
+            {
+                "id": "seventh_floor_corridor",
+                "note": "城堡北側第七層走廊，需求之室。對面來回走三趟、心裡想著需要什麼，出現一扇門。"
+            },
+            {
+                "id": "third_floor_corridor",
+                "note": "三樓某條走廊封著，原因不明，待查。"
+            },
+            {
+                "id": "lily_potter_eyes",
+                "note": "Harry 的眼睛和媽媽相簿裡的 Lily Evans 一模一樣。Tiny 認出但沒有說出口。"
+            }
+        ],
+        "dorm": {
+            "roommates": [
+                {
+                    "name": "Hermione Granger",
+                    "note": "室友，關係持續升溫"
+                },
+                {
+                    "name": "金髮女孩",
+                    "note": "姓名未知"
+                },
+                {
+                    "name": "馬尾女孩",
+                    "note": "姓名未知"
+                },
+                {
+                    "name": "Lavender Brown",
+                    "note": "昨晚未歸，尚未正式見面"
+                }
+            ]
+        },
+        "flags": {
+            "day_one_complete": true,
+            "tiny_sorted_gryffindor": true,
+            "mischief_alliance_formed": true,
+            "seventh_floor_corridor_learned": true,
+            "third_floor_corridor_noted": true,
+            "draco_caught_staring": true,
+            "unease_flag": true,
+            "harry_first_contact": true,
+            "harry_acquaintance_building": true,
+            "ron_intel_obtained": true,
+            "chocolate_frog_negotiation_complete": true,
+            "map_intel_deal_struck": true,
+            "lavender_brown_identified": true,
+            "dean_thomas_met": true,
+            "morning_group_formed": true,
+            "first_class_started": true,
+            "hermione_muggle_connection_hinted": true
+        },
+        "inventory": [
+            {
+                "id": "phone",
+                "name": "手機（電量待補充）"
+            },
+            {
+                "id": "sticky_note",
+                "name": "Mark 的便利貼"
+            },
+            {
+                "id": "lip_balm",
+                "name": "護唇膏"
+            },
+            {
+                "id": "charging_ring",
+                "name": "魔力充電環（媽媽製）"
+            }
+        ],
+        "skills": {
+            "divination": 11,
+            "charms": 8,
+            "care_of_magical_creatures": 7,
+            "quidditch": 9,
+            "observation": 15,
+            "mischief": 16,
+            "magical_control": 9,
+            "social_reading": 13,
+            "negotiation": 12
+        },
+        "traits": [
+            "observant",
+            "calm",
+            "playful",
+            "perceptive",
+            "protective",
+            "fearless",
+            "gryffindor_spirit",
+            "instinctive",
+            "strategic",
+            "adaptable"
+        ],
+        "reputation": {
+            "gryffindor": 18,
+            "slytherin": -8,
+            "students": 28,
+            "teachers": 0,
+            "portraits": 3
+        },
+        "futureEvents": [
+            {
+                "id": "history_class_ongoing",
+                "note": "進行中"
+            },
+            {
+                "id": "herbology",
+                "note": "今日上午，稍後"
+            },
+            {
+                "id": "charms",
+                "note": "今日下午"
+            },
+            {
+                "id": "transfiguration",
+                "note": "今日下午"
+            },
+            {
+                "id": "chocolate_frog_exchange",
+                "note": "課後在交誼廳，與 Fred、George 交接情報"
+            },
+            {
+                "id": "wand_assignment",
+                "note": "開學後待處理"
+            },
+            {
+                "id": "seventh_floor_exploration",
+                "note": "待解鎖"
+            },
+            {
+                "id": "lavender_brown_first_meeting",
+                "note": "第五個室友，尚未正式見面"
+            },
+            {
+                "id": "mark_year_two",
+                "note": "明年 Mark 魔力天賦出現，一同入學"
+            }
+        ],
+        "summary": "第一年九月二日。清晨起床後問 Hermione 課表，下到交誼廳發現 Finn 徹夜未眠窩在沙發。陸續集合 Neville、Dean、Hermione，Harry 和 Ron 也加入。早餐時 Fred 和 George 出現，Tiny 以「信任」、「賭約」和「某張特別的地圖」三連擊完成談判，換取兩盒巧克力蛙，約好交誼廳交接。得知情報來源時 Ron 耳朵紅了但堅稱什麼都沒說。與 Mark 嘴仗，Mark 傳貼圖自求多福。走廊上與 Harry 初步建立朋友關係，他說床比以前軟，Tiny 沒追問。Hermione 說了一句「我知道那種感覺」，指麻瓜出身被人對名字比對本人熟悉的感受。目前坐在魔法史教室，賓斯教授正從黑板飄出來開始授課。"
     }
 ]

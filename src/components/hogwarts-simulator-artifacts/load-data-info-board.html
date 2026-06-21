@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      @import url("./styles.css");
+      .hw-panel {
+        background: var(--color-background-primary);
+        border: 0.5px solid var(--color-border-tertiary);
+        border-radius: var(--border-radius-lg);
+        padding: 1.25rem 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .hw-badge {
+        display: inline-block;
+        font-size: 11px;
+        padding: 2px 8px;
+        border-radius: var(--border-radius-md);
+        font-weight: 500;
+      }
+      .hw-label {
+        font-size: 12px;
+        color: var(--color-text-secondary);
+        margin-bottom: 2px;
+      }
+      .hw-value {
+        font-size: 14px;
+        color: var(--color-text-primary);
+        font-weight: 500;
+      }
+      .hw-divider {
+        border: none;
+        border-top: 0.5px solid var(--color-border-tertiary);
+        margin: 1rem 0;
+      }
+      .hw-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        padding: 6px 14px;
+        border: 0.5px solid var(--color-border-secondary);
+        border-radius: var(--border-radius-md);
+        background: transparent;
+        color: var(--color-text-primary);
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+      .hw-btn:hover {
+        background: var(--color-background-secondary);
+      }
+      .hw-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 10px;
+        margin-top: 0.75rem;
+      }
+      .hw-stat {
+        background: var(--color-background-secondary);
+        border-radius: var(--border-radius-md);
+        padding: 0.75rem 1rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2 class="sr-only">霍格華茲模擬器——讀檔完成，當前遊戲狀態</h2>
+    <div class="hw-panel">
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 0.5rem;
+        "
+      >
+        <span
+          style="
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--color-text-primary);
+          "
+          >📜 記憶碎片已還原</span
+        >
+        <span class="hw-badge" style="background: #eaf3de; color: #3b6d11"
+          >成功讀取</span
+        >
+      </div>
+      <p style="font-size: 13px; color: var(--color-text-secondary); margin: 0">
+        存檔時間：第一年，九月二日，上午（魔法史第一堂課進行中）
+      </p>
+    </div>
+    <div class="hw-panel">
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 0.75rem;
+        "
+      >
+        <div
+          style="
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #b5d4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 500;
+            color: #0c447c;
+          "
+        >
+          TK
+        </div>
+        <div>
+          <p
+            style="
+              font-size: 15px;
+              font-weight: 500;
+              margin: 0;
+              color: var(--color-text-primary);
+            "
+          >
+            玩家名稱
+          </p>
+          <p
+            style="
+              font-size: 12px;
+              color: var(--color-text-secondary);
+              margin: 0;
+            "
+          >
+            年級・血統・MBTI・星座
+          </p>
+        </div>
+        <span
+          class="hw-badge"
+          style="margin-left: auto; background: #faeeda; color: #854f0b"
+          >所屬學院</span
+        >
+      </div>
+      <hr class="hw-divider" />
+      <div class="hw-grid">
+        <div class="hw-stat">
+          <div class="hw-label">當前位置</div>
+          <div class="hw-value">場景位置</div>
+        </div>
+        <div class="hw-stat">
+          <div class="hw-label">時間</div>
+          <div class="hw-value">場景時間</div>
+        </div>
+        <div class="hw-stat">
+          <div class="hw-label">學院分</div>
+          <div class="hw-value">當前分數</div>
+        </div>
+        <div class="hw-stat">
+          <div class="hw-label">聲望（學生）</div>
+          <div class="hw-value">當前聲望</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hw-panel">
+      <div class="hw-label" style="margin-bottom: 0.5rem; font-size: 13px">
+        活躍故事線
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 6px">
+        <span class="hw-badge" style="background: #eeedfe; color: #3c3489"
+          >故事線敘述內容</span
+        >
+        <span class="hw-badge" style="background: #faeeda; color: #854f0b"
+          >故事線敘述內容</span
+        >
+        <span class="hw-badge" style="background: #faece7; color: #993c1d"
+          >故事線敘述內容</span
+        >
+        <span class="hw-badge" style="background: #e1f5ee; color: #0f6e56"
+          >故事線敘述內容</span
+        >
+        <span class="hw-badge" style="background: #e6f1fb; color: #185fa5"
+          >故事線敘述內容</span
+        >
+        <span class="hw-badge" style="background: #f1efe8; color: #5f5e5a"
+          >故事線敘述內容</span
+        >
+      </div>
+    </div>
+
+    <div class="hw-panel">
+      <div class="hw-label" style="font-size: 13px; margin-bottom: 0.75rem">
+        近期任務
+      </div>
+      <div
+        style="
+          font-size: 13px;
+          color: var(--color-text-secondary);
+          margin-bottom: 6px;
+        "
+      >
+        ✦
+        <span style="color: var(--color-text-primary)">故事任務標題</span
+        >——故事任務內容敘述
+      </div>
+      <div
+        style="
+          font-size: 13px;
+          color: var(--color-text-secondary);
+          margin-bottom: 6px;
+        "
+      >
+        ✦
+        <span style="color: var(--color-text-primary)">故事任務標題</span
+        >——故事任務內容敘述
+      </div>
+      <div style="font-size: 13px; color: var(--color-text-secondary)">
+        ✦
+        <span style="color: var(--color-text-primary)">故事任務標題</span
+        >——故事任務內容敘述
+      </div>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 0.5rem">
+      <button class="hw-btn" onclick="sendPrompt('繼續遊戲')">
+        <i class="ti ti-player-play" aria-hidden="true"></i>繼續遊戲 ↗
+      </button>
+      <button class="hw-btn" onclick="sendPrompt('/status')">
+        <i class="ti ti-user" aria-hidden="true"></i>完整狀態
+      </button>
+      <button class="hw-btn" onclick="sendPrompt('/npcs')">
+        <i class="ti ti-users" aria-hidden="true"></i>角色關係
+      </button>
+    </div>
+  </body>
+</html>
