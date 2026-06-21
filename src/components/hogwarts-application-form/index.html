@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      @import url("./styles.css");
+    </style>
+  </head>
+
+  <body>
+    <div class="header">
+      <h1>入學申請</h1>
+      <p>Hogwarts Enrolment Form</p>
+    </div>
+    <div class="progress">
+      <div class="prog-step">
+        <div class="prog-dot active cinzel" id="d0">I</div>
+        <div class="prog-label active" id="l0">個人</div>
+      </div>
+      <div class="prog-line"></div>
+      <div class="prog-step">
+        <div class="prog-dot cinzel" id="d1">II</div>
+        <div class="prog-label" id="l1">家庭</div>
+      </div>
+      <div class="prog-line"></div>
+      <div class="prog-step">
+        <div class="prog-dot cinzel" id="d2">III</div>
+        <div class="prog-label" id="l2">入學</div>
+      </div>
+      <div class="prog-line"></div>
+      <div class="prog-step">
+        <div class="prog-dot cinzel" id="d3">IV</div>
+        <div class="prog-label" id="l3">劇情</div>
+      </div>
+      <div class="prog-line"></div>
+      <div class="prog-step">
+        <div class="prog-dot cinzel" id="d4">V</div>
+        <div class="prog-label" id="l4">確認</div>
+      </div>
+      <div class="prog-line"></div>
+      <div class="prog-step">
+        <div class="prog-dot cinzel" id="d5">VI</div>
+        <div class="prog-label" id="l5">提交</div>
+      </div>
+    </div>
+
+    <!-- PAGE 0 -->
+    <div id="p0">
+      <div class="btn-row">
+        <button class="btn pri" onclick="go(1)">下一頁：家庭資訊 →</button>
+      </div>
+    </div>
+
+    <!-- PAGE 1 -->
+    <div id="p1" style="display: none">
+      <div class="btn-row">
+        <button class="btn" onclick="go(0)">← 返回</button>
+        <button class="btn pri" onclick="go(2)">下一頁：入學資訊 →</button>
+      </div>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div id="p2" style="display: none">
+      <div class="btn-row">
+        <button class="btn" onclick="go(1)">← 返回</button>
+        <button class="btn pri" onclick="go(3)">下一頁：劇情偏好 →</button>
+      </div>
+    </div>
+
+    <!-- PAGE 3 -->
+    <div id="p3" style="display: none">
+      <div class="btn-row">
+        <button class="btn" onclick="go(2)">← 返回</button>
+        <button class="btn pri" onclick="buildConfirm()">填寫完畢</button>
+      </div>
+    </div>
+
+    <!-- PAGE 4 -->
+    <div id="p4" style="display: none">
+      <div class="section">
+        <div class="section-title">入學資料確認</div>
+        <div class="conf-grid" id="cgrid"></div>
+      </div>
+      <div class="btn-row">
+        <button class="btn" onclick="clearAll()">清除重填</button>
+        <button class="btn pri" onclick="goToSubmit()">確認申請資料 →</button>
+      </div>
+    </div>
+
+    <!-- PAGE 5 -->
+    <div id="p5" style="display: none">
+      <div class="section">
+        <div class="section-title">申請資料預覽</div>
+        <div class="form-content-box" id="cbox">
+          <pre id="ctxt"></pre>
+          <!-- <button class="btn" onclick="doCopy()">📜 複製設定文字</button> -->
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn" onclick="go(4)">← 返回</button>
+        <button class="btn" onclick="outputConfig()">✎ 儲存表單資料</button>
+        <button class="btn pri" onclick="copyFormContent()">
+          ✦ 輸出入學申請表
+        </button>
+      </div>
+    </div>
+
+    <!-- Welcome Dialog（初始） -->
+    <div class="dialog-overlay open" id="welcome-overlay">
+      <div class="welcome-box parchment">
+        <div class="welcome-title">✦ 霍格華茲入學資料審核規章 ✦</div>
+        <div class="welcome-rules">
+          本表單共分六章，請依魔法部規定逐頁填寫。帶有
+          <em>＊</em> 標記之欄位將影響命運之輪的轉動，請審慎作答。
+          填寫過程中，您的資料將由魔法羽毛筆自動記錄，可隨時中止並於日後繼續。
+
+          <em
+            >凡未填寫之欄位，申請提交後，會由魔法墨水自動感應隨機生成相應資料。</em
+          >
+        </div>
+        <div class="welcome-btns">
+          <button class="btn pri" onclick="startNewForm()">填寫新表單</button>
+          <button class="btn" id="btn-continue-form" onclick="continueForm()">
+            繼續填寫表單
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- General Dialog -->
+    <div class="dialog-overlay" id="dialog-overlay">
+      <div class="dialog-box">
+        <div class="dialog-msg" id="dialog-msg"></div>
+        <div class="dialog-btns">
+          <button class="btn" id="dialog-cancel">取消</button>
+          <button class="btn pri" id="dialog-confirm">確認</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Load Form Data Dialog -->
+    <div class="dialog-overlay" id="load-form-data-overlay">
+      <div class="dialog-box">
+        <div id="load-form-data-title">手動貼上表單資料</div>
+        <div id="load-form-data-hint">
+          將匯出的 JSON 資料貼入下方欄位，然後點選「確認讀取」。
+        </div>
+        <textarea
+          id="load-form-data-textarea"
+          placeholder='{ "currentPage": 0, ... }'
+        ></textarea>
+        <div id="load-form-data-error"></div>
+        <div class="dialog-btns">
+          <button class="btn" id="load-form-data-cancel">取消</button>
+          <button class="btn pri" id="load-form-data-confirm">確認讀取</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="./scripts.js" defer></script>
+  </body>
+</html>
